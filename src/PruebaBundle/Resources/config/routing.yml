@@ -1,0 +1,11 @@
+prueba_homepage:
+    path:     /
+    defaults: { _controller: PruebaBundle:Default:index }
+
+prueba_nombre:
+    path:     /nombre/{nPila}
+    defaults: { _controller: PruebaBundle:Default:nombre }
+
+prueba_nombre2:
+    path:     /nombre
+    defaults: { _controller: PruebaBundle:Default:nombreSinParam }

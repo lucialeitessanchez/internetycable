@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Estamos dentro de la pagina de nombres</h1>
+<div class="texto"> Un texto<div>
+<br>
+{{nPila}}
+<img src="{{ asset('images/logo.png') }}" alt=" "/>
+    {% block content %}{% endblock %}
+{% endblock %}

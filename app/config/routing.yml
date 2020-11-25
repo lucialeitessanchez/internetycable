@@ -1,0 +1,11 @@
+prueba:
+    resource: "@PruebaBundle/Resources/config/routing.yml"
+    prefix:   /prueba
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+welcome:
+    path:     /
+    defaults: { _controller: AppBundle/Welcome/index }
