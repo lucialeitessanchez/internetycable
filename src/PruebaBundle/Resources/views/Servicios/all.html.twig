@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Todos los servicios</title>
+    </head>
+    <body>
+    <h1>{{ "Servicios totales" }}</h1>
+
+    <ul id="servicios">
+        {% for servicio in servicios %}
+            <li>{{ servicio.compania }}</li>
+        {% endfor %}
+    </ul>
+    </body>
+    </html>

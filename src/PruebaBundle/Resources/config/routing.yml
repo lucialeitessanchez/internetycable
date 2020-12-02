@@ -9,3 +9,8 @@ prueba_nombre:
 prueba_nombre2:
     path:     /nombre
     defaults: { _controller: PruebaBundle:Default:nombreSinParam }
+
+
+all_servicios:
+    path:     /servicios/all
+    defaults: { _controller: PruebaBundle:Servicio:all }
