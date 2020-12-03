@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="TERCER comit todo lo referenciado a la base d datos&#10;local" />
+    <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="TERCER comit todo lo referenciado a la base d datos&#10;local">
+      <change afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/crearServicio.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ServicioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ServicioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,6 +36,9 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -136,6 +145,8 @@
       <workItem from="1606935964531" duration="1896000" />
       <workItem from="1606943482803" duration="2755000" />
       <workItem from="1606946276401" duration="406000" />
+      <workItem from="1607019432997" duration="1050000" />
+      <workItem from="1607023678706" duration="5979000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
@@ -184,9 +195,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="738" y="432" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1606494585436" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1606946210711">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1607019574769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1606946210711" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607019574769" />
   </component>
 </project>

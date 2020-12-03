@@ -1,3 +1,6 @@
+prueba_contactar:
+    path: /contactar/{lugar}
+    defaults: { _controller: PruebaBundle:Default:contactar,lugar:'SantaFe' }
 prueba_homepage:
     path:     /
     defaults: { _controller: PruebaBundle:Default:index }
@@ -5,12 +8,19 @@ prueba_homepage:
 prueba_nombre:
     path:     /nombre/{nPila}
     defaults: { _controller: PruebaBundle:Default:nombre }
-
+prueba_nombreR:
+    path:     /nombreR/{nPila}
+    defaults: { _controller: PruebaBundle:Default:nombreR }
+#este es para el caso en el que no escriba un nombre, que lo mande al error
 prueba_nombre2:
     path:     /nombre
     defaults: { _controller: PruebaBundle:Default:nombreSinParam }
 
-
+#trae todos las empresas de los servicios contratados, que estan en la bd
 all_servicios:
     path:     /servicios/all
     defaults: { _controller: PruebaBundle:Servicio:all }
+
+crear_servicios:
+    path:     /servicios/crear
+    defaults: { _controller: PruebaBundle:Servicio:crearServicio }

@@ -15,6 +15,13 @@ class ServicioController extends Controller
         $servicios = $repository->findAll();
         return $this->render('@Prueba/Servicios/all.html.twig',array("servicios"=>$servicios));
     }
+
+    public function crearServicioAction()
+    {
+        //generar un nuevo objeto del tipo servicio
+        $empresa = new servicio();
+        return $this->render('@Prueba/Servicios/crearServicio.html.twig');
+    }
     
 
 
