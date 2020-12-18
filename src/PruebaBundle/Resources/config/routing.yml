@@ -24,3 +24,23 @@ all_servicios:
 crear_servicios:
     path:     /servicios/crear
     defaults: { _controller: PruebaBundle:Servicio:crearServicio }
+
+buscar_servicio:
+    path:     /servicios/buscar/{id}
+    defaults: { _controller: PruebaBundle:Servicio:buscarServicio,id:1 }
+
+buscarPorCompania_servicio:
+    path:     /serviciosPorCompania/{compania}
+    defaults: { _controller: PruebaBundle:Servicio:buscarServicioPorCompania,compania:'TELECOM' }
+
+actualizar_servicio:
+    path:     /actualizarServicio/{id}/{compania}
+    defaults: { _controller: PruebaBundle:Servicio:actualizarServicio }
+
+nuevo_servicios:
+    path:     /servicios/nuevo
+    defaults: { _controller: PruebaBundle:Servicio:nuevo }
+
+nuevo_servicios_exp:
+    path:     /servicios/nuevoExp
+    defaults: { _controller: PruebaBundle:Servicio:nuevoExp }

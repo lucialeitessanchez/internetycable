@@ -19,11 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="TERCER comit todo lo referenciado a la base d datos&#10;local">
-      <change afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/crearServicio.html.twig" afterDir="false" />
+    <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/internetycable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/internetycable.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ServicioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ServicioController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,15 +85,27 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
       <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/reflection" />
+      <path value="$PROJECT_DIR$/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ksewSelrLiKywM67vvUtiwWsz7" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -147,6 +161,7 @@
       <workItem from="1606946276401" duration="406000" />
       <workItem from="1607019432997" duration="1050000" />
       <workItem from="1607023678706" duration="5979000" />
+      <workItem from="1608314888506" duration="4127000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
@@ -162,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606944586439</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="anda la relacion entre expediente y servicio">
+      <created>1608316383377</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608316383377</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,20 +206,21 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="segundo comit reacomodo en windows" />
     <MESSAGE value="TERCER comit todo lo referenciado a la base d datos&#10;local" />
-    <option name="LAST_COMMIT_MESSAGE" value="TERCER comit todo lo referenciado a la base d datos&#10;local" />
+    <MESSAGE value="anda la relacion entre expediente y servicio" />
+    <option name="LAST_COMMIT_MESSAGE" value="anda la relacion entre expediente y servicio" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1606945012292">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1608316381415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1606945012292" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608316381415" />
     <state x="738" y="432" key="ComposerInitDialogKey" timestamp="1606494585436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="738" y="432" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1606494585436" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1607019574769">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1608316391612">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607019574769" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608316391612" />
   </component>
 </project>

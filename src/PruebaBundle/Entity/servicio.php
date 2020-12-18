@@ -3,12 +3,17 @@
 namespace PruebaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * servicio
  *
  * @ORM\Table(name="servicio")
  * @ORM\Entity(repositoryClass="PruebaBundle\Repository\servicioRepository")
+ * * @UniqueEntity("referencia")
  */
 class servicio
 {
@@ -24,9 +29,10 @@ class servicio
     /**
      * @var int
      *
-     * @ORM\Column(name="referencia", type="integer")
+     * @ORM\Column(name="referencia", type="integer", unique=true)
+     *
      */
-    private $referencia;
+    protected $referencia;
 
     /**
      * @var string
@@ -56,6 +62,17 @@ class servicio
      */
     private $estado;
 
+
+    /**
+     * @ORM\OneToMany(targetEntity="Expediente", mappedBy="service")
+     */
+    private $expedientes;
+
+
+    public function __construct()
+    {
+        $this->expedientes = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -92,7 +109,7 @@ class servicio
     }
 
     /**
-     * Set compa�ia
+     * Set compania
      *
      * @param string $compania
      *
@@ -186,5 +203,38 @@ class servicio
     {
         return $this->estado;
     }
-}
 
+    /**
+     * Add expediente
+     *
+     * @param \PruebaBundle\Entity\Expediente $expediente
+     *
+     * @return servicio
+     */
+    public function addExpediente(\PruebaBundle\Entity\Expediente $expediente)
+    {
+        $this->expedientes[] = $expediente; // es un array porque puedo tener multiples expedientes asociados a este servicio
+
+        return $this;
+    }
+
+    /**
+     * Remove expediente
+     *
+     * @param \PruebaBundle\Entity\Expediente $expediente
+     */
+    public function removeExpediente(\PruebaBundle\Entity\Expediente $expediente)
+    {
+        $this->expedientes->removeElement($expediente);
+    }
+
+    /**
+     * Get expedientes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExpedientes()
+    {
+        return $this->expedientes;
+    }
+}

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Expediente
  *
- * @ORM\Table(name="expediente")
+ * @ORM\Table(name="Expediente")
  * @ORM\Entity(repositoryClass="PruebaBundle\Repository\ExpedienteRepository")
  */
 class Expediente
@@ -22,7 +22,7 @@ class Expediente
     private $id;
 
     /**
-     * @var int
+     * @var integer
      *
      * @ORM\Column(name="numeroExpe", type="integer")
      */
@@ -35,12 +35,12 @@ class Expediente
      */
     private $estado;
 
+
     /**
-     * @var int
-     *
-     * @ORM\Column(name="referencia", type="integer")
+     * @ORM\ManyToOne(targetEntity="servicio", inversedBy="expedientes")
+     * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
      */
-    private $referencia;
+    private $service;
 
 
     /**
@@ -48,6 +48,7 @@ class Expediente
      *
      * @return int
      */
+
     public function getId()
     {
         return $this->id;
@@ -101,28 +102,28 @@ class Expediente
         return $this->estado;
     }
 
+
     /**
-     * Set referencia
+     * Set service
      *
-     * @param integer $referencia
+     * @param \PruebaBundle\Entity\servicio $service
      *
      * @return Expediente
      */
-    public function setReferencia($referencia)
+    public function setService(\PruebaBundle\Entity\servicio $service = null)
     {
-        $this->referencia = $referencia;
+        $this->service = $service;
 
         return $this;
     }
 
     /**
-     * Get referencia
+     * Get service
      *
-     * @return int
+     * @return \PruebaBundle\Entity\servicio
      */
-    public function getReferencia()
+    public function getService()
     {
-        return $this->referencia;
+        return $this->service;
     }
 }
-
