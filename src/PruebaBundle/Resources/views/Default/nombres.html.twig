@@ -1,7 +1,9 @@
 {% extends 'dosColumnas.html.twig' %}
-
+{% block titulo %} Esta es la pagina de nombres {% endblock %}
 {% block contenido %}
+    <ul>
     {% for nombre in nombres if nombre.activo%}  {# solo muestra los que tienen como estado activo #}
-        <li>{{ nombre.nombre }}</li>
+        <li>{{ nombre.nombres }}</li>
     {% endfor %}
+    </ul>
 {% endblock %}
