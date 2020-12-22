@@ -1,0 +1,7 @@
+{% extends 'dosColumnas.html.twig' %}
+
+{% block contenido %}
+    {% for nombre in nombres if nombre.activo%}  {# solo muestra los que tienen como estado activo #}
+        <li>{{ nombre.nombre }}</li>
+    {% endfor %}
+{% endblock %}
