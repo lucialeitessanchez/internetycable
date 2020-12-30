@@ -21,6 +21,11 @@ all_servicios:
     path:     /servicios/all
     defaults: { _controller: PruebaBundle:Servicio:all }
 
+#Prueba del twig con for
+prueba_tag_for:
+    path:     /nombres
+    defaults: { _controller: PruebaBundle:Default:nombres }
+
 crear_servicios:
     path:     /servicios/crear
     defaults: { _controller: PruebaBundle:Servicio:crearServicio }

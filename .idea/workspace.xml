@@ -23,10 +23,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/internetycable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/internetycable.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/dosColumnas.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/dosColumnas.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ServicioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ServicioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/nombre.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/nombre.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/nombres.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/nombres.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,6 +104,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ksewSelrLiKywM67vvUtiwWsz7" />
@@ -128,6 +133,12 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Servicios" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\app\Resources\views" />
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\app\Resources\views\default" />
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Default" />
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.internetycable">
@@ -161,7 +172,11 @@
       <workItem from="1606946276401" duration="406000" />
       <workItem from="1607019432997" duration="1050000" />
       <workItem from="1607023678706" duration="5979000" />
-      <workItem from="1608314888506" duration="4127000" />
+      <workItem from="1608314888506" duration="6044000" />
+      <workItem from="1608577344220" duration="4891000" />
+      <workItem from="1608662231521" duration="7792000" />
+      <workItem from="1608671232478" duration="1202000" />
+      <workItem from="1608822789946" duration="3776000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
@@ -184,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608316383377</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="anda la relacion entre expediente y servicio">
+      <created>1608324852090</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608324852090</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,10 +232,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="anda la relacion entre expediente y servicio" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1608316381415">
+    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1608324850592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608316381415" />
+    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608324850592" />
     <state x="738" y="432" key="ComposerInitDialogKey" timestamp="1606494585436">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -4,7 +4,15 @@
 <h1>Estamos dentro de la pagina de nombres</h1>
 <div class="texto"> Un texto<div>
 <br>
-{{nPila}}
+
 <img src="{{ asset('images/logo.png') }}" alt=" "/>
     {% block content %}{% endblock %}
+
+    {% if nPila == "Lucia" %}
+        Lucia esto es una prueba del if
+    {% elseif nPila == "Pablo" %}
+        Es un nombre de hombre
+    {% else %}
+        {{nPila}}
+    {% endif %}
 {% endblock %}

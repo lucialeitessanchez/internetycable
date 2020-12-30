@@ -41,5 +41,19 @@ class DefaultController extends Controller
     {
         return new Response('<html><head><body>Hola '.$nPila.'</body></head></html>');
     }
+
+    public function nombresAction(){
+        $nombres = [
+            "Lucia"=> ["nombre"=>"Lucia",
+                         "activo"=>true],
+            "Paco"=>["nombre"=>"Paco",
+            "activo"=>false],
+            "Luis"=>["nombre"=>"Luis",
+            "activo"=>true],
+            "Maria"=>["nombre"=>"Maria",
+            "activo"=>false]];
+        return $this->render('@Prueba/Default/nombres.html.twig',array('nombres'=>$nombres));
+    }
+
     
 }

@@ -2,8 +2,8 @@
 {% block titulo %} Esta es la pagina de nombres {% endblock %}
 {% block contenido %}
     <ul>
-    {% for nombre in nombres if nombre.activo%}  {# solo muestra los que tienen como estado activo #}
-        <li>{{ nombre.nombres }}</li>
+    {% for nombres in nombres if nombres.activo %}  {# solo muestra los que tienen como estado activo #}
+        <li>{{ nombres.activo }}</li>
     {% endfor %}
     </ul>
 {% endblock %}
