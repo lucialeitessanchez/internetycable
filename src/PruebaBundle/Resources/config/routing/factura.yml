@@ -1,0 +1,24 @@
+factura_index:
+    path:     /
+    defaults: { _controller: "PruebaBundle:Factura:index" }
+    methods:  GET
+
+factura_show:
+    path:     /{id}/show
+    defaults: { _controller: "PruebaBundle:Factura:show" }
+    methods:  GET
+
+factura_new:
+    path:     /new
+    defaults: { _controller: "PruebaBundle:Factura:new" }
+    methods:  [GET, POST]
+
+factura_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PruebaBundle:Factura:edit" }
+    methods:  [GET, POST]
+
+factura_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PruebaBundle:Factura:delete" }
+    methods:  DELETE

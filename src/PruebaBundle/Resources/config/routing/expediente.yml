@@ -1,0 +1,24 @@
+expediente_index:
+    path:     /
+    defaults: { _controller: "PruebaBundle:Expediente:index" }
+    methods:  GET
+
+expediente_show:
+    path:     /{id}/show
+    defaults: { _controller: "PruebaBundle:Expediente:show" }
+    methods:  GET
+
+expediente_new:
+    path:     /new
+    defaults: { _controller: "PruebaBundle:Expediente:new" }
+    methods:  [GET, POST]
+
+expediente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PruebaBundle:Expediente:edit" }
+    methods:  [GET, POST]
+
+expediente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PruebaBundle:Expediente:delete" }
+    methods:  DELETE
