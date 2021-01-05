@@ -52,8 +52,8 @@ class DefaultController extends Controller
             "activo"=>true],
             "Maria"=>["nombre"=>"Maria",
             "activo"=>false]];
-        return $this->render('@Prueba/Default/nombres.html.twig',array('nombres'=>$nombres));
+        return $this->render('@Prueba/Default/nombres.html.twig', array('nombres'=>$nombres));
     }
 
-    
+
 }

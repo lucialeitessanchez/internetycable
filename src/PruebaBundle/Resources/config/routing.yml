@@ -33,6 +33,19 @@ crear_servicios:
 buscar_servicio:
     path:     /servicios/buscar/{id}
     defaults: { _controller: PruebaBundle:Servicio:buscarServicio,id:1 }
+    methods: [GET]
+
+#API
+api_servicio:
+    path: /api/servicio/{compania}
+    defaults: { _controller: PruebaBundle:Api:servicio,compania:'Sin Definir' }
+    methods: [GET]
+#API2
+api_servicio_crear:
+    path: /api/servicio
+    defaults: { _controller: PruebaBundle:Api:crearServicio}
+    methods: [POST]
+
 
 buscarPorCompania_servicio:
     path:     /serviciosPorCompania/{compania}
