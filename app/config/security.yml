@@ -3,17 +3,35 @@
 security:
     encoders:
         PruebaBundle\Entity\User: bcrypt
+        Symfony\Component\Security\Core\User\User: plaintext
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+        users_in_memory:
+            memory:
+                users:
+                    admin:
+                        password: 1234
+                        roles: 'ROLE_ADMIN'
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        admin:
+
+                # 'pattern' is a regular expression matched against the incoming
+                # request URL. If there's a match, authentication is triggered  TODO LO QUE COMIENCE CON ADMIN me abre este fire
+                pattern: ^/admin
+                http_basic: ~
+
+        usuarios:
+            pattern: ^/usuarios
+            anonymous: ~
+            form_login:
+                login_path: /usuarios/login
+                check_path: /usuarios/login
 
         main:
             anonymous: ~
@@ -24,3 +42,7 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+
+        access_control:
+            - { path: '^/usuarios/login', roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: '^/usuarios', roles: ROLE_ADMIN }

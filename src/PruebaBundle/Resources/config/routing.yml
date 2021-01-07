@@ -70,3 +70,11 @@ nuevo_servicios_exp:
 usuario_registro:
     path:     /register
     defaults: { _controller: PruebaBundle:Default:register }
+
+login:
+    path:     /usuarios/login
+    defaults: { _controller: PruebaBundle:Default:login }
+
+usuarios:
+    path:     /usuarios
+    defaults: { _controller: PruebaBundle:Default:usuarios }

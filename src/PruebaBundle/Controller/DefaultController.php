@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use PruebaBundle\Entity\User;
 use PruebaBundle\Form\UserType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class DefaultController extends Controller
 {
@@ -91,4 +92,22 @@ class DefaultController extends Controller
         return $this->render('@Prueba/Default/register.html.twig', ['form' => $form->createView()]);
     }
 
+    public function loginAction(AuthenticationUtils $authenticationUtils)
+    {
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        return $this->render('@Prueba/Default/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error'         => $error,
+        ]);
+    }
+
+    public function usuariosAction()
+    {
+        return $this->render('@Prueba/Default/index.html.twig');
+    }
 }

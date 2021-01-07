@@ -1,3 +1,8 @@
+admin:
+    resource: "@AdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
+
 prueba:
     resource: "@PruebaBundle/Resources/config/routing.yml"
     prefix:   /prueba
@@ -17,3 +22,4 @@ app:
 welcome:
     path:     /
     defaults: { _controller: AppBundle/Welcome/index }
+

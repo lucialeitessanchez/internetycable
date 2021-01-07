@@ -20,21 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/AdminBundle/AdminBundle.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/routing.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/services.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/login.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/AdminBundle/Controller/DefaultControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/internetycable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/internetycable.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Form/servicioType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Form/servicioType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +113,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ksewSelrLiKywM67vvUtiwWsz7" />
@@ -187,7 +192,7 @@
       <workItem from="1609871961766" duration="2130000" />
       <workItem from="1609874686934" duration="7155000" />
       <workItem from="1609957051303" duration="10055000" />
-      <workItem from="1610042927154" duration="228000" />
+      <workItem from="1610042927154" duration="9796000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
@@ -242,19 +247,5 @@
     <MESSAGE value="TERCER comit todo lo referenciado a la base d datos&#10;local" />
     <MESSAGE value="anda la relacion entre expediente y servicio" />
     <option name="LAST_COMMIT_MESSAGE" value="anda la relacion entre expediente y servicio" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="585" y="88" key="CommitChangelistDialog2" timestamp="1608324850592">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608324850592" />
-    <state x="738" y="432" key="ComposerInitDialogKey" timestamp="1606494585436">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="738" y="432" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1606494585436" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1608316391612">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608316391612" />
   </component>
 </project>
