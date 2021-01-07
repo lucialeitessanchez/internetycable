@@ -21,11 +21,20 @@
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ApiController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ApiController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Form/UserType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Form/servicioType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Form/servicioType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/nombres.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/nombres.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/compania.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/compania.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/register.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/register.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +184,10 @@
       <workItem from="1608822789946" duration="6949000" />
       <workItem from="1609348520295" duration="3432000" />
       <workItem from="1609786762319" duration="7598000" />
-      <workItem from="1609871961766" duration="25000" />
+      <workItem from="1609871961766" duration="2130000" />
+      <workItem from="1609874686934" duration="7155000" />
+      <workItem from="1609957051303" duration="10055000" />
+      <workItem from="1610042927154" duration="228000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>

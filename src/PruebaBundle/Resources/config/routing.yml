@@ -1,3 +1,7 @@
+prueba_expediente:
+    resource: "@PruebaBundle/Resources/config/routing/expediente.yml"
+    prefix:   /expediente
+
 prueba_contactar:
     path: /contactar/{lugar}
     defaults: { _controller: PruebaBundle:Default:contactar,lugar:'SantaFe' }
@@ -62,3 +66,7 @@ nuevo_servicios:
 nuevo_servicios_exp:
     path:     /servicios/nuevoExp
     defaults: { _controller: PruebaBundle:Servicio:nuevoExp }
+
+usuario_registro:
+    path:     /register
+    defaults: { _controller: PruebaBundle:Default:register }

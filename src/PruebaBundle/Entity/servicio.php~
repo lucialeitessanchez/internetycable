@@ -68,6 +68,11 @@ class servicio
      */
     private $expedientes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Factura", mappedBy="service")
+     */
+    private $facturas;
+
 
     public function __construct()
     {
@@ -237,4 +242,6 @@ class servicio
     {
         return $this->expedientes;
     }
+    public function __toString() {
+        return strval($this->getReferencia()); }
 }

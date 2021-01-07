@@ -68,6 +68,11 @@ class servicio
      */
     private $expedientes;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Factura", mappedBy="service")
+     */
+    private $facturas;
+
 
     public function __construct()
     {
@@ -236,5 +241,43 @@ class servicio
     public function getExpedientes()
     {
         return $this->expedientes;
+    }
+    public function __toString() {
+        return strval($this->getReferencia()); }
+
+    /**
+     * Add factura.
+     *
+     * @param \PruebaBundle\Entity\Factura $factura
+     *
+     * @return servicio
+     */
+    public function addFactura(\PruebaBundle\Entity\Factura $factura)
+    {
+        $this->facturas[] = $factura;
+
+        return $this;
+    }
+
+    /**
+     * Remove factura.
+     *
+     * @param \PruebaBundle\Entity\Factura $factura
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeFactura(\PruebaBundle\Entity\Factura $factura)
+    {
+        return $this->facturas->removeElement($factura);
+    }
+
+    /**
+     * Get facturas.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFacturas()
+    {
+        return $this->facturas;
     }
 }

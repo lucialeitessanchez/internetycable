@@ -20,10 +20,11 @@ class FacturaController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
+
         $facturas = $em->getRepository('PruebaBundle:Factura')->findAll();
 
-        return $this->render('factura/index.html.twig', array(
-            'facturas' => $facturas,
+        //aca tengo que preguntar si factura esta vacio retorna esto si no que mande un 0 al indez
+        return $this->render('factura/index.html.twig', array('facturas' => $facturas,
         ));
     }
 

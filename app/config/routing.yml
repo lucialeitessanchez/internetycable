@@ -2,6 +2,14 @@ prueba:
     resource: "@PruebaBundle/Resources/config/routing.yml"
     prefix:   /prueba
 
+expediente:
+    resource: "@PruebaBundle/Resources/config/routing/expediente.yml"
+    prefix:   /expediente
+
+factura:
+    resource: "@PruebaBundle/Resources/config/routing/factura.yml"
+    prefix:   /factura
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

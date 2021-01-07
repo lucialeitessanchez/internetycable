@@ -4,6 +4,10 @@ namespace PruebaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use PruebaBundle\Entity\User;
+use PruebaBundle\Form\UserType;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class DefaultController extends Controller
 {
@@ -55,5 +59,36 @@ class DefaultController extends Controller
         return $this->render('@Prueba/Default/nombres.html.twig', array('nombres'=>$nombres));
     }
 
+
+    public function registerAction(Request $request)
+    {
+
+        // 1) build the form
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+
+
+        // 2) handle the submit (will only happen on POST)
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            // 3) Encode the password (you could also do this via Doctrine listener)
+            $password =  $user->getPlainPassword();
+            $user->setPassword($password);
+
+            // 4) save the User!
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            // ... do any other work - like sending them an email, etc
+            // maybe set a "flash" success message for the user
+
+
+            return new Response("Usuario registrado");
+        }
+
+        return $this->render('@Prueba/Default/register.html.twig', ['form' => $form->createView()]);
+    }
 
 }
