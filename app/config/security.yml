@@ -11,7 +11,7 @@ security:
             memory:
                 users:
                     admin:
-                        password: 1234
+                        password: 'admin'
                         roles: 'ROLE_ADMIN'
 
     firewalls:
@@ -29,7 +29,7 @@ security:
         usuarios:
             pattern: ^/usuarios
             anonymous: ~
-            provider: in_memory
+            provider: users_in_memory
             form_login:
                 login_path: /prueba/usuarios/login
                 check_path: /prueba/usuarios/login
@@ -47,7 +47,7 @@ security:
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
 
-#access_control:
- #   - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-  #  - { path: ^/, roles: ROLE_ADMIN }
+access_control:
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    - { path: ^/, roles: ROLE_ADMIN }
 

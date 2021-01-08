@@ -71,6 +71,19 @@ class User implements UserInterface
     }
 
     /**
+     * *Set roles
+     * @param string $roles
+     *
+     * @return User
+     */
+    public function setRoles(array $roles){
+        $this->roles = $roles;
+
+        //allows for chaining
+        return $this;
+    }
+
+    /**
      * Set username.
      *
      * @param string $username
@@ -162,7 +175,7 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return $this->roles;
     }
 
     public function eraseCredentials()
