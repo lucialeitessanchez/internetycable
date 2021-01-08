@@ -20,25 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/AdminBundle/AdminBundle.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/routing.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/config/services.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/login.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/AdminBundle/Controller/DefaultControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/internetycable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/internetycable.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/usuarios.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/AppKernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppKernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +118,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -141,6 +130,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Default" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Servicios" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Controller" />
     </key>
@@ -192,7 +182,9 @@
       <workItem from="1609871961766" duration="2130000" />
       <workItem from="1609874686934" duration="7155000" />
       <workItem from="1609957051303" duration="10055000" />
-      <workItem from="1610042927154" duration="9796000" />
+      <workItem from="1610042927154" duration="9999000" />
+      <workItem from="1610130023392" duration="5375000" />
+      <workItem from="1610129003600" duration="793000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>

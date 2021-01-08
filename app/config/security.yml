@@ -29,9 +29,13 @@ security:
         usuarios:
             pattern: ^/usuarios
             anonymous: ~
+            provider: in_memory
             form_login:
-                login_path: /usuarios/login
-                check_path: /usuarios/login
+                login_path: /prueba/usuarios/login
+                check_path: /prueba/usuarios/login
+            logout:
+                path: /prueba/usuarios/logout
+                target: /usuarios
 
         main:
             anonymous: ~
@@ -43,6 +47,7 @@ security:
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
 
-        access_control:
-            - { path: '^/usuarios/login', roles: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: '^/usuarios', roles: ROLE_ADMIN }
+#access_control:
+ #   - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+  #  - { path: ^/, roles: ROLE_ADMIN }
+

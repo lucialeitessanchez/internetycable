@@ -92,22 +92,23 @@ class DefaultController extends Controller
         return $this->render('@Prueba/Default/register.html.twig', ['form' => $form->createView()]);
     }
 
-    public function loginAction(AuthenticationUtils $authenticationUtils)
+    public function loginAction(Request $request)
     {
+        $authenticationUtils = $this->get('security.authentication_utils');
+
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('@Prueba/Default/login.html.twig', [
+        return $this->render('@Prueba/Default/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
-        ]);
+        ));
     }
-
     public function usuariosAction()
     {
-        return $this->render('@Prueba/Default/index.html.twig');
+        return $this->render('@Prueba/Default/usuarios.html.twig');
     }
 }

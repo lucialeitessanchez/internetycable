@@ -23,3 +23,6 @@ welcome:
     path:     /
     defaults: { _controller: AppBundle/Welcome/index }
 
+logout:
+    path: /prueba/usuarios/logout
+

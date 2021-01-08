@@ -53,6 +53,12 @@ class User implements UserInterface
      */
     private $password;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="roles", type="json_array")
+     */
+    private $roles = array();
 
     /**
      * Get id.
