@@ -21,10 +21,24 @@
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/routing.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/usuarios.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/usuarios.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/all.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/all.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/estilos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn-error.log" beforeDir="false" afterPath="$PROJECT_DIR$/yarn-error.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -22,7 +22,7 @@ prueba_nombre2:
 
 #trae todos las empresas de los servicios contratados, que estan en la bd
 all_servicios:
-    path:     /servicios/all
+    path:     /all_servicios
     defaults: { _controller: PruebaBundle:Servicio:all }
 
 #Prueba del twig con for

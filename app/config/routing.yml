@@ -5,11 +5,13 @@ admin:
 
 prueba:
     resource: "@PruebaBundle/Resources/config/routing.yml"
-    prefix:   /prueba
+    prefix:   /
 
 expediente:
+
     resource: "@PruebaBundle/Resources/config/routing/expediente.yml"
     prefix:   /expediente
+
 
 factura:
     resource: "@PruebaBundle/Resources/config/routing/factura.yml"
@@ -20,7 +22,7 @@ app:
     type: annotation
 
 welcome:
-    path:     /
+    path:     /inicio
     defaults: { _controller: AppBundle/Welcome/index }
 
 logout:

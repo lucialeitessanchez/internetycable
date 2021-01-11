@@ -27,6 +27,8 @@
     <ul>
         <li>
             <a href="{{ path('factura_index') }}">Back to the list</a>
+            <br>
+            <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
         </li>
         <li>
             <a href="{{ path('factura_edit', { 'id': factura.id }) }}">Editar</a>
@@ -35,6 +37,7 @@
             {{ form_start(delete_form) }}
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
+
         </li>
     </ul>
 {% endblock %}
