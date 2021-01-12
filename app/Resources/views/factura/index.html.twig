@@ -2,17 +2,17 @@
 
 
 {% block body %}
-    <h1>Facturas list</h1>
+    <h1>Facturas </h1>
 
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Numfactura</th>
-                <th>Fechavencimiento</th>
+                <th>Num de factura</th>
+                <th>Fecha vencimiento</th>
                 <th>Pago</th>
-                <th>Actions</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -24,12 +24,11 @@
                 <td>{% if factura.pago %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('factura_show', { 'id': factura.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('factura_edit', { 'id': factura.id }) }}">edit</a>
-                        </li>
+
+                            <a href="{{ path('factura_show', { 'id': factura.id }) }}">ver</a>
+
+                            <a href="{{ path('factura_edit', { 'id': factura.id }) }}">editar</a>
+
                     </ul>
                 </td>
             </tr>
@@ -38,10 +37,10 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('factura_new') }}">Create a new factura</a>
+        <br>
+            <a href="{{ path('factura_new') }}">Crear nueva factura</a>
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-        </li>
+
     </ul>
 
 

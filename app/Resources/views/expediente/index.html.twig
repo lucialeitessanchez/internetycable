@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Expedientes list</h1>
+    <h1>Expedientes</h1>
 
     <table>
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Numeroexpe</th>
+                <th>Numero de expediente</th>
                 <th>Estado</th>
-                <th>Actions</th>
+
             </tr>
         </thead>
         <tbody>
@@ -20,12 +20,12 @@
                 <td>{{ expediente.estado }}</td>
                 <td>
                     <ul>
-                        <li>
-                            <a href="{{ path('expediente_show', { 'id': expediente.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}">edit</a>
-                        </li>
+                        <button type="button" class="btn btn-primary btn-sm"><a href="{{ path('expediente_show', { 'id': expediente.id }) }}">ver</a></button>
+
+                        <button type="button" class="btn btn-secondary btn-sm"><a href="{{ path('expediente_edit', { 'id': expediente.id }) }}">editar</a></button>
+
+
+
                     </ul>
                 </td>
             </tr>
@@ -34,9 +34,9 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('expediente_new') }}">Create a new expediente</a>
+
+            <a href="{{ path('expediente_new') }}">Crear nuevo expediente</a>
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-        </li>
+
     </ul>
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Factura edit</h1>
+    <h1>Editar Factura</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
@@ -10,7 +10,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('factura_index') }}">Back to the list</a>
+            <a href="{{ path('factura_index') }}">Volver al listado</a>
             <br>
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
         </li>

@@ -10,7 +10,7 @@
                 <td>{{ expediente.id }}</td>
             </tr>
             <tr>
-                <th>Numeroexpe</th>
+                <th>Numero de expediente</th>
                 <td>{{ expediente.numeroExpe }}</td>
             </tr>
             <tr>
@@ -21,16 +21,15 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('expediente_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}">Edit</a>
-        </li>
-        <li>
+
+            <a href="{{ path('expediente_index') }}">Volver al listado</a>
+
+            <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}">Editar</a>
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <br>
+                 <input type="submit" value="Eliminar">
             {{ form_end(delete_form) }}
-        </li>
+
     </ul>
 {% endblock %}
