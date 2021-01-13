@@ -114,6 +114,22 @@ class ServicioController extends Controller
         return $this->redirectToRoute('all_servicios');
     }
 
+
+    /*Listado de servicios
+    */
+
+    public function indexAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+
+        $servicios = $em->getRepository('PruebaBundle:servicio')->findAll();
+
+        //aca tengo que preguntar si factura esta vacio retorna esto si no que mande un 0 al indez
+        return $this->render('@Prueba/Servicios/index.html.twig', array('servicios' => $servicios,
+        ));
+    }
+
     /**
      * Creates a new factura entity.
      *
@@ -132,7 +148,7 @@ class ServicioController extends Controller
             return $this->redirectToRoute('servicio_show', array('id' => $servici->getId()));
         }
 
-        return $this->render('servicio/nuevo.html.twig', array(
+        return $this->render('@Prueba/Servicios/nuevo.html.twig', array(
             'servicio' => $servici,
             'form' => $form->createView(),
         ));
@@ -146,7 +162,7 @@ class ServicioController extends Controller
     {
         $deleteForm = $this->createDeleteForm($servici);
 
-        return $this->render('$servicio/show.html.twig', array(
+        return $this->render('@Prueba/Servicios/show.html.twig', array(
             'servicio' => $servici,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -168,7 +184,7 @@ class ServicioController extends Controller
             return $this->redirectToRoute('servicio_edit', array('id' => $servici->getId()));
         }
 
-        return $this->render('factura/edit.html.twig', array(
+        return $this->render('@Prueba/Servicios/edit.html.twig', array(
             'servicio' => $servici,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

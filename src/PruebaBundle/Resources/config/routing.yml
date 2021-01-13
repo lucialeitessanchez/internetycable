@@ -81,25 +81,25 @@ usuarios:
 
 servicio_index:
     path:     /servicio
-    defaults: { _controller: PruebaBundle:servicio:index }
+    defaults: { _controller: PruebaBundle:Servicio:index }
     methods:  GET
 
 servicio_show:
     path:     /{id}/show
-    defaults: { _controller: PruebaBundle:servicio:show }
+    defaults: { _controller: PruebaBundle:Servicio:show }
     methods:  GET
 
 servicio_new:
     path:     /nuevo
-    defaults: { _controller: PruebaBundle:servicio:new }
+    defaults: { _controller: PruebaBundle:Servicio:new }
     methods:  [GET, POST]
 
 servicio_edit:
     path:     /{id}/edit
-    defaults: { _controller: PruebaBundle:servicio:edit }
+    defaults: { _controller: PruebaBundle:Servicio:edit }
     methods:  [GET, POST]
 
 servicio_delete:
     path:     /{id}/delete
-    defaults: { _controller: PruebaBundle:servicio:delete }
+    defaults: { _controller: PruebaBundle:Servicio:delete }
     methods:  DELETE

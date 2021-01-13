@@ -22,3 +22,8 @@ expediente_delete:
     path:     /{id}/delete
     defaults: { _controller: "PruebaBundle:Expediente:delete" }
     methods:  DELETE
+
+expediente_imprimir:
+    path:     /{id}/imprimir
+    defaults: { _controller: "PruebaBundle:Expediente:imprimir" }
+    methods:  GET

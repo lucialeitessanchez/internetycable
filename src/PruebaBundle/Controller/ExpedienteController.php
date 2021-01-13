@@ -123,5 +123,12 @@ class ExpedienteController extends Controller
         ;
     }
 
+    public function imprimirAction(Expediente $expediente){
+        $deleteForm = $this->createDeleteForm($expediente);
 
+
+        return $this->render('expediente/imprimir.html.twig', array(
+            'expediente' => $expediente,
+            'delete_form' => $deleteForm->createView(),
+        ));}
 }
