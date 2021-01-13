@@ -3,6 +3,7 @@
 namespace PruebaBundle\Controller;
 
 use PruebaBundle\Entity\Expediente;
+use PruebaBundle\Entity\Factura;
 use Symfony\Component\HttpFoundation\Request;
 use PruebaBundle\Entity\servicio;
 use PruebaBundle\Form\servicioType;
@@ -113,5 +114,99 @@ class ServicioController extends Controller
         return $this->redirectToRoute('all_servicios');
     }
 
+    /**
+     * Creates a new factura entity.
+     *
+     */
+    public function newAction(Request $request)
+    {
+        $servici = new servicio();
+        $form = $this->createForm('PruebaBundle\Form\servicioType', $servici);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($servici);
+            $em->flush();
+
+            return $this->redirectToRoute('servicio_show', array('id' => $servici->getId()));
+        }
+
+        return $this->render('servicio/nuevo.html.twig', array(
+            'servicio' => $servici,
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * Finds and displays a factura entity.
+     *
+     */
+    public function showAction(servicio $servici)
+    {
+        $deleteForm = $this->createDeleteForm($servici);
+
+        return $this->render('$servicio/show.html.twig', array(
+            'servicio' => $servici,
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Displays a form to edit an existing factura entity.
+     *
+     */
+    public function editAction(Request $request, servicio $servici)
+    {
+        $deleteForm = $this->createDeleteForm($servici);
+        $editForm = $this->createForm('PruebaBundle\Form\servicioType', $servici);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('servicio_edit', array('id' => $servici->getId()));
+        }
+
+        return $this->render('factura/edit.html.twig', array(
+            'servicio' => $servici,
+            'edit_form' => $editForm->createView(),
+            'delete_form' => $deleteForm->createView(),
+        ));
+    }
+
+    /**
+     * Deletes a factura entity.
+     *
+     */
+    public function deleteAction(Request $request, servicio $servici)
+    {
+        $form = $this->createDeleteForm($servici);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($servici);
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('servicio_index');
+    }
+
+    /**
+     * Creates a form to delete a factura entity.
+     *
+     * @param servicio $servici The factura entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createDeleteForm(servicio $servici)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('servicio_delete', array('id' => $servici->getId())))
+            ->setMethod('DELETE')
+            ->getForm()
+            ;
+    }
 
 }

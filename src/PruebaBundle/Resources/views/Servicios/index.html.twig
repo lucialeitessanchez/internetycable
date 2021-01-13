@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h1>Servicios </h1>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero de referencia</th>
+                <th>Compania</th>
+                <th>Direccion</th>
+                <th>Ciudad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for servicio in servicios %}
+            <tr>
+                <td><a href="{{ path('servicio_show', { 'id': servicio.id }) }}">{{ servicio.id }}</a></td>
+                <td>{{ servicio.referencia }}</td>
+                <td>{{ servicio.compania }}</td>
+                <td>{{ servicio.direccion }}</td>
+                <td>{{ servicio.ciudad }}</td>
+                <td>
+                    <ul>
+
+                            <a href="{{ path('factura_show', { 'id': factura.id }) }}">ver</a>
+
+                            <a href="{{ path('factura_edit', { 'id': factura.id }) }}">editar</a>
+
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <br>
+            <a href="{{ path('servicio_new') }}">ALta servicio</a>
+            <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
+
+    </ul>
+
+
+{% endblock %}
+

@@ -78,3 +78,28 @@ login:
 usuarios:
     path:     /usuarios
     defaults: { _controller: PruebaBundle:Default:usuarios }
+
+servicio_index:
+    path:     /servicio
+    defaults: { _controller: PruebaBundle:servicio:index }
+    methods:  GET
+
+servicio_show:
+    path:     /{id}/show
+    defaults: { _controller: PruebaBundle:servicio:show }
+    methods:  GET
+
+servicio_new:
+    path:     /nuevo
+    defaults: { _controller: PruebaBundle:servicio:new }
+    methods:  [GET, POST]
+
+servicio_edit:
+    path:     /{id}/edit
+    defaults: { _controller: PruebaBundle:servicio:edit }
+    methods:  [GET, POST]
+
+servicio_delete:
+    path:     /{id}/delete
+    defaults: { _controller: PruebaBundle:servicio:delete }
+    methods:  DELETE

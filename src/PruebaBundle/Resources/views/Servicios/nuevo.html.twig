@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Alta servicio</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Crear" />
+    {{ form_end(form) }}
+
+    <ul>
+        <br>
+        <a href="{{ path('servicio_index') }}">Volver al listado</a>
+        <br>
+        <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
+
+    </ul>
+{% endblock %}
