@@ -13,7 +13,7 @@
                 <th>Compania</th>
                 <th>Direccion</th>
                 <th>Ciudad</th>
-                <th>Acciones</th>
+                <th><th>Acciones</th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,13 +25,15 @@
                 <td>{{ servicio.direccion }}</td>
                 <td>{{ servicio.ciudad }}</td>
                 <td>
-                    <ul>
+                    <th><div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="{{ path('servicio_show', { 'id': servicio.id }) }}" class="btn btn-outline-primary">ver</a>
+                        <a href="{{ path('servicio_edit', { 'id': servicio.id }) }}" class="btn btn-secondary"> editar </a>
 
-                            <a href="{{ path('servicio_show', { 'id': servicio.id }) }}">ver</a>
+                    </div></th>
 
-                            <a href="{{ path('servicio_edit', { 'id': servicio.id }) }}">editar</a>
 
-                    </ul>
+
+
                 </td>
             </tr>
         {% endfor %}

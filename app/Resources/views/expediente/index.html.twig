@@ -19,14 +19,13 @@
                 <td>{{ expediente.numeroExpe }}</td>
                 <td>{{ expediente.estado }}</td>
                 <td>
-                    <ul>
-                        <button type="button" class="btn btn-primary btn-sm"><a href="{{ path('expediente_show', { 'id': expediente.id }) }}">ver</a></button>
-                        <button type="button" class="btn btn-light"><a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}">imprimir</a></button>
-                        <button type="button" class="btn btn-secondary btn-sm"><a href="{{ path('expediente_edit', { 'id': expediente.id }) }}">editar</a></button>
+                    <th>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="{{ path('expediente_show', { 'id': expediente.id }) }}" class="btn btn-outline-primary">ver</a>
+                        <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}" class="btn btn-secondary"> editar </a>
+                        <a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}" class="btn btn-light"> imprimir </a>
+                    </div></th>
 
-
-
-                    </ul>
                 </td>
             </tr>
         {% endfor %}

@@ -1,22 +1,28 @@
-<div>
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<p>
 <div align="center"><img src="/imagenes/logo.png" height="50"></div>
 <div align="center"> Secretaría de Estado de Igualdad y Género
     <br>Gobierno de la Provincia de Santa Fe</div>
 
-
-<div align="right">  Ref.: Expte. Nro {{ expediente.numeroExpe }}</div>
+    <br>
+    <p class="text-end" ><b>Ref.: Expte. Nro {{ expediente.numeroExpe }}</b>
     </tr>
     <tr>
-        <div align="right"> <th>Santa Fe, </th></div>
+        <div align="right"> <th>Santa Fe, </th></div></p>
 
     </tr>
     <tr>
         <br><br>
-        <div align="center"><th>Se Informa que corresponde a la Factura nro  6723-18101212 por el Servicio de internet del
-            <br>período de noviembre de 2020 prestado por la empresa FIBERCORP dependencia de esta
-            <br>Secretaría de Estado de Igualdad y Género de calle Salta 2549  de la ciudad de Santa Fe
-            <br>con el nro de referencia:</th>
-            <td>{{ expediente.service }}</td></tr> </div>
+        <p class="text-center"><th>Se Informa que corresponde a la Factura nro  6723-18101212 por el Servicio de {{ servicio.tipo }} del
+            período de <b>noviembre de 2020</b> prestado por la empresa {{ servicio.compania }} dependencia de esta
+            Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
+            con el nro de referencia:</th>
+        <td>{{ expediente.service }}</td></tr> </p>
+
 
 
 </html>
+
+{% endblock %}

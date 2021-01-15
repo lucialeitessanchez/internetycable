@@ -60,6 +60,7 @@ class FacturaController extends Controller
     {
         $deleteForm = $this->createDeleteForm($factura);
 
+
         return $this->render('factura/show.html.twig', array(
             'factura' => $factura,
             'delete_form' => $deleteForm->createView(),

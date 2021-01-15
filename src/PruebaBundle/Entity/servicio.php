@@ -56,6 +56,20 @@ class servicio
     private $ciudad;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="numTelefono", type="string", length=255)
+     */
+    private $numTelefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo", type="string", length=255)
+     */
+    private $tipo;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="estado", type="boolean")
@@ -279,5 +293,48 @@ class servicio
     public function getFacturas()
     {
         return $this->facturas;
+    }
+
+    /**
+     * Set tipo.
+     *
+     * @param string $tipo
+     *
+     * @return string
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+
+        return $this;
+    }
+
+    /**
+     * Get tipo.
+     *
+     * @return string
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * Set referencia
+     *
+     * @param integer $numTelefono
+     *
+     * @return numTelefono
+     */
+    public function setNumTelefono($numTelefono)
+    {
+        $this->numTelefono = $numTelefono;
+
+        return $this;
+    }
+
+    public function getNumTelefono()
+    {
+        return $this->numTelefono;
     }
 }

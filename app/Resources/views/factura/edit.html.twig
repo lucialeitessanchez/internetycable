@@ -5,19 +5,19 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input type="submit" value="Editar" />
     {{ form_end(edit_form) }}
 
     <ul>
-        <li>
+
             <a href="{{ path('factura_index') }}">Volver al listado</a>
             <br>
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-        </li>
-        <li>
+
+
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Eliminar">
             {{ form_end(delete_form) }}
-        </li>
+
     </ul>
 {% endblock %}

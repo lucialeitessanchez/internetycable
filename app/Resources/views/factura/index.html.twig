@@ -12,7 +12,7 @@
                 <th>Num de factura</th>
                 <th>Fecha vencimiento</th>
                 <th>Pago</th>
-                <th>Acciones</th>
+                <th><th>Acciones</th></th>
             </tr>
         </thead>
         <tbody>
@@ -20,16 +20,19 @@
             <tr>
                 <td><a href="{{ path('factura_show', { 'id': factura.id }) }}">{{ factura.id }}</a></td>
                 <td>{{ factura.numFactura }}</td>
-                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('Y-m-d')}}{% endif %}</td>
                 <td>{% if factura.pago %}Yes{% else %}No{% endif %}</td>
                 <td>
-                    <ul>
 
-                            <a href="{{ path('factura_show', { 'id': factura.id }) }}">ver</a>
+                <th><div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="{{ path('factura_show', { 'id': factura.id }) }}" class="btn btn-outline-primary">ver</a>
+                        <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-secondary"> editar </a>
 
-                            <a href="{{ path('factura_edit', { 'id': factura.id }) }}">editar</a>
+                    </div>
+                </th>
 
-                    </ul>
+
+
                 </td>
             </tr>
         {% endfor %}

@@ -2,7 +2,9 @@
 
 namespace PruebaBundle\Controller;
 
+use PruebaBundle\Entity\servicio;
 use PruebaBundle\Entity\Expediente;
+use PruebaBundle\Entity\Factura;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -126,9 +128,19 @@ class ExpedienteController extends Controller
     public function imprimirAction(Expediente $expediente){
         $deleteForm = $this->createDeleteForm($expediente);
 
+        //le pido a la base de datos los objetos servicio
+        $repository = $this->getDoctrine()->getRepository(servicio::class);
+        $servicio = $repository->find(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
+
+        //le pido a la base de datos los objetos servicio
+        $repository = $this->getDoctrine()->getRepository(Factura::class);
+        $factura = $repository->findByservice(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 
         return $this->render('expediente/imprimir.html.twig', array(
             'expediente' => $expediente,
-            'delete_form' => $deleteForm->createView(),
-        ));}
+            'servicio'=>$servicio,
+            'factura'=>$factura,
+            'delete_form' => $deleteForm->createView()
+                                                                        )
+        );}
 }

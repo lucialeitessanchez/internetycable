@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <th>Fecha de vencimiento</th>
-                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Pago</th>
@@ -25,19 +25,18 @@
     </table>
 
     <ul>
-        <li>
-            <a href="{{ path('factura_index') }}">Back to the list</a>
+
+            <a href="{{ path('factura_index') }}">Volver al listado de facturas</a>
             <br>
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-        </li>
-        <li>
-            <a href="{{ path('factura_edit', { 'id': factura.id }) }}">Editar</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
 
-        </li>
+        <br>
+        <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-primary">Editar</a>
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Borrar">
+        {{ form_end(delete_form) }}
+
+
+
     </ul>
 {% endblock %}

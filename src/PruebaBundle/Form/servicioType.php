@@ -17,7 +17,10 @@ class servicioType extends AbstractType
             ->add('compania')
             ->add('direccion')
             ->add('ciudad')
-            ->add('estado');
+            ->add('tipo')
+            ->add('numTelefono')
+            ->add('estado')
+            ;
     }/**
      * {@inheritdoc}
      */
