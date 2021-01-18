@@ -1,6 +1,23 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
+    {% if facturas == false %}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <h2>No hay facturas relacionadas con este expediente</h2>
+
+            </ul>
+
+            <div align="center">
+            <div class="btn-group">
+                    <a href="{{ path('expediente_new') }}" class="btn btn-primary active" aria-current="page">Crear nuevo expediente</a>
+                    <a href="{{ path('prueba_homepage') }}" class="btn btn-primary">Volver al menú principal</a>
+            </div>
+            </div>
+        </nav>
+
+
+    {% else %}
 <p>
 <div align="center"><img src="/imagenes/logo.png" height="50"></div>
 <div align="center"> Secretaría de Estado de Igualdad y Género
@@ -15,7 +32,7 @@
     </tr>
     <tr>
         <br><br>
-        <p class="text-center"><th>Se Informa que corresponde a la Factura nro  6723-18101212 por el Servicio de {{ servicio.tipo }} del
+        <p class="text-center"><th>Se Informa que corresponde a la Factura nro {{ facturas.numFactura }} por el Servicio de {{ servicio.tipo }} del
             período de <b>noviembre de 2020</b> prestado por la empresa {{ servicio.compania }} dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
@@ -24,5 +41,5 @@
 
 
 </html>
-
+    {% endif %}
 {% endblock %}

@@ -133,14 +133,15 @@ class ExpedienteController extends Controller
         $servicio = $repository->find(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 
         //le pido a la base de datos los objetos servicio
-        $repository = $this->getDoctrine()->getRepository(Factura::class);
-        $factura = $repository->findByservice(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
+        $repository2 = $this->getDoctrine()->getRepository(Factura::class);
+        $factura = $repository2->findByservice(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 
         return $this->render('expediente/imprimir.html.twig', array(
             'expediente' => $expediente,
             'servicio'=>$servicio,
-            'factura'=>$factura,
+            'facturas'=>$factura,
             'delete_form' => $deleteForm->createView()
                                                                         )
+
         );}
 }
