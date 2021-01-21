@@ -22,9 +22,9 @@ class Expediente
     private $id;
 
     /**
-     * @var integer
+     * @var float
      *
-     * @ORM\Column(name="numeroExpe", type="integer")
+     * @ORM\Column(name="numeroExpe", type="float")
      */
     private $numeroExpe;
 

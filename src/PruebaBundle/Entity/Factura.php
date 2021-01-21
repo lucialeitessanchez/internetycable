@@ -22,9 +22,9 @@ class Factura
     private $id;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="numFactura", type="integer", unique=true)
+     * @ORM\Column(name="numFactura", type="float", unique=true)
      */
     private $numFactura;
 
