@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-   {#  {% if facturas == false %}
+     {% if facturas == false %}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <h2>No hay facturas relacionadas con este expediente</h2>
@@ -17,7 +17,7 @@
         </nav>
 
 
-    {% else %}#}
+    {% else %}
 <p>
 <div align="center"><img src="/imagenes/logo.png" height="50"></div>
 <div align="center"> Secretaría de Estado de Igualdad y Género
@@ -37,6 +37,17 @@
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
         <td>{{ expediente.service }}</td></tr>
+
+        <div class="dropdown">
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            {% for factura in facturas %}
+                <a class="dropdown-item" href="#">{{ factura.numFactura }}</a></li>
+            </ul>
+            {% endfor %}
+        </div>
+
+
+
     <br><br>  Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</p>
 
 
@@ -52,5 +63,5 @@
         </div>
     </div></footer>
 </html>
-   {#  {% endif %}#}
+     {% endif %}
 {% endblock %}
