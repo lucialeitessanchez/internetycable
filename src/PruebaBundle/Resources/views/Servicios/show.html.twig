@@ -1,8 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Servicio</h1>
 
+<ul>
+    <h1>Servicio</h1>
     <table>
         <tbody>
             <tr>
@@ -33,19 +34,19 @@
     </table>
 
     <ul>
-        <li>
+    <br>
             <a href="{{ path('servicio_index') }}">Volver al listado</a>
             <br>
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-        </li>
-        <li>
-            <a href="{{ path('servicio_edit', { 'id': servicio.id }) }}">Editar</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-
-        </li>
     </ul>
+    <br>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{{ path('servicio_edit', { 'id': servicio.id }) }}" class="btn btn-outline-primary">Editar </a>
+
+            <a class="btn btn-secondary"></class> {{ form_start(delete_form) }} Eliminar
+                {{ form_end(delete_form) }} </a>
+        </div>
+</ul>
+
+
 {% endblock %}

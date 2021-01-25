@@ -125,7 +125,7 @@ class ExpedienteController extends Controller
         ;
     }
 
-    public function imprimirAction(Expediente $expediente){
+    public function imprimirAction(Expediente $expediente) {
         $deleteForm = $this->createDeleteForm($expediente);
 
         //le pido a la base de datos los objetos servicio
@@ -136,13 +136,13 @@ class ExpedienteController extends Controller
         $repository2 = $this->getDoctrine()->getRepository(Factura::class);
         $factura = $repository2->findByservice(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 
-        $dateTime = new \DateTime();
+
+
 
         return $this->render('expediente/imprimir.html.twig', array(
             'expediente' => $expediente,
             'servicio'=>$servicio,
             'facturas'=>$factura,
-            'fecha'=>$dateTime,
             'delete_form' => $deleteForm->createView()
                                                                         )
 

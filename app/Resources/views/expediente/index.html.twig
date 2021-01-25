@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <ul>
     <h1>Expedientes</h1>
 
     <table>
@@ -36,6 +37,6 @@
 
             <a href="{{ path('expediente_new') }}">Crear nuevo expediente</a>
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-
+    </ul>
     </ul>
 {% endblock %}

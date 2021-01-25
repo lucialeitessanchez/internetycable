@@ -13,4 +13,12 @@ footer {
     color: white;
 }
 
+select {
+    background: transparent;
+    border: none;
+    webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    }
+
 

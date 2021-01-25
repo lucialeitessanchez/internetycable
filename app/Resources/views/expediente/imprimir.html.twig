@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-     {% if facturas == false %}
+     {% if facturas == false %} {# si no hay facturas devuelve este mensaje #}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <h2>No hay facturas relacionadas con este expediente</h2>
@@ -32,19 +32,30 @@
     </tr>
     <tr>
         <br><br>
-        <p class="text-center"><th>Se Informa que corresponde a la factura nro 00004-01885400  por el Servicio de {{ servicio.tipo }} del
-            período de <b>febrero de 2021</b> prestado por la empresa {{ servicio.compania }} dependencia de esta
+        <p class="text-center"><th>
+        <form name="f1">Se Informa que corresponde a la factura nro <select name=pais onchange="facturas_dif()">
+                <option value="0" selected>Seleccione factura
+                    <ul>{% for factura in facturas %}
+                    <option >{{ factura.numFactura }}{% endfor %}</ul></option>
+                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>febrero de 2021</b> prestado por la empresa {{ servicio.compania }} dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
         <td>{{ expediente.service }}</td></tr>
 
-        <div class="dropdown">
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            {% for factura in facturas %}
-                <a class="dropdown-item" href="#">{{ factura.numFactura }}</a></li>
-            </ul>
-            {% endfor %}
-        </div>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+         <script>
+              $( document ).ready(function() {
+
+                   var now = new Date();
+
+                   var day = ("0" + now.getDate()).slice(-2);
+                   var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+                   var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
+                   $("#fecha").val(today);
+              });
+         </script>
 
 
 

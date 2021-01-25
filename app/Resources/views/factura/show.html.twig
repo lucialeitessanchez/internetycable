@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+  <ul>
     <h1>Factura</h1>
 
     <table>
@@ -32,11 +33,12 @@
 
         <br>
         <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-primary">Editar</a>
+        <a class="btn btn-primary">
         {{ form_start(delete_form) }}
-        <input type="submit" value="Borrar">
+        Borrar
         {{ form_end(delete_form) }}
-
-
+        </a>
+    </ul>
 
     </ul>
 {% endblock %}
