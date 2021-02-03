@@ -27,9 +27,9 @@ class servicio
     private $id;
 
     /**
-     * @var int
+     * @var float
      *
-     * @ORM\Column(name="referencia", type="integer", unique=true)
+     * @ORM\Column(name="referencia", type="float", unique=true)
      *
      */
     protected $referencia;

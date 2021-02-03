@@ -19,28 +19,28 @@
 
     {% else %}
 <p>
-<div align="center"><img src="/imagenes/logo.png" height="50"></div>
-<div align="center"> Secretaría de Estado de Igualdad y Género
-    <br>Gobierno de la Provincia de Santa Fe</div>
+
 
     <br>
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
     </tr>
     <tr>
-        <div align="right"> <th>Santa Fe, 21 de Enero de 2021 </th></div>
+        <div align="right"> <th>Santa Fe, 3 de Febrero de 2021 </th></div>
 
     </tr>
     <tr>
+        <ul><ul>
         <br><br>
         <p class="text-center"><th>
+                <br><br><br>
         <form name="f1">Se Informa que corresponde a la factura nro <select name=pais onchange="facturas_dif()">
                 <option value="0" selected>Seleccione factura
                     <ul>{% for factura in facturas %}
                     <option >{{ factura.numFactura }}{% endfor %}</ul></option>
-                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>febrero de 2021</b> prestado por la empresa {{ servicio.compania }} dependencia de esta
+                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>diciembre de 2020</b> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
-        <td>{{ expediente.service }}</td></tr>
+        <b><td>{{ expediente.service }} y 251284</td></tr></b>
 
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -59,17 +59,17 @@
 
 
 
-    <br><br>  Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</p>
+    <br><br>  Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</p>
 
-
+        </ul></ul>
 
     <footer  style="width:100%; margin-left: 0px;"  >
 
 
     <div class="Informatica-SEIyG" style="background-color: #0d47a1;">
         <div class="container-fluid" style="background-color: #0d47a1; color: #bbdefb;">
-           <div align="center" <i><b>Sectorial de Informática - Secretaría de Estado de Igualdad y Género</b>
-                <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 -</i>
+            <ul><img src="/imagenes/marca-footer.png" height="20"></ul> <div align="center" <i><b>Sectorial de Informática - Secretaría de Estado de Igualdad y Género</b>
+                <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
             </div>
         </div>
     </div></footer>

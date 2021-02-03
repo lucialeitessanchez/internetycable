@@ -20,22 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/web/imagenes/marca-footer.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Form/ExpedienteType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Form/ExpedienteType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/nuevo.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/nuevo.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/css/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/estilos.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +119,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/imagenes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -141,6 +131,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\web\imagenes" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Servicios" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Default" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Controller" />
@@ -212,7 +203,14 @@
       <workItem from="1611265999895" duration="375000" />
       <workItem from="1611349249243" duration="639000" />
       <workItem from="1611351087469" duration="218000" />
-      <workItem from="1611599794493" duration="6168000" />
+      <workItem from="1611599794493" duration="7113000" />
+      <workItem from="1611695422316" duration="897000" />
+      <workItem from="1611869819797" duration="1343000" />
+      <workItem from="1611950284937" duration="2236000" />
+      <workItem from="1612203408283" duration="3255000" />
+      <workItem from="1612290573469" duration="986000" />
+      <workItem from="1612299314494" duration="4938000" />
+      <workItem from="1612376282054" duration="4367000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
