@@ -25,7 +25,8 @@
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
     </tr>
     <tr>
-        <div align="right"> <th>Santa Fe, 3 de Febrero de 2021 </th></div>
+        <div align="right"> <th>Santa Fe, 4 de Febrero de 2021 </th></div>
+
 
     </tr>
     <tr>
@@ -37,10 +38,10 @@
                 <option value="0" selected>Seleccione factura
                     <ul>{% for factura in facturas %}
                     <option >{{ factura.numFactura }}{% endfor %}</ul></option>
-                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>diciembre de 2020</b> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
+                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>enero de 2021</b> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
-        <b><td>{{ expediente.service }} y 251284</td></tr></b>
+        <b><td>{{ expediente.service }} </td></tr></b>
 
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -58,8 +59,8 @@
          </script>
 
 
-
-    <br><br>  Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</p>
+        <br><br>    Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</p>
+    {#  <br><br>  Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</p>#}
 
         </ul></ul>
 
