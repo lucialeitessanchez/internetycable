@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,7 +211,8 @@
       <workItem from="1612980036534" duration="2342000" />
       <workItem from="1613073674548" duration="597000" />
       <workItem from="1613767742266" duration="1298000" />
-      <workItem from="1614031318038" duration="502000" />
+      <workItem from="1614031318038" duration="539000" />
+      <workItem from="1614103700734" duration="1948000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
