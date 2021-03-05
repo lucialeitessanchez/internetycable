@@ -20,15 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/factura/factura_duplicada.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/imagenes/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/imagenes/logogeneroVioleta.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/imagenes/logogeneroVioleta.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing/factura.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing/factura.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/estilos.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,11 +136,11 @@
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources" />
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle" />
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\web\imagenes" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\app\Resources\views\expediente" />
-      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\web" />
-      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Default" />
-      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\app\Resources\views" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.internetycable">
@@ -225,7 +222,7 @@
       <workItem from="1614626845227" duration="1370000" />
       <workItem from="1614713650658" duration="1241000" />
       <workItem from="1614796078904" duration="1915000" />
-      <workItem from="1614970611410" duration="4445000" />
+      <workItem from="1614970611410" duration="9020000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
