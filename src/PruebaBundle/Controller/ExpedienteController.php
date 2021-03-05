@@ -132,7 +132,7 @@ class ExpedienteController extends Controller
         $repository = $this->getDoctrine()->getRepository(servicio::class);
         $servicio = $repository->find(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 
-        //le pido a la base de datos los objetos servicio
+        //le pido a la base de datos los objetos factura
         $repository2 = $this->getDoctrine()->getRepository(Factura::class);
         $factura = $repository2->findByservice(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 

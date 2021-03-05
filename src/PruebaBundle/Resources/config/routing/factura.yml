@@ -8,6 +8,11 @@ factura_show:
     defaults: { _controller: "PruebaBundle:Factura:show" }
     methods:  GET
 
+factura_duplicada:
+    path:     /
+    defaults: { _controller: "PruebaBundle:Factura:new" }
+    methods:  GET
+
 factura_new:
     path:     /new
     defaults: { _controller: "PruebaBundle:Factura:new" }

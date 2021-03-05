@@ -40,11 +40,17 @@ class FacturaController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $repository = $this->getRepository(Factura::class);//le pido a la base de datos los objetos factura
+
+
+            //esto es si no existe
             $em->persist($factura);
             $em->flush();
 
             return $this->redirectToRoute('factura_show', array('id' => $factura->getId()));
         }
+
 
         return $this->render('factura/new.html.twig', array(
             'factura' => $factura,
