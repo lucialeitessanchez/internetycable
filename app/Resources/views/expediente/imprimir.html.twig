@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseVista.html.twig' %}
 {% block body %}
 
      {% if facturas == false %} {# si no hay facturas devuelve este mensaje #}
@@ -43,20 +43,9 @@
             con el nro de referencia:</th>
         <b><td>{{ expediente.service }} </td></tr></b>
 
-         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-         <script>
-              $( document ).ready(function() {
 
-                   var now = new Date();
 
-                   var day = ("0" + now.getDate()).slice(-2);
-                   var month = ("0" + (now.getMonth() + 1)).slice(-2);
-
-                   var today = now.getFullYear()+"-"+(month)+"-"+(day) ;
-                   $("#fecha").val(today);
-              });
-         </script>
 
 
         <br><br>    Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</p>

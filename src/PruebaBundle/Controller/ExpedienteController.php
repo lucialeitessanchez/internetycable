@@ -137,12 +137,13 @@ class ExpedienteController extends Controller
         $factura = $repository2->findByservice(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 
 
-
+        $fechaActual = date('d-m-Y');
 
         return $this->render('expediente/imprimir.html.twig', array(
             'expediente' => $expediente,
             'servicio'=>$servicio,
             'facturas'=>$factura,
+            'fecha'=>$fechaActual,
             'delete_form' => $deleteForm->createView()
                                                                         )
 

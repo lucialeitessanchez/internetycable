@@ -3,8 +3,42 @@
 }
 body {
     background-color: #ffffff;
+    color: #f0f0f0;
     padding-top: 70px;
 }
+
+body {
+
+    font-family: 'Balsamiq Sans', cursive;
+    text-emphasis-color: #f0f0f0;
+    text-decoration-color: #f0f0f0;
+    background-color: #7d5fa5;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    margin-bottom: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #f0f0f0; }
+.fixed-top {
+    background-repeat: repeat-x;
+    background-position: left bottom;
+    background-repeat: repeat-x;
+    background-size: 1367px 3px;
+    background-color: #e3e1e2; }
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125); }
+.card-header-tabs {
+    margin-right: -0.625rem;
+    margin-bottom: -0.75rem;
+    margin-left: -0.625rem;
+    border-bottom: 0; }
 footer {
     background-image: url("https://www.santafe.gov.ar/assets/standard/images/marca-footer.png") ;
     background-color: black;
@@ -47,6 +81,8 @@ select {
     -moz-appearance: none;
     appearance: none;
     }
+
+
 
 
 
