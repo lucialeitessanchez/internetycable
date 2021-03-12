@@ -1,27 +1,39 @@
 .texto{
     color: #c71dc7;
 }
-body {
-    background-color: #ffffff;
-    color: #f0f0f0;
-    padding-top: 70px;
+
+p{
+    background: transparent;
 }
 
 body {
-
-    font-family: 'Balsamiq Sans', cursive;
+    color: #f0f0f0;
+    font-family: 'Sen', sans-serif;
     text-emphasis-color: #f0f0f0;
     text-decoration-color: #f0f0f0;
     background-color: #7d5fa5;
 }
 
+#banner{ /* la imagen de la secretaria se amolda a todas las pantallas */
+
+    width: 96%;
+    max-width: 960px;
+    margin: 0 auto;
+
+    width: 100%;
+    height: auto;
+
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
+    color:#0c4128;
     margin-bottom: 0.5rem;
     font-family: inherit;
     font-weight: 500;
     line-height: 1.2;
     color: #f0f0f0; }
+
 .fixed-top {
     background-repeat: repeat-x;
     background-position: left bottom;
@@ -39,7 +51,7 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: -0.75rem;
     margin-left: -0.625rem;
     border-bottom: 0; }
-footer {
+footer { /* el footer prolijo*/
     background-image: url("https://www.santafe.gov.ar/assets/standard/images/marca-footer.png") ;
     background-color: black;
     position: absolute;
@@ -74,7 +86,7 @@ footer {
     opacity: .5 !important;
     font-size: 25px !important; }
 
-select {
+select { /* el select sin bordes*/
     background: transparent;
     border: none;
     webkit-appearance: none;
@@ -82,6 +94,19 @@ select {
     appearance: none;
     }
 
+a { /* este es el color del link*/
+    color: whitesmoke;
+}
+
+#footerIndex {
+    color: white;
+    background-color: #1A1A1A;
+    width: 100%;
+    height: 81px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
 
 
 

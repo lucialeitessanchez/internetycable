@@ -1,5 +1,5 @@
 {% extends 'baseVista.html.twig' %}
-{% block body %}
+{% block body  %}
 
      {% if facturas == false %} {# si no hay facturas devuelve este mensaje #}
         <nav aria-label="Page navigation example">
@@ -25,7 +25,7 @@
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
     </tr>
     <tr>
-        <div align="right"> <th>Santa Fe, 23 de Febrero de 2021 </th></div>
+        <div align="right"> <th>Santa Fe, 11 de Marzo de 2021 </th></div>
 
 
     </tr>
@@ -38,7 +38,7 @@
                 <option value="0" selected>Seleccione factura
                     <ul>{% for factura in facturas %}
                     <option >{{ factura.numFactura }}{% endfor %}</ul></option>
-                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>Octubre de 2019</b> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
+                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>Marzo de 2021</b> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
         <b><td>{{ expediente.service }} </td></tr></b>
@@ -49,7 +49,7 @@
 
 
         <br><br>    Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</p>
-    {#  <br><br>  Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</p>#}
+{# <br><br>  Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</p>#}
 
         </ul></ul>
 

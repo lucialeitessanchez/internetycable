@@ -41,7 +41,7 @@ class FacturaController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            $repository = $this->getRepository(Factura::class);//le pido a la base de datos los objetos factura
+           // $repository = $this->getRepository(Factura::class);//le pido a la base de datos los objetos factura
 
 
             //esto es si no existe
