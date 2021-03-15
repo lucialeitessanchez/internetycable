@@ -2,6 +2,7 @@
 
 namespace PruebaBundle\Controller;
 
+use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
 use PruebaBundle\Entity\Factura;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -46,9 +47,17 @@ class FacturaController extends Controller
 
             //esto es si no existe
             $em->persist($factura);
-            $em->flush();
+            try{
 
-            return $this->redirectToRoute('factura_show', array('id' => $factura->getId()));
+                $em->flush();
+
+                return $this->redirectToRoute('factura_show', array('id' => $factura->getId()));
+            }
+
+            catch(UniqueConstraintViolationException $e){
+                return $this->render('factura/factura_repet.html.twig');
+            }
+
         }
 
 

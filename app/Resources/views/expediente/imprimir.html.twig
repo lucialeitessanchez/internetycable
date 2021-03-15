@@ -18,14 +18,14 @@
 
 
     {% else %}
-<p>
+<body id="impresion">
 
 
     <br>
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
     </tr>
     <tr>
-        <div align="right"> <th>Santa Fe, 11 de Marzo de 2021 </th></div>
+        <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
 
 
     </tr>
@@ -48,9 +48,13 @@
 
 
 
-        <br><br>    Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</p>
-{# <br><br>  Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</p>#}
-
+        <br><br><p>    <select name="select">
+        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
+        <option value="value2" >Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+    </select>
+    </p>
+</body>
         </ul></ul>
 
     <footer  style="width:100%; margin-left: 0px;"  >

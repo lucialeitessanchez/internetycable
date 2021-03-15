@@ -125,6 +125,20 @@ class ExpedienteController extends Controller
         ;
     }
 
+    function fechaCastellano ($fecha) {
+        $fecha = substr($fecha, 0, 10);
+        $numeroDia = date('d', strtotime($fecha));
+        $dia = date('l', strtotime($fecha));
+        $mes = date('F', strtotime($fecha));
+        $dias_ES = array("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo");
+        $dias_EN = array("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday");
+        $nombredia = str_replace($dias_EN, $dias_ES, $dia);
+        $meses_ES = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+        $meses_EN = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+        $nombreMes = str_replace($meses_EN, $meses_ES, $mes);
+        return $nombredia." ".$numeroDia." de ".$nombreMes." de ".date('Y');
+    }
+
     public function imprimirAction(Expediente $expediente) {
         $deleteForm = $this->createDeleteForm($expediente);
 
@@ -137,7 +151,8 @@ class ExpedienteController extends Controller
         $factura = $repository2->findByservice(($expediente->getService())); //le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
 
 
-        $fechaActual = date('d-m-Y');
+        $fechaActual = date('d M Y');
+        $fechaActual = $this->fechaCastellano($fechaActual);
 
         return $this->render('expediente/imprimir.html.twig', array(
             'expediente' => $expediente,

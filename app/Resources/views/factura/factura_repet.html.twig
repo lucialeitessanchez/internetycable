@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div align="center">
+        <br><br>
+    <h1>La factura ingresada, ya existe. No pague duplicado</h1>
+
+<br><br><br>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+    <a href="{{ path('factura_new') }}" button type="button" class="btn btn-primary btn-lg" >Crear nueva factura</a>
+    <a href="{{ path('prueba_homepage') }}" button type="button" class="btn btn-secondary btn-lg">Volver al menú principal</a>
+    </div>
+    </div>
+{% endblock %}
