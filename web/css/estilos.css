@@ -6,6 +6,12 @@ p{
     background: transparent;
 }
 
+tbody {
+    color: #f0f0f0;
+    font-family: 'Sen', sans-serif
+}
+
+
 body {
     color: #f0f0f0;
     font-family: 'Sen', sans-serif;
@@ -51,6 +57,7 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: -0.75rem;
     margin-left: -0.625rem;
     border-bottom: 0; }
+
 footer { /* el footer prolijo*/
     background-image: url("https://www.santafe.gov.ar/assets/standard/images/marca-footer.png") ;
     background-color: black;
@@ -92,6 +99,10 @@ select { /* el select sin bordes*/
     webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+
+    width: auto;
+    height: auto;
+
     }
 
 a { /* este es el color del link*/
@@ -113,6 +124,19 @@ a { /* este es el color del link*/
     background: white;
 
 }
+
+table thead {
+    color: #fff;
+}
+
+.borderless table {
+
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+}
+
 
 
 

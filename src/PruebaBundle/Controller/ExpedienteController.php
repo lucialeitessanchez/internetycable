@@ -152,7 +152,7 @@ class ExpedienteController extends Controller
 
 
         $fechaActual = date('d M Y');
-        $fechaActual = $this->fechaCastellano($fechaActual);
+        $fechaActual = $this->fechaCastellano($fechaActual); //llamo a la funcion para guardar la fecha en español
 
         return $this->render('expediente/imprimir.html.twig', array(
             'expediente' => $expediente,

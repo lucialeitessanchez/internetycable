@@ -4,7 +4,7 @@
 
 <ul>
     <h1>Servicio</h1>
-    <table>
+    <table class="table table-borderless">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -15,7 +15,7 @@
                 <td>{{ servicio.referencia }}</td>
             </tr>
             <tr>
-                <th>Compania</th>
+                <th>Compañia</th>
                 <td>{{ servicio.compania}}</td>
             </tr>
             <tr>
@@ -27,8 +27,14 @@
                 <td>{{ servicio.ciudad}}</td>
             </tr>
             <tr>
-                <th>Estado</th>
-                <td>{{ servicio.estado}}</td>
+                <th>Tipo de servicio</th>
+                <td>{{ servicio.tipo}}</td>
+            </tr>
+            <tr>
+            <tr>
+                <th>Num telefono</th>
+                <td>{{ servicio.numTelefono}}</td>
+            </tr>
             </tr>
         </tbody>
     </table>

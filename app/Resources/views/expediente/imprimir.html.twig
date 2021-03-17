@@ -38,7 +38,22 @@
                 <option value="0" selected>Seleccione factura
                     <ul>{% for factura in facturas %}
                     <option >{{ factura.numFactura }}{% endfor %}</ul></option>
-                    </select></form>por el Servicio de {{ servicio.tipo }} del período de <b>Marzo de 2021</b> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
+        </select></form>por el Servicio de {{ servicio.tipo }} del período de <select name="meses">
+             <option value="1">Enero 2021</option>
+                <option value="value2">Febrero 2021</option>
+                <option value="value3">Marzo de 2021</option>
+                <option value="value4">Abril de 2021</option>
+                <option value="value5">Mayo de 2021</option>
+                <option value="value6">Junio de 2021</option>
+                <option value="value7">Julio de 2021</option>
+                <option value="value8">Agosto de 2021</option>
+                <option value="value9">Septiembre de 2021</option>
+                <option value="value10">Octubre de 2021</option>
+                <option value="value11">Noviembre de 2021</option>
+                <option value="value12">Diciembre de 2021</option>
+                <option value="value13">Noviembre de 2020</option>
+                <option value="value14">Diciembre de 2020</option></b>
+            </select> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
         <b><td>{{ expediente.service }} </td></tr></b>

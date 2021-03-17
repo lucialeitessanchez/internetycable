@@ -45,8 +45,8 @@ class FacturaController extends Controller
            // $repository = $this->getRepository(Factura::class);//le pido a la base de datos los objetos factura
 
 
-            //esto es si no existe
-            $em->persist($factura);
+
+            $em->persist($factura); // si no existe la factura, listo la guarda y llama al mostrar
             try{
 
                 $em->flush();
@@ -54,7 +54,7 @@ class FacturaController extends Controller
                 return $this->redirectToRoute('factura_show', array('id' => $factura->getId()));
             }
 
-            catch(UniqueConstraintViolationException $e){
+            catch(UniqueConstraintViolationException $e){ //esto es porque puse que el numero de factura es unico, como sucede que se "viola" eso llamo a la pantalla del "error"
                 return $this->render('factura/factura_repet.html.twig');
             }
 
