@@ -43,7 +43,7 @@ class Factura
     private $pago;
 
     /**
-     * @ORM\ManyToOne(targetEntity="servicio", inversedBy="facturas")
+     * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas")
      * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
      */
     private $service;
@@ -152,5 +152,38 @@ class Factura
     public function getService()
     {
         return $this->service;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->service = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add service.
+     *
+     * @param \PruebaBundle\Entity\servicio $service
+     *
+     * @return Factura
+     */
+    public function addService(\PruebaBundle\Entity\servicio $service)
+    {
+        $this->service[] = $service;
+
+        return $this;
+    }
+
+    /**
+     * Remove service.
+     *
+     * @param \PruebaBundle\Entity\servicio $service
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeService(\PruebaBundle\Entity\servicio $service)
+    {
+        return $this->service->removeElement($service);
     }
 }

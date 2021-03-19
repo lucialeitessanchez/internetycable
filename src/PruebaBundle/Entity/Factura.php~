@@ -43,7 +43,7 @@ class Factura
     private $pago;
 
     /**
-     * @ORM\ManyToOne(targetEntity="servicio", inversedBy="facturas")
+     * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas")
      * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
      */
     private $service;
