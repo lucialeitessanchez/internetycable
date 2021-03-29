@@ -186,4 +186,8 @@ class Factura
     {
         return $this->service->removeElement($service);
     }
+
+    public function __toString(){
+        return strval($this->getNumFactura());
+    }
 }

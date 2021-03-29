@@ -20,8 +20,13 @@
             </tr>
             <tr>
                 <th>Pago</th>
-                <td>{% if factura.pago %}Yes{% else %}No{% endif %}</td>
+                <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
             </tr>
+            <tr>
+                <th>Servicio</th>
+                <td> {{ factura.service }}</td>
+            </tr>
+
         </tbody>
     </table>
 

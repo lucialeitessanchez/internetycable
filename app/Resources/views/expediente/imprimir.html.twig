@@ -56,8 +56,8 @@
             </select> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
-        <b><td>{{ expediente.service }} </td></tr></b>
-
+        <b><td>{% for factura in facturas %} {{ factura. }}</td></b>
+             </tr>
 
 
 
