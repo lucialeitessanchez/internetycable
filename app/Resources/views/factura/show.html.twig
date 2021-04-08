@@ -24,7 +24,8 @@
             </tr>
             <tr>
                 <th>Servicio</th>
-                <td> {{ factura.service }}</td>
+                {%for factura in factura%}
+                <td> {{ factura.service }}</td>{% endfor %}
             </tr>
 
         </tbody>

@@ -5,12 +5,12 @@ namespace PruebaBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Expediente
+ * Factura
  *
- * @ORM\Table(name="Expediente")
- * @ORM\Entity(repositoryClass="PruebaBundle\Repository\ExpedienteRepository")
+ * @ORM\Table(name="factura")
+ * @ORM\Entity(repositoryClass="PruebaBundle\Repository\FacturaRepository")
  */
-class Expediente
+class Factura
 {
     /**
      * @var int
@@ -24,91 +24,118 @@ class Expediente
     /**
      * @var float
      *
-     * @ORM\Column(name="numeroExpe", type="float")
+     * @ORM\Column(name="numFactura", type="float", unique=true)
      */
-    private $numeroExpe;
+    private $numFactura;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="estado", type="string", length=25)
+     * @ORM\Column(name="fechaVencimiento", type="datetime")
      */
-    private $estado;
-
+    private $fechaVencimiento;
 
     /**
-     * @ORM\ManyToOne(targetEntity="servicio", inversedBy="expedientes")
+     * @var bool
+     *
+     * @ORM\Column(name="pago", type="boolean")
+     */
+    private $pago;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas")
      * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
      */
     private $service;
 
-
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
-
     public function getId()
     {
         return $this->id;
     }
 
     /**
-     * Set numeroExpe
+     * Set numFactura.
      *
-     * @param integer $numeroExpe
+     * @param int $numFactura
      *
-     * @return Expediente
+     * @return Factura
      */
-    public function setNumeroExpe($numeroExpe)
+    public function setNumFactura($numFactura)
     {
-        $this->numeroExpe = $numeroExpe;
+        $this->numFactura = $numFactura;
 
         return $this;
     }
 
     /**
-     * Get numeroExpe
+     * Get numFactura.
      *
      * @return int
      */
-    public function getNumeroExpe()
+    public function getNumFactura()
     {
-        return $this->numeroExpe;
+        return $this->numFactura;
     }
 
     /**
-     * Set estado
+     * Set fechaVencimiento.
      *
-     * @param string $estado
+     * @param \DateTime $fechaVencimiento
      *
-     * @return Expediente
+     * @return Factura
      */
-    public function setEstado($estado)
+    public function setFechaVencimiento($fechaVencimiento)
     {
-        $this->estado = $estado;
+        $this->fechaVencimiento = $fechaVencimiento;
 
         return $this;
     }
 
     /**
-     * Get estado
+     * Get fechaVencimiento.
      *
-     * @return string
+     * @return \DateTime
      */
-    public function getEstado()
+    public function getFechaVencimiento()
     {
-        return $this->estado;
+        return $this->fechaVencimiento;
     }
 
+    /**
+     * Set pago.
+     *
+     * @param bool $pago
+     *
+     * @return Factura
+     */
+    public function setPago($pago)
+    {
+        $this->pago = $pago;
+
+        return $this;
+    }
 
     /**
-     * Set service
+     * Get pago.
      *
-     * @param \PruebaBundle\Entity\servicio $service
+     * @return bool
+     */
+    public function getPago()
+    {
+        return $this->pago;
+    }
+
+    /**
+     * Set service.
      *
-     * @return Expediente
+     * @param \PruebaBundle\Entity\servicio|null $service
+     *
+     * @return Factura
      */
     public function setService(\PruebaBundle\Entity\servicio $service = null)
     {
@@ -118,9 +145,9 @@ class Expediente
     }
 
     /**
-     * Get service
+     * Get service.
      *
-     * @return \PruebaBundle\Entity\servicio
+     * @return \PruebaBundle\Entity\servicio|null
      */
     public function getService()
     {
@@ -139,7 +166,7 @@ class Expediente
      *
      * @param \PruebaBundle\Entity\servicio $service
      *
-     * @return Expediente
+     * @return Factura
      */
     public function addService(\PruebaBundle\Entity\servicio $service)
     {
@@ -158,5 +185,9 @@ class Expediente
     public function removeService(\PruebaBundle\Entity\servicio $service)
     {
         return $this->service->removeElement($service);
+    }
+
+    public function __toString(){
+        return strval($this->getNumFactura());
     }
 }

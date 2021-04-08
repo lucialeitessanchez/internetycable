@@ -21,7 +21,7 @@
 <body id="impresion">
 
 
-    <br>
+    <br><br><br><br><br><br>
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
     </tr>
     <tr>
@@ -30,10 +30,10 @@
 
     </tr>
     <tr>
-        <ul>
+        <ul><ul>
         <br><br>
         <p class="text-center"><th>
-                <br><br><br>
+                <br><br><br><ul>
         <form name="f1">Se Informa que corresponde a la factura nro <select name=pais onchange="facturas_dif()">
                 <option value="0" selected>Seleccione factura
                     <ul>{% for factura in facturas %}
@@ -56,7 +56,7 @@
             </select> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
-        <b><td> {{ servicio.referencia}}</td></b>
+        <b><td> {{ expediente.service}}</td></b>.
              </tr>
 
 
@@ -68,9 +68,9 @@
         <option value="value2" >Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
         <option value="value3">Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
     </select>
-    </p>
+    </p></ul></ul>
+    </ul></ul>
 </body>
-        </ul></ul>
 
     <footer  style="width:100%; margin-left: 0px;"  >
 

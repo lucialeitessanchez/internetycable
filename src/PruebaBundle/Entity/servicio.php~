@@ -78,7 +78,7 @@ class servicio
 
 
     /**
-     * @ORM\OneToMany(targetEntity="Expediente", mappedBy="service")
+     * @ORM\ManyToMany(targetEntity="Expediente", mappedBy="service")
      */
     private $expedientes;
 
