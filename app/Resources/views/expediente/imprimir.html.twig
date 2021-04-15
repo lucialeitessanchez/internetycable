@@ -34,6 +34,7 @@
         <br><br>
         <p class="text-center"><th>
                 <br><br><br><ul>
+
         <form name="f1">Se Informa que corresponde a la factura nro <select name=pais onchange="facturas_dif()">
                 <option value="0" selected>Seleccione factura
                     <ul>{% for factura in facturas %}
@@ -52,7 +53,9 @@
                 <option value="value11">Noviembre de 2021</option>
                 <option value="value12">Diciembre de 2021</option>
                 <option value="value13">Noviembre de 2020</option>
-                <option value="value14">Diciembre de 2020</option></b>
+                <option value="value14">Diciembre de 2020</option>
+                <option value="value15">facturación</option>
+                    </b>
             </select> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
             Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
             con el nro de referencia:</th>
