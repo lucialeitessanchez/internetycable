@@ -10,6 +10,7 @@
             <tr>
                 <th>Id</th>
                 <th>Numero de expediente</th>
+                <th>Referencia de servicio</th>
                 <th>Estado</th>
 
             </tr>
@@ -19,6 +20,7 @@
             <tr>
                 <td><a href="{{ path('expediente_show', { 'id': expediente.id }) }}">{{ expediente.id }}</a></td>
                 <td>{{ expediente.numeroExpe }}</td>
+                <td>{{  expediente.service }}</td>
                 <td>{{ expediente.estado }}</td>
                 <td>
                     <th>

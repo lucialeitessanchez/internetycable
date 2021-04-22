@@ -2,10 +2,15 @@
 
 {% block body %}
     <ul>
+
     <h1>Expediente nuevo</h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="mb-3 row"><label for="staticEmail" class="col-sm-2 col-form-label">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            </label>
+        </div>
+
         <br>
         <input type="submit" value="Crear" />
     {{ form_end(form) }}
@@ -17,4 +22,6 @@
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
 
     </ul></ul>
+
+
 {% endblock %}
