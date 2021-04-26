@@ -151,7 +151,7 @@ class ExpedienteController extends Controller
 
         //le pido a la base de datos los objetos factura
         $factura = $this->getDoctrine()->getRepository(Factura::class)->findAll();
-        //$factura = $repository2->find(($servicio->getFacturas())); // tengo el conjunto de facturas relacionadas con ese servicio
+        $factures = $factura->find(($servicio->getFacturas())); // tengo el conjunto de facturas relacionadas con ese servicio
 
         $fechaActual = date('d M Y');
         $fechaActual = $this->fechaCastellano($fechaActual); //llamo a la funcion para guardar la fecha en español
@@ -161,6 +161,7 @@ class ExpedienteController extends Controller
             'servicio'=>$servicio,
             'facturas'=>$factura,
             'fecha'=>$fechaActual,
+            'factures'=>$factures,
             'delete_form' => $deleteForm->createView()
                                                                         )
 
