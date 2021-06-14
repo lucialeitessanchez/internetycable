@@ -21,7 +21,6 @@
 
 <body id="impresion">
 
-{#  {% if {{ servicio.direccion }} == CORRIENTES 2879 %}
     <br><br><br><br><br><br>
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
     </tr>
@@ -85,69 +84,8 @@
         </div>
     </footer>
 
-#}
-    <br><br><br><br><br><br>
-        <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
-    </tr>
-    <tr>
-        <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
 
 
-    </tr>
-    <tr>
-        <ul><ul>
-        <br><br>
-        <p class="text-center"><th>
-                <br><br><br><ul>
-
-        <form name="f1">Se Informa que corresponde a la factura nro <select name=pais onchange="facturas_dif()">
-                <option value="0" selected>Seleccione factura
-                    <ul>{% for factura in facturas %}
-                    <option >{{ factura.numFactura }}{% endfor %}</ul></option>
-        </select></form>por el Servicio de {{ servicio.tipo }} del período de <select name="meses">
-             <option value="1">Enero 2021</option>
-                <option value="value2">Febrero 2021</option>
-                <option value="value3">Marzo de 2021</option>
-                <option value="value4">Abril de 2021</option>
-                <option value="value5">Mayo de 2021</option>
-                <option value="value6">Junio de 2021</option>
-                <option value="value7">Julio de 2021</option>
-                <option value="value8">Agosto de 2021</option>
-                <option value="value9">Septiembre de 2021</option>
-                <option value="value10">Octubre de 2021</option>
-                <option value="value11">Noviembre de 2021</option>
-                <option value="value12">Diciembre de 2021</option>
-                <option value="value13">Noviembre de 2020</option>
-                <option value="value14">Diciembre de 2020</option>
-                <option value="value15">facturación</option>
-                    </b>
-            </select> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
-            Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
-            con el nro de referencia:</th>
-                <td> {{ expediente.service}}</td>.
-             </tr>
-
-
-
-    <br><br><p>    <select name="select">
-        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
-        <option value="value2" >Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
-        <option value="value3">Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
-    </select>
-    </p></ul></ul>
-    </ul></ul>
-</body>
-
-    <footer  style="width:100%; margin-left: 0px;"  >
-
-
-    <div class="Informatica-SEIyG" style="background-color: #0d47a1;">
-        <div class="container-fluid" style="background-color: #0d47a1; color: #bbdefb;">
-            <ul><img src="/imagenes/marca-footer.png" height="20"></ul> <div align="center" <i><b>Sectorial de Informática - Secretaría de Estado de Igualdad y Género</b>
-                <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
-            </div>
-        </div>
-    </footer>
 </html>
      {% endif %}
 {% endblock %}

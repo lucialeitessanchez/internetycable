@@ -27,17 +27,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="{{ path('expediente_show', { 'id': expediente.id }) }}" class="btn btn-outline-primary">ver</a>
                         <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}" class="btn btn-secondary"> editar </a>
-                        <a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}" class="btn btn-light"> imprimir </a>
-                        <div class="form-floating">
-                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                <option selected>imprimir</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-
-                        </div>
-                    </div></th>
+                        <a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}" class="btn btn-light"> imprimir </a> </th>
 
                 </td>
             </tr>

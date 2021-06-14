@@ -156,6 +156,19 @@ class ExpedienteController extends Controller
         $fechaActual = date('d M Y');
         $fechaActual = $this->fechaCastellano($fechaActual); //llamo a la funcion para guardar la fecha en español
 
+
+        if(  (($servicio->getDireccion()) == "CORRIENTES 2879" )){ // pregunto si es de esa calle por el formato
+            return $this->render('expediente/imprimirAca.html.twig', array(
+                'expediente' => $expediente,
+                'servicio'=>$servicio,
+                'facturas'=>$factura,
+                'fecha'=>$fechaActual,
+                //'factures'=>$factures,
+                'delete_form' => $deleteForm->createView()
+            ));
+                                                                }
+
+        else{ //si no muestra el archivo de dependencia de esta secretaria
         return $this->render('expediente/imprimir.html.twig', array(
             'expediente' => $expediente,
             'servicio'=>$servicio,
@@ -163,7 +176,9 @@ class ExpedienteController extends Controller
             'fecha'=>$fechaActual,
             //'factures'=>$factures,
             'delete_form' => $deleteForm->createView()
-                                                                        )
+                                                                        ));
+            }
 
-        );}
+    }
+
 }
