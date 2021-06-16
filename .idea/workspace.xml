@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimirAca.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/views/Servicios/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +32,9 @@
     <execution>
       <executable path="composer" />
     </execution>
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../internetycable\exportToHTML" />
   </component>
   <component name="Git.Pull.Settings">
     <option name="BRANCH" value="master" />
@@ -257,7 +255,9 @@
       <workItem from="1622829477195" duration="1529000" />
       <workItem from="1623351866871" duration="756000" />
       <workItem from="1623425894979" duration="2071000" />
-      <workItem from="1623685811719" duration="4428000" />
+      <workItem from="1623685811719" duration="4816000" />
+      <workItem from="1623775380201" duration="1187000" />
+      <workItem from="1623856865322" duration="946000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
