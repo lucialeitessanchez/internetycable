@@ -42,6 +42,11 @@ class Expediente
      */
     private $service;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Factura", mappedBy="expediente")
+     */
+    private $facturas;
+
 
     /**
      * Get id
@@ -158,5 +163,41 @@ class Expediente
     public function removeService(\PruebaBundle\Entity\servicio $service)
     {
         return $this->service->removeElement($service);
+    }
+
+    /**
+     * Add factura.
+     *
+     * @param \PruebaBundle\Entity\Factura $factura
+     *
+     * @return Expediente
+     */
+    public function addFactura(\PruebaBundle\Entity\Factura $factura)
+    {
+        $this->facturas[] = $factura;
+
+        return $this;
+    }
+
+    /**
+     * Remove factura.
+     *
+     * @param \PruebaBundle\Entity\Factura $factura
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeFactura(\PruebaBundle\Entity\Factura $factura)
+    {
+        return $this->facturas->removeElement($factura);
+    }
+
+    /**
+     * Get facturas.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFacturas()
+    {
+        return $this->facturas;
     }
 }

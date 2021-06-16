@@ -21,6 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/FacturaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/servicio.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +50,13 @@
         <option value="lucialeitessanchez &lt;lucialeitessanchez@gmail.com&gt;" />
       </list>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="a66a57ba1e413afd79795a25ad2f3027f3e1b587" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -257,7 +268,7 @@
       <workItem from="1623425894979" duration="2071000" />
       <workItem from="1623685811719" duration="4816000" />
       <workItem from="1623775380201" duration="1187000" />
-      <workItem from="1623856865322" duration="946000" />
+      <workItem from="1623856865322" duration="12280000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
