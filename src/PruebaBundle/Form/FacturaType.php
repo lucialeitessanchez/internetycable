@@ -13,7 +13,7 @@ class FacturaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('numFactura')->add('fechaVencimiento')->add('pago')->add('service');
+        $builder->add('numFactura')->add('fechaVencimiento')->add('pago')->add('periodo')->add('service');
     }/**
      * {@inheritdoc}
      */
