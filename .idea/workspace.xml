@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/imagenes/logoministerio.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Form/FacturaType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Form/FacturaType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +265,8 @@
       <workItem from="1623775380201" duration="1187000" />
       <workItem from="1623856865322" duration="12342000" />
       <workItem from="1624551652665" duration="1035000" />
-      <workItem from="1624636737737" duration="5006000" />
+      <workItem from="1624636737737" duration="5389000" />
+      <workItem from="1624892117340" duration="606000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
