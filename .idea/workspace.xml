@@ -21,6 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Expediente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/Factura.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Form/ExpedienteType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Form/ExpedienteType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -266,7 +270,8 @@
       <workItem from="1623856865322" duration="12342000" />
       <workItem from="1624551652665" duration="1035000" />
       <workItem from="1624636737737" duration="5389000" />
-      <workItem from="1624892117340" duration="606000" />
+      <workItem from="1624892117340" duration="4612000" />
+      <workItem from="1624979537513" duration="6859000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
@@ -296,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608324852090</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="cambios de relaciones identidades">
+      <created>1624895012645</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624895012645</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +332,7 @@
     <MESSAGE value="segundo comit reacomodo en windows" />
     <MESSAGE value="TERCER comit todo lo referenciado a la base d datos&#10;local" />
     <MESSAGE value="anda la relacion entre expediente y servicio" />
-    <option name="LAST_COMMIT_MESSAGE" value="anda la relacion entre expediente y servicio" />
+    <MESSAGE value="cambios de relaciones identidades" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios de relaciones identidades" />
   </component>
 </project>

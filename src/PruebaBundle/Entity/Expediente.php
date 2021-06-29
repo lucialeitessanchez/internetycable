@@ -37,15 +37,10 @@ class Expediente
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="servicio", inversedBy="expedientes")
-     * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
-     */
-    private $service;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Factura", mappedBy="expediente")
+     * @ORM\OneToMany(targetEntity="Factura", mappedBy="expediente")
      */
     private $facturas;
+
 
 
     /**
@@ -107,62 +102,12 @@ class Expediente
         return $this->estado;
     }
 
-
-    /**
-     * Set service
-     *
-     * @param \PruebaBundle\Entity\servicio $service
-     *
-     * @return Expediente
-     */
-    public function setService(\PruebaBundle\Entity\servicio $service = null)
-    {
-        $this->service = $service;
-
-        return $this;
-    }
-
-    /**
-     * Get service
-     *
-     * @return \PruebaBundle\Entity\servicio
-     */
-    public function getService()
-    {
-        return $this->service;
-    }
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->service = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add service.
-     *
-     * @param \PruebaBundle\Entity\servicio $service
-     *
-     * @return Expediente
-     */
-    public function addService(\PruebaBundle\Entity\servicio $service)
-    {
-        $this->service[] = $service;
-
-        return $this;
-    }
-
-    /**
-     * Remove service.
-     *
-     * @param \PruebaBundle\Entity\servicio $service
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeService(\PruebaBundle\Entity\servicio $service)
-    {
-        return $this->service->removeElement($service);
+        $this->facturas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

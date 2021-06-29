@@ -50,10 +50,11 @@ class Factura
     private $pago;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Expediente", inversedBy="facturas")
+     * @ORM\ManyToOne(targetEntity="Expediente", inversedBy="facturas")
      * @ORM\JoinColumn(name="id_expediente", referencedColumnName="id")
      */
     private $expediente;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas")
@@ -262,5 +263,19 @@ class Factura
     public function getExpediente()
     {
         return $this->expediente;
+    }
+
+    /**
+     * Set expediente.
+     *
+     * @param \PruebaBundle\Entity\Expediente|null $expediente
+     *
+     * @return Factura
+     */
+    public function setExpediente(\PruebaBundle\Entity\Expediente $expediente = null)
+    {
+        $this->expediente = $expediente;
+
+        return $this;
     }
 }
