@@ -145,4 +145,8 @@ class Expediente
     {
         return $this->facturas;
     }
+
+    public function __toString(){
+        return strval($this->getNumeroExpe());
+    }
 }

@@ -229,41 +229,7 @@ class Factura
         return $this->periodo;
     }
 
-    /**
-     * Add expediente.
-     *
-     * @param \PruebaBundle\Entity\Expediente $expediente
-     *
-     * @return Factura
-     */
-    public function addExpediente(\PruebaBundle\Entity\Expediente $expediente)
-    {
-        $this->expediente[] = $expediente;
 
-        return $this;
-    }
-
-    /**
-     * Remove expediente.
-     *
-     * @param \PruebaBundle\Entity\Expediente $expediente
-     *
-     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
-     */
-    public function removeExpediente(\PruebaBundle\Entity\Expediente $expediente)
-    {
-        return $this->expediente->removeElement($expediente);
-    }
-
-    /**
-     * Get expediente.
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getExpediente()
-    {
-        return $this->expediente;
-    }
 
     /**
      * Set expediente.
@@ -277,5 +243,15 @@ class Factura
         $this->expediente = $expediente;
 
         return $this;
+    }
+
+    /**
+     * Get expediente.
+     *
+     * @return \PruebaBundle\Entity\Expediente|null
+     */
+    public function getExpediente()
+    {
+        return $this->expediente;
     }
 }
