@@ -1,10 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+<div class="topnav">
+  <a class="active" href="{{ ('expediente') }}">Expediente</a>
+  <a href="{{ path('expediente_new') }}">Nuevo expediente</a>
+  <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
+  </div>
+    
     <ul>
-
-    <h1>Expedientes</h1>
-
     <table class="table table-borderless">
         <thead>
             <tr>
@@ -29,7 +33,7 @@
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="{{ path('expediente_show', { 'id': expediente.id }) }}" class="btn btn-outline-primary">ver</a>
                         <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}" class="btn btn-secondary"> editar </a>
-                        <a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}" class="btn btn-light"> imprimir </a> </th>
+                        <a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}" class="btn btn-secondary active" role="button" aria-pressed="true"> imprimir </a> </th>
 
                 </td>
             </tr>
@@ -44,3 +48,4 @@
     </ul>
     </ul>
 {% endblock %}
+

@@ -2,9 +2,16 @@
 
 
 {% block body %}
-    <ul>
-    <h1>Facturas </h1>
-
+    
+    <div class="topnav">
+  <a class="active" href="{{ ('factura') }}">Factura</a>
+  <a href="{{ path('factura_new') }}">Nueva factura</a>
+  <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
+  <a href="{{ ('expediente') }}">Menu Expediente</a>
+    
+</div>
+    
+<ul>
 
     <table class="table table-borderless">
         <thead>

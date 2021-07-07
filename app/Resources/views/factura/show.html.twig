@@ -34,18 +34,19 @@
 
     <ul>
 
-            <a href="{{ path('factura_index') }}">Volver al listado de facturas</a>
-            <br>
-            <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-outline-primary">Editar </a>
 
-        <br>
-        <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-primary">Editar</a>
-        <a class="btn btn-primary">
-        {{ form_start(delete_form) }}
-        Borrar
-        {{ form_end(delete_form) }}
-        </a>
+            <a class="btn btn-secondary"></class> {{ form_start(delete_form) }} Eliminar
+                {{ form_end(delete_form) }} </a>
+
+            <a href="{{ path('factura_index') }}" class="btn btn-primary active" role="button" aria-pressed="true">Volver al listado</a>
+        
+             <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary active" role="button" aria-pressed="true">Volver al menú principal</a>
+        </div>
+ 
     </ul>
+
 
     </ul>
 {% endblock %}
