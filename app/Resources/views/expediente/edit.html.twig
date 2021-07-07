@@ -3,22 +3,22 @@
 {% block body %}
    <ul>
     <h1>Editar Expediente</h1>
+       
        <div class="mb-3 row"><label for="staticEmail" class="col-sm-2 col-form-label">
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-           </label>
-       </div>
-        <input type="submit" value="Editar" />
-    {{ form_end(edit_form) }}
-
-            <a href="{{ path('expediente_index') }}">Volver al listado</a>
-            <br>
-            <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-
-
+            {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            </label>
+        </div>
+            <input type="submit" value="Editar" />
+            {{ form_end(edit_form) }}
             {{ form_start(delete_form) }}
                 <input type="submit" value="Eliminar">
             {{ form_end(delete_form) }}
-   </ul>
+
+        <a href="{{ path('expediente_index') }}">Volver al listado</a>
+        <br>
+        <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
+
+
     </ul>
 {% endblock %}

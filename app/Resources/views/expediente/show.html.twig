@@ -4,7 +4,7 @@
     <ul>
     <h1>Expediente</h1>
 
-    <table>
+    <table class="table table-borderless">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -19,7 +19,10 @@
                 <td>{{ expediente.estado }}</td>
             </tr>
             <tr>
-
+                <th>Factura</th>
+                <td>{% for factura in expediente.facturas %}
+                {{ factura.numFactura }}
+                {% endfor %}</td>
             </tr>
         </tbody>
     </table>

@@ -20,7 +20,9 @@
             <tr>
                 <td><a href="{{ path('expediente_show', { 'id': expediente.id }) }}">{{ expediente.id }}</a></td>
                 <td>{{ expediente.numeroExpe }}</td>
-                <td>factura</td>
+                <td>{% for factura in expediente.facturas %}
+                {{ factura.numFactura }}
+                {% endfor %}</td>
                 <td>{{ expediente.estado }}</td>
                 <td>
                     <th>

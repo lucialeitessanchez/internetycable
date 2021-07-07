@@ -4,7 +4,7 @@
   <ul>
     <h1>Factura</h1>
 
-    <table>
+    <table class="table table-borderless">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -23,9 +23,10 @@
                 <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Servicio</th>
-                {%for factura in factura%}
-                <td> {{ factura.servicio_id }}</td>{% endfor %}
+                <th>Numero de referencia servicio/s  </th>
+                <td>{%for service in factura.service  %}
+                 {{ service.referencia }}
+                 {% endfor %}</td>
             </tr>
 
         </tbody>

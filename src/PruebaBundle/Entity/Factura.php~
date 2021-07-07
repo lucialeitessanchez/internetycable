@@ -49,11 +49,12 @@ class Factura
      */
     private $pago;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Expediente", inversedBy="facturas")
-     * @ORM\JoinColumn(name="id_expediente", referencedColumnName="id")
-     */
+     /**
+    * @ORM\ManyToOne(targetEntity="Expediente", inversedBy="facturas")
+    * @ORM\JoinColumn(name="id_expediente", referencedColumnName="id")
+    */
     private $expediente;
+
 
 
     /**
@@ -253,5 +254,31 @@ class Factura
     public function getExpediente()
     {
         return $this->expediente;
+    }
+
+    /**
+     * Add expediente.
+     *
+     * @param \PruebaBundle\Entity\Factura $expediente
+     *
+     * @return Factura
+     */
+    public function addExpediente(\PruebaBundle\Entity\Factura $expediente)
+    {
+        $this->expediente[] = $expediente;
+
+        return $this;
+    }
+
+    /**
+     * Remove expediente.
+     *
+     * @param \PruebaBundle\Entity\Factura $expediente
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeExpediente(\PruebaBundle\Entity\Factura $expediente)
+    {
+        return $this->expediente->removeElement($expediente);
     }
 }
