@@ -139,25 +139,20 @@ class ExpedienteController extends Controller
         return $nombredia." ".$numeroDia." de ".$nombreMes." de ".date('Y');
     }
 
-    /*public function imprimirAction(Expediente $expediente) {
+    public function imprimirAction(Expediente $expediente) {
         $deleteForm = $this->createDeleteForm($expediente);
 
 
-        //le pido a la base de datos los objetos servicio
-         $repository = $this->getDoctrine()->getRepository(servicio::class);
-         $servicio = $repository->find(($expediente->getService()));//le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
+    
+       $factura = $this->getDoctrine()->getRepository(Factura::class); //me traigo todos los objetos factura de la bd
+       $facturas = $factura->find(($expediente->getFacturas())); // tengo el conjunto de facturas relacionadas con este expediente
 
-
-
-        //le pido a la base de datos los objetos factura
-        $factura = $this->getDoctrine()->getRepository(Factura::class)->findAll();
-       // $factures = $factura->find(($servicio->getFacturas())); // tengo el conjunto de facturas relacionadas con ese servicio
 
         $fechaActual = date('d M Y');
         $fechaActual = $this->fechaCastellano($fechaActual); //llamo a la funcion para guardar la fecha en español
 
 
-        if(  (($servicio->getDireccion()) == "CORRIENTES 2879" )){ // pregunto si es de esa calle por el formato
+       /* if(  (($servicio->getDireccion()) == "CORRIENTES 2879" )){ // pregunto si es de esa calle por el formato
             return $this->render('expediente/imprimirAca.html.twig', array(
                 'expediente' => $expediente,
                 'servicio'=>$servicio,
@@ -177,8 +172,11 @@ class ExpedienteController extends Controller
             //'factures'=>$factures,
             'delete_form' => $deleteForm->createView()
                                                                         ));
-            }
+            }*/
 
-    }*/
+    return imprimirNota($expediente,$fechaActual);
+        }
+
+    
 
 }

@@ -139,4 +139,15 @@ class FacturaController extends Controller
         ;
     }
 
+    public function imprimirNotaAction(Expediente $expediente, $fecha ){
+        
+        $facturaRepo=$this->getDoctrine()->getRepository(Factura::class);
+        $facturas = $facturaRepo->find(($expediente->getFacturas())); //todas las facturas que tiene el expediente que me traje
+
+        $servicioRepo=$this->getDoctrine()->getRepository(servicio::class);
+        $servicios = $servicioRepo->find(($facturas->getExpediente)); //Todos los servicios relacionados a esa factura
+
+        //tengo que preguntar la cantidad de servicios y si todos esos servicios tiene la misma direccion
+    }
+
 }
