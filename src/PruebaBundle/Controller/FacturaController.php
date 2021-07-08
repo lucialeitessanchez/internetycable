@@ -3,7 +3,9 @@
 namespace PruebaBundle\Controller;
 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use PruebaBundle\Entity\Expediente;
 use PruebaBundle\Entity\Factura;
+use PruebaBundle\Entity\servicio;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -145,9 +147,38 @@ class FacturaController extends Controller
         $facturas = $facturaRepo->find(($expediente->getFacturas())); //todas las facturas que tiene el expediente que me traje
 
         $servicioRepo=$this->getDoctrine()->getRepository(servicio::class);
-        $servicios = $servicioRepo->find(($facturas->getExpediente)); //Todos los servicios relacionados a esa factura
+        $servicios = $servicioRepo->findBy(($facturas->getService)); //Todos los servicios relacionados a esa factura
 
         //tengo que preguntar la cantidad de servicios y si todos esos servicios tiene la misma direccion
-    }
+        if((sizeof($servicios))<=1) { //caso base una factura tiene un solo servicio
+            if ((($servicios->getDireccion()) == "CORRIENTES 2879")) { // pregunto si es de esa calle por el formato
+                return $this->render('expediente/imprimirAca.html.twig', array(
+                    'expediente' => $expediente,
+                    'servicio' => $servicios,
+                    'facturas' => $facturas,
+                    'fecha' => $fecha
+                ));
+            }
+            else{
+                return $this->render('expediente/imprimir.html.twig', array(
+                    'expediente' => $expediente,
+                    'servicio' => $servicios,
+                    'facturas' => $facturas,
+                    'fecha' => $fecha
+                ));
+            }
+
+        /*else{ //si no muestra el archivo de dependencia de esta secretaria
+        return $this->render('expediente/imprimir.html.twig', array(
+            'expediente' => $expediente,
+            'servicio'=>$servicio,
+            'facturas'=>$factura,
+            'fecha'=>$fechaActual,
+            //'factures'=>$factures,
+            'delete_form' => $deleteForm->createView()
+                                                                        ));
+            }*/
+        }
+                                                                    }
 
 }

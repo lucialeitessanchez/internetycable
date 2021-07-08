@@ -139,7 +139,7 @@ class ExpedienteController extends Controller
         return $nombredia." ".$numeroDia." de ".$nombreMes." de ".date('Y');
     }
 
-    public function imprimirAction(Expediente $expediente) {
+   /* public function imprimirAction(Expediente $expediente) {
         $deleteForm = $this->createDeleteForm($expediente);
 
 
@@ -174,9 +174,7 @@ class ExpedienteController extends Controller
                                                                         ));
             }*/
 
-    return imprimirNota($expediente,$fechaActual);
-        }
 
-    
+
 
 }

@@ -13,7 +13,7 @@ class ExpedienteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('numeroExpe')->add('estado')->add('facturas');
+        $builder->add('numeroExpe')->add('estado');
     }/**
      * {@inheritdoc}
      */
