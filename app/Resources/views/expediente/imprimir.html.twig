@@ -7,8 +7,10 @@
                 <h2>No hay facturas relacionadas con este expediente</h2>
 
             </ul>
-
-            <div align="center">
+            <tr>
+        <ul><ul>
+        <br><br>
+        
             <div class="btn-group">
                     <a href="{{ path('expediente_new') }}" class="btn btn-primary active" aria-current="page">Crear nuevo expediente</a>
                     <a href="{{ path('prueba_homepage') }}" class="btn btn-primary">Volver al menú principal</a>
@@ -94,7 +96,21 @@
 
     </tr>
 
+<p class="text-center"><th>
+                <br><br><br><ul>
 
+        Se Informa que corresponde a la factura nro {{ factura.numFactura }} por el Servicio de {{ servicio.tipo }} del período de 
+            {% if {{factura.periodo}} == '-' %}
+            <b> facturacion </b> 
+            {% else %}
+            <b>{{factura.periodo}}</b> 
+            
+            prestado por la empresa {{ servicio.compania }} en la dependencia de este Ministerio de Igualdad, Género y Diversidad de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
+            con el nro de referencia:</th>
+                <td> {{ servicio.numReferencia}}</td>.
+             </tr>
+
+            <div align="center">
 
 
 
