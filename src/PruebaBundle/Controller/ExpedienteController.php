@@ -139,55 +139,64 @@ class ExpedienteController extends Controller
         return $nombredia." ".$numeroDia." de ".$nombreMes." de ".date('Y');
     }
 
-    public function imprimirAction(Expediente $expediente) {
+    public function imprimirAction(Expediente $expediente)
+    {
         $deleteForm = $this->createDeleteForm($expediente);
 
 
-    
-       $factura = $this->getDoctrine()->getRepository(Factura::class); //me traigo todos los objetos factura de la bd
-       $facturas = $factura->find(($expediente->getFacturas())); // tengo el conjunto de facturas relacionadas con este expediente
+        $repo1 = $this->getDoctrine()->getRepository(Factura::class); //me traigo todos los objetos factura de la bd
+        $facturas = $repo1->find(($expediente->getFacturas())); // tengo el conjunto de facturas relacionadas con este expediente
 
-        $servicio = $this->getDoctrine()->getRepository(servicio::class);
-        $servicios = $servicio->find(($facturas->getService)); //tengo el o los servicios que tiene la factura 
+        $repo2 = $this->getDoctrine()->getRepository(servicio::class)->findAll();
+        $servicios = $repo2->findBy(($facturas->getService())); //tengo el o los servicios que tiene la factura
 
         $fechaActual = date('d M Y');
         $fechaActual = $this->fechaCastellano($fechaActual); //llamo a la funcion para guardar la fecha en español
 
         //primero me tengo que fijar la cantidad de facturas, despues la cantidad de servicios 
         $cantidadFacturas = sizeof($facturas);
-        
-        if($cantidadFacturas == 1){
+        echo($cantidadFacturas);
+
+        if ($cantidadFacturas == 1) {
             $cantidadServicios = sizeof($servicios);
-            if($cantidadServicios == 1){
+            if ($cantidadServicios == 1) {
                 //si entra aca, el expediente tiene una factura de un solo servicio
-                if(($servicios->getDireccion()) == "CORRIENTES 2879" ){
-                    return $this->render('expediente/imprimirAca.html.twig',array(
+                if (($servicios->getDireccion()) == "CORRIENTES 2879") {
+                    return $this->render('expediente/imprimirAca.html.twig', array(
+                            'expediente' => $expediente,
+                            'servicio' => $servicios,
+                            'factura' => $facturas,
+                            'fecha' => $fechaActual,
+                            'delete_form' => $deleteForm->createView()
+                        )
+
+                    );
+                } else {
+                    //si no muestra el archivo de dependencia de esta secretaria
+                    return $this->render('expediente/imprimir.html.twig', array(
                         'expediente' => $expediente,
                         'servicio' => $servicios,
                         'factura' => $facturas,
                         'fecha' => $fechaActual,
                         'delete_form' => $deleteForm->createView()
-                                                                                )
-
-                                        );
+                    ));
                 }
-                else{
-                       //si no muestra el archivo de dependencia de esta secretaria
-        return $this->render('expediente/imprimir.html.twig', array(
-            'expediente' => $expediente,
-            'servicio'=>$servicios,
-            'facturas'=>$facturas,
-            'fecha'=>$fechaActual,
-            'delete_form' => $deleteForm->createView()
-                                                                        )); 
-                    }        
                                             }
             //me tengo que fijar que todos sean de la misma direccion
-                                            
+            //el caso que tiene una factura pero muchos servicios
 
         }
+        else{ //me fijo si la empresa es la misma y mando todo junto
+            return $this->render('expediente/variosServicios.html.twig', array(
+                'expediente' => $expediente,
+                'servicios' => $servicios,
+                'facturas' => $facturas,
+                'fecha' => $fechaActual,
+                'delete_form' => $deleteForm->createView()
+            ));
+        }
 
-
+    }
        /* if(  (($servicio->getDireccion()) == "CORRIENTES 2879" )){ // pregunto si es de esa calle por el formato
             return $this->render('expediente/imprimirAca.html.twig', array(
                 'expediente' => $expediente,
