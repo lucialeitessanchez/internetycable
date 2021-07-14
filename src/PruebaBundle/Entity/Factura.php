@@ -58,7 +58,7 @@ class Factura
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas")
+     * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas", orphanRemoval=true)
      * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
      */
     private $service;

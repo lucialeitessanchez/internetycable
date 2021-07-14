@@ -1,7 +1,7 @@
 {% extends 'baseVista.html.twig' %}
 {% block body  %}
 
-     {% if facturas == false %} {# si no hay facturas devuelve este mensaje #}
+     {% if factura == false %} {# si no hay facturas devuelve este mensaje #}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <h2>No hay facturas relacionadas con este expediente</h2>
@@ -95,42 +95,77 @@
 
 
     </tr>
-
+<ul><ul><ul>
 <p class="text-center"><th>
-                <br><br><br><ul>
+                <br><br><br>
 
-        Se Informa que corresponde a la factura nro {{ factura.numFactura }} por el Servicio de {{ servicio.tipo }} del período de 
-            {% if {{factura.periodo}} == '-' %}
-            <b> facturacion </b> 
-            {% else %}
-            <b>{{factura.periodo}}</b> 
-            
-            prestado por la empresa {{ servicio.compania }} en la dependencia de este Ministerio de Igualdad, Género y Diversidad de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
-            con el nro de referencia:</th>
-                <td> {{ servicio.numReferencia}}</td>.
-             </tr>
+        Se Informa que corresponde a la factura nro 47100737725 del período de
+            <b>Mayo 2021 </b>
+                los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias por la empresa TELECOM, en el siguiente cuadro:</th>
 
-            <div align="center">
+            <table class="table">
+                <thead>
+                <tr>
+
+                    <th scope="col">Referencia</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Ciudad</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>270964</td>
+                    <td>SANTA FE 1950</td>
+                    <td>ROSARIO</td>
+
+                </tr>
+                <tr>
+                    <td>251284</td>
+                    <td>SANTA FE 1950</td>
+                    <td>ROSARIO</td>
+                </tr>
+                <tr>
+                    <td>659179</td>
+                    <td>COLODRERO 799</td>
+                    <TD>SANTA FE</TD>
+                </tr>
+                <tr>
+                    <td>795111</td>
+                    <td>SAN JOSE 1701</td>
+                    <TD>SANTA FE</TD>
+                </tr>
+                <tr>
+                    <td>943125</td>
+                    <td>CORRIENTES 2879</td>
+                    <TD>SANTA FE</TD>
+                </tr>
+                </tbody>
+            </table>
+
+                <td> </td>.
 
 
 
-    <br><br><p>    <select name="select">
+
+
+
+
+    <br><br><p>   <p class="text-center"> <select name="select">
         <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
-        <option value="value2" >Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
-        <option value="value3">Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+        <option value="value2">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">     Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
     </select>
-    </p></ul></ul>
-    </ul></ul>
+    </p></ul></ul></tr>
+</ul></ul> </ul> </ul>
 </body>
 
     <footer  style="width:100%; margin-left: 0px;"  >
 
 
-    <div class="Informatica-SEIyG" style="background-color: #0d47a1;">
-        <div class="container-fluid" style="background-color: #0d47a1; color: #bbdefb;">
-            <ul><img src="/imagenes/marca-footer.png" height="20"></ul> <div align="center"><i><b>Sectorial de Informática - Ministerio de Igualdad, Género y Diversidad</b>
+    <div class="container">
+            <ul><img src="/imagenes/marca-footer.png" height="30"></ul> <div align="center"><i><b>Sectorial de Informática - Ministerio de Igualdad, Género y Diversidad</b>
                 <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
-            </div>
         </div>
     </footer>
 </html>

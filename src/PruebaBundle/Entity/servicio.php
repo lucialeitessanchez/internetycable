@@ -78,7 +78,7 @@ class servicio
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Factura", mappedBy="service")
+     * @ORM\ManyToMany(targetEntity="Factura", mappedBy="service", cascade={"all"}, orphanRemoval=true)
      */
     private $facturas;
 
