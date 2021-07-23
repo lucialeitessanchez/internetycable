@@ -1,7 +1,7 @@
 {% extends 'baseVista.html.twig' %}
 {% block body  %}
 
-     {% if factura == false %} {# si no hay facturas devuelve este mensaje #}
+     {% if facturas == false %} {# si no hay facturas devuelve este mensaje #}
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 <h2>No hay facturas relacionadas con este expediente</h2>
@@ -99,51 +99,13 @@
 <p class="text-center"><th>
                 <br><br><br>
 
-        Se Informa que corresponde a la factura nro 47100737725 del período de
-            <b>Mayo 2021 </b>
-                los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias por la empresa TELECOM, en el siguiente cuadro:</th>
+            Se Informa que corresponde a la factura nro {% for factura in facturas %} {{ factura}} {% endfor %} por el Servicio de internet del período de
+            {% for facture in factures %} <b> {{ facturae.periodo }} </b> {% endfor %}
+                prestado por la empresa ARLINK en la dependecia de este
+                Ministerio de Igualdad, Género y Diversidad de calle PATRICIO DIEZ(CALLE 15) 1165 depto:5  de la ciudad de RECONQUISTA
+                con el nro de referencia: 5521986</th>
+            <td> </td>.
 
-            <table class="table">
-                <thead>
-                <tr>
-
-                    <th scope="col">Referencia</th>
-                    <th scope="col">Direccion</th>
-                    <th scope="col">Ciudad</th>
-
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>270964</td>
-                    <td>SANTA FE 1950</td>
-                    <td>ROSARIO</td>
-
-                </tr>
-                <tr>
-                    <td>251284</td>
-                    <td>SANTA FE 1950</td>
-                    <td>ROSARIO</td>
-                </tr>
-                <tr>
-                    <td>659179</td>
-                    <td>COLODRERO 799</td>
-                    <TD>SANTA FE</TD>
-                </tr>
-                <tr>
-                    <td>795111</td>
-                    <td>SAN JOSE 1701</td>
-                    <TD>SANTA FE</TD>
-                </tr>
-                <tr>
-                    <td>943125</td>
-                    <td>CORRIENTES 2879</td>
-                    <TD>SANTA FE</TD>
-                </tr>
-                </tbody>
-            </table>
-
-                <td> </td>.
 
 
 

@@ -5,6 +5,7 @@ namespace PruebaBundle\Controller;
 use PruebaBundle\Entity\servicio;
 use PruebaBundle\Entity\Expediente;
 use PruebaBundle\Entity\Factura;
+use PruebaBundle\PruebaBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -144,18 +145,58 @@ class ExpedienteController extends Controller
     {
         $deleteForm = $this->createDeleteForm($expediente);
 
+        //aca obtengo los numeros de facturas que tiene el expediente
+        $exp = $this->getDoctrine()->getRepository('PruebaBundle:Expediente')->find($expediente);
+        $factura = $exp->getFacturas();
 
-        $repo1 = $this->getDoctrine()->getManager()->getRepository(Factura::class)->findAll(); //me traigo todos los objetos factura de la bd
-       // $facturas = $repo1->find(($expediente->getFacturas())); // tengo el conjunto de facturas relacionadas con este expediente
-
-        $repo2 = $this->getDoctrine()->getManager()->getRepository(servicio::class)->findAll();
-       // $servicios = $repo2->find(($facturas->getService())); //tengo el o los servicios que tiene la factura
+        $cantidadFacturas =sizeof($factura);//tamaño del arreglo con factura/s
 
         $fechaActual = date('d M Y');
-        $fechaActual = $this->fechaCastellano($fechaActual); //llamo a la funcion para guardar la fecha en español
+        $fechaActual = $this->fechaCastellano($fechaActual);
 
-        //primero me tengo que fijar la cantidad de facturas, despues la cantidad de servicios 
-       /* $cantidadFacturas = sizeof($repo1->getId()); // le cuento los id asi se cuantas hay
+        if($cantidadFacturas == 1){
+
+            //hago la consulta sql usando el numero de factura que obtuve antes para sacar los fatos de la factura (solo los propios
+            $em = $this->getDoctrine()->getEntityManager();
+            $dql = "select a.id, a.fechaVencimiento, a.periodo
+            from PruebaBundle:Factura a
+            where a.numFactura=:numero";
+            $query = $em->createQuery($dql);
+            $query->setParameter('numero',$factura);
+            $facture = $query->getResult(); //lo guardo en esta variable
+
+            $em2 = $this->getDoctrine()->getEntityManager();
+            $dql2 = "select s.referencia, s.compania, s.direccion, s.ciudad, s.tipo
+            from PruebaBundle:servicio s, PrueblaBundle:Factura a
+            join a.service s";
+            $query2 = $em2->createQuery($dql2);
+            $servicios = $query2->getResult();
+
+        return $this->render("expediente/imprimir.html.twig", array(
+            'expediente' => $expediente,
+            'facturas' => $factura,
+            'fecha' => $fechaActual,
+            'factures' => $facture,
+            'servicios' => $servicios,
+            'delete_form' => $deleteForm->createView()
+        ));
+    }                   }
+
+
+
+
+        //$repo1 = $this->getDoctrine()->getManager()->getRepository(Factura::class)->findAll(); //me traigo todos los objetos factura de la bd
+       // $facturas = $repo1->find(($expediente->getFacturas())); // tengo el conjunto de facturas relacionadas con este expediente
+       // $cantidadFacturas = sizeof($facturas->getId()); // le cuento los id asi se cuantas hay
+
+
+        //$repo2 = $this->getDoctrine()->getManager()->getRepository(servicio::class)->findAll();
+       // $servicios = $repo2->find(($facturas->getService())); //tengo el o los servicios que tiene la factura
+
+        //llamo a la funcion para guardar la fecha en español
+
+        //primero me tengo que fijar la cantidad de facturas, despues la cantidad de servicios
+       /*
 
         if ($cantidadFacturas == 1) {
             $cantidadServicios = sizeof($repo2->getId());
@@ -171,16 +212,16 @@ class ExpedienteController extends Controller
                         )
 
                     );
-                } else {*/
+                } else {
                     //si no muestra el archivo de dependencia de esta secretaria
+
                     return $this->render("expediente/imprimir.html.twig", array(
                         'expediente' => $expediente,
-                        'servicio' => $repo2,
-                        'factura' => $repo1,
+                        'facturas' => $factura,
                         'fecha' => $fechaActual,
                         'delete_form' => $deleteForm->createView()
                     ));
-                }
+                } */
                                          //   }
             //me tengo que fijar que todos sean de la misma direccion
             //el caso que tiene una factura pero muchos servicios
