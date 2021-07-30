@@ -149,6 +149,8 @@ class ExpedienteController extends Controller
         $exp = $this->getDoctrine()->getRepository('PruebaBundle:Expediente')->find($expediente);
         $factura = $exp->getFacturas();
 
+
+
         $cantidadFacturas =sizeof($factura);//tamaño del arreglo con factura/s
 
         $fechaActual = date('d M Y');
@@ -158,26 +160,36 @@ class ExpedienteController extends Controller
 
             //hago la consulta sql usando el numero de factura que obtuve antes para sacar los fatos de la factura (solo los propios
             $em = $this->getDoctrine()->getEntityManager();
-            $dql = "select a.id, a.fechaVencimiento, a.periodo
-            from PruebaBundle:Factura a
-            where a.numFactura=:numero";
+            $dql = "select f
+            from PruebaBundle:Factura f
+            where f.numFactura=:numero";
             $query = $em->createQuery($dql);
-            $query->setParameter('numero',$factura);
+            $query->setParameter('numero',$factura); //el numero que dije arriba lo defino como el que tiene el objeto facturo que obtuve en la consultacon el expediente
             $facture = $query->getResult(); //lo guardo en esta variable
 
-            $em2 = $this->getDoctrine()->getEntityManager();
-            $dql2 = "select s.referencia, s.compania, s.direccion, s.ciudad, s.tipo
-            from PruebaBundle:servicio s, PrueblaBundle:Factura a
-            join a.service s";
-            $query2 = $em2->createQuery($dql2);
-            $servicios = $query2->getResult();
+            $a = $this->getDoctrine()
+                ->getRepository('PruebaBundle:Factura');
+
+            $q = $a->createQueryBuilder('f')
+                ->where('f.numFactura= :numero')
+                ->setParameter('numero', $factura)
+                ->getQuery();
+            $f = $q->getResult();
+
+
+            //buscar la factura que coincide con ese numero de factura y extraer el servicio nomas
+            $em2 = $this->getDoctrine()->getRepository(servicio::class);
+            //$servicio = $em2->find(($facture->getService()));
+
+
+
 
         return $this->render("expediente/imprimir.html.twig", array(
             'expediente' => $expediente,
             'facturas' => $factura,
             'fecha' => $fechaActual,
             'factures' => $facture,
-            'servicios' => $servicios,
+           // 'servicios' => $servicio,
             'delete_form' => $deleteForm->createView()
         ));
     }                   }

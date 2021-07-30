@@ -15,6 +15,10 @@
                 <td>{{ factura.numFactura }}</td>
             </tr>
             <tr>
+                <th>Periodo de facturacion</th>
+                <td>{{ factura.periodo }}</td>
+            </tr>
+            <tr>
                 <th>Fecha de vencimiento</th>
                 <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date('Y-m-d') }}{% endif %}</td>
             </tr>
@@ -28,7 +32,10 @@
                  {{ service.referencia }}
                  {% endfor %}</td>
             </tr>
-
+            <tr>
+                <th>Expediente</th>
+                <td>{{ factura.expediente }}</td>
+            </tr>
         </tbody>
     </table>
 
