@@ -24,7 +24,69 @@
 
 {% if  facturas[0].service|length > 1  %}
 
-ACA IRIA DE VARIOS SERVICIOS EN UNA FACTURA 
+<br><br><br><br><br><br>
+        <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+    </tr>
+    <tr>
+        <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
+
+
+    </tr>
+<ul><ul><ul>
+<p class="text-center"><th>
+                <br><br><br>
+                
+
+<br>
+            Se Informa que corresponde a la factura nro {% for factura in facturas %} {{ factura }} 
+            correspondiente a los servicios detallados en el cuadro siguiente prestados a este Ministerio de Igualdad,Genero y Diversidad,
+            y sus dependencias pertenecientes al periodo {{ factura.periodo }} {% endfor %}
+
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero de referencia</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Tipo de servicio</th>
+    </tr>
+        <tbody>
+        
+        {% for service in facturas[0].service %}
+    <tr>
+      <th scope="row"> {{ service.referencia }}</th>
+      <td>{{ service.direccion }}</td>
+      <td>{{ service.ciudad }}</td>
+      <td>{{ service.tipo }}</td>
+      
+    </tr>
+  </thead>
+{% endfor %}
+
+
+        
+
+
+
+
+
+    <br><br><p>   <p class="text-center"> <select name="select">
+        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
+        <option value="value2">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">     Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+    </select>
+    </p></ul></ul></tr>
+</ul></ul> </ul> </ul>
+</body>
+
+    <footer  style="width:100%; margin-left: 0px;"  >
+
+
+    <div class="container">
+            <ul><img src="/imagenes/marca-footer.png" height="30"></ul> <div align="center"><i><b>Sectorial de Informática - Ministerio de Igualdad, Género y Diversidad</b>
+                <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
+        </div>
+    </footer>
 
 
 

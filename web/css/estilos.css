@@ -20,7 +20,7 @@ body {
     background-color: #7d5fa5;
 }
 
-#banner{ /* la imagen de la secretaria se amolda a todas las pantallas */
+#banner{ /* la imagen del ministerio se amolda a todas las pantallas */
 
     width: 70%;
     max-width: 960px;
@@ -39,6 +39,8 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 500;
     line-height: 1.2;
     color: #f0f0f0; }
+
+   
 
 .fixed-top {
     background-repeat: repeat-x;
