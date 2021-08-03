@@ -98,12 +98,12 @@
 <ul><ul><ul>
 <p class="text-center"><th>
                 <br><br><br>
-
-            Se Informa que corresponde a la factura nro {% for factura in facturas %} {{ factura}} {% endfor %} por el Servicio de internet del período de
-   <b> {% for factura in facturas %} {{ factura.periodo }}  {% endfor %}</b> 
-                prestado por la empresa ARLINK en la dependecia de este
-                Ministerio de Igualdad, Género y Diversidad de calle PATRICIO DIEZ(CALLE 15) 1165 depto:5  de la ciudad de RECONQUISTA
-                con el nro de referencia: 5521986</th>
+{% for factura in facturas %}
+            Se Informa que corresponde a la factura nro {% for factura in facturas %} {{ factura}} {% endfor %} por el Servicio de {{ factura.service[0].tipo }} del período de
+   <b>  {{ factura.periodo }}     </b> 
+                prestado por la empresa {{ factura.service[0].compania }} en la dependecia de este
+                Ministerio de Igualdad, Género y Diversidad de calle {{ factura.service[0].direccion }}  de la ciudad de {{ factura.service[0].ciudad }}
+                con el nro de referencia:  <b> {{ factura.service[0].referencia }} </b> </th> {% endfor %}
             <td> </td>.
 
 

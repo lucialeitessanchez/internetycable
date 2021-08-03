@@ -145,26 +145,23 @@ class ExpedienteController extends Controller
     {
         $deleteForm = $this->createDeleteForm($expediente);
 
-        //aca obtengo los numeros de facturas que tiene el expediente
+        //aca obtengo las facturas que tiene el expediente
         $exp = $this->getDoctrine()->getRepository('PruebaBundle:Expediente')->find($expediente);
         $factura = $exp->getFacturas();
 
+    
 
-
-        $cantidadFacturas =sizeof($factura);//tamaño del arreglo con factura/s
+        $cantidadFacturas =sizeof($factura);//tamaño del objeto factura/s
 
         $fechaActual = date('d M Y');
         $fechaActual = $this->fechaCastellano($fechaActual);
 
         if($cantidadFacturas == 1){
-            
-           
+         
         return $this->render("expediente/imprimir.html.twig", array(
             'expediente' => $expediente,
             'facturas' => $factura,
             'fecha' => $fechaActual,
-            'factures' => $facture,
-           // 'servicios' => $servicio,
             'delete_form' => $deleteForm->createView()
         ));
     }                   }
