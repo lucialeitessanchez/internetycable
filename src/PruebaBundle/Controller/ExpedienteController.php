@@ -156,7 +156,7 @@ class ExpedienteController extends Controller
         $fechaActual = date('d M Y');
         $fechaActual = $this->fechaCastellano($fechaActual);
 
-        if($cantidadFacturas == 1){
+        if($cantidadFacturas == 1){ // si en el expediente tengo una sola factura, que puede tener uno o muchos servicios eso le importa al front
          
         return $this->render("expediente/imprimir.html.twig", array(
             'expediente' => $expediente,
@@ -164,87 +164,17 @@ class ExpedienteController extends Controller
             'fecha' => $fechaActual,
             'delete_form' => $deleteForm->createView()
         ));
-    }                   }
-
-
-
-
-        //$repo1 = $this->getDoctrine()->getManager()->getRepository(Factura::class)->findAll(); //me traigo todos los objetos factura de la bd
-       // $facturas = $repo1->find(($expediente->getFacturas())); // tengo el conjunto de facturas relacionadas con este expediente
-       // $cantidadFacturas = sizeof($facturas->getId()); // le cuento los id asi se cuantas hay
-
-
-        //$repo2 = $this->getDoctrine()->getManager()->getRepository(servicio::class)->findAll();
-       // $servicios = $repo2->find(($facturas->getService())); //tengo el o los servicios que tiene la factura
-
-        //llamo a la funcion para guardar la fecha en español
-
-        //primero me tengo que fijar la cantidad de facturas, despues la cantidad de servicios
-       /*
-
-        if ($cantidadFacturas == 1) {
-            $cantidadServicios = sizeof($repo2->getId());
-            if ($cantidadServicios == 1) { */
-                //si entra aca, el expediente tiene una factura de un solo servicio
-              /*  if (($servicios->getDireccion()) == "CORRIENTES 2879") {
-                    return $this->render('@Prueba/Expediente/imprimirAca.html.twig', array(
-                            'expediente' => $expediente,
-                            'servicio' => $servicios,
-                            'factura' => $facturas,
-                            'fecha' => $fechaActual,
-                            'delete_form' => $deleteForm->createView()
-                        )
-
-                    );
-                } else {
-                    //si no muestra el archivo de dependencia de esta secretaria
-
-                    return $this->render("expediente/imprimir.html.twig", array(
-                        'expediente' => $expediente,
-                        'facturas' => $factura,
-                        'fecha' => $fechaActual,
-                        'delete_form' => $deleteForm->createView()
-                    ));
-                } */
-                                         //   }
-            //me tengo que fijar que todos sean de la misma direccion
-            //el caso que tiene una factura pero muchos servicios
-
-      /*  }
-        else{ //me fijo si la empresa es la misma y mando todo junto
-            return $this->render('@Prueba/Expediente/variosServicios.html.twig', array(
-                'expediente' => $expediente,
-                'servicios' => $servicios,
-                'facturas' => $facturas,
-                'fecha' => $fechaActual,
-                'delete_form' => $deleteForm->createView()
-            ));
-        }*/
-
-  //  }
-       /* if(  (($servicio->getDireccion()) == "CORRIENTES 2879" )){ // pregunto si es de esa calle por el formato
-            return $this->render('expediente/imprimirAca.html.twig', array(
-                'expediente' => $expediente,
-                'servicio'=>$servicio,
-                'facturas'=>$factura,
-                'fecha'=>$fechaActual,
-                //'factures'=>$factures,
-                'delete_form' => $deleteForm->createView()
-            ));
-                                                                }
-
-        else{ //si no muestra el archivo de dependencia de esta secretaria
-        return $this->render('expediente/imprimir.html.twig', array(
+    }                   
+    if($cantidadFacturas > 1){
+        return $this->render("expediente/imprimirVariasFact.html.twig", array(
             'expediente' => $expediente,
-            'servicio'=>$servicio,
-            'facturas'=>$factura,
-            'fecha'=>$fechaActual,
-            //'factures'=>$factures,
+            'facturas' => $factura,
+            'fecha' => $fechaActual,
             'delete_form' => $deleteForm->createView()
-                                                                        ));
-            }*/
+        ));
+    }
 
-
+}
 
 
 }

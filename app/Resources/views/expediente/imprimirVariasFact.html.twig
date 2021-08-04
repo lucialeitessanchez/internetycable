@@ -1,0 +1,78 @@
+{% extends 'baseVista.html.twig' %}
+{% block body  %}
+
+    {% if  facturas.service | length > 1  %}  {# hay mas de un servicio y mas de una factura #}
+
+
+
+    {% else %} {# hay varias facturas pero un solo servicio por factura #}
+<body id="impresion">
+
+    <br><br><br><br><br><br>
+        <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+    </tr>
+    <tr>
+        <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
+
+
+    </tr>
+    <tr>
+        <ul><ul>
+        <br><br> 
+        <p class="text-center">
+        <div id="impresion1">
+                <br><br><br><ul>
+                Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversisdad, y sus dependencias,
+    en el siguiente cuadro:
+        
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Factura n</th>  
+      <th scope="col">Numero de referencia</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Tipo de servicio</th>
+    </tr>
+        <tbody>
+        
+        {% for factura in facturas %}
+    <tr>
+      <th scope="row"> {{ factura.numFactura }}</th>
+      <td> {{ factura.service[0].referencia }}</td>
+      <td>{{ factura.service[0].direccion }}</td>
+      <td>{{ factura.service[0].ciudad }}</td>
+      <td>{{ factura.service[0].tipo }}</td>
+      
+    </tr>
+  </thead>
+{% endfor %}
+
+
+
+
+    <br><br><p>    <select name="select">
+        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
+        <option value="value2" >Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+    </select>
+    </p></div>
+    </ul></ul>
+</body>
+
+    <footer  style="width:100%; margin-left: 0px;"  >
+
+
+    <div class="Informatica-SEIyG" style="background-color: #0d47a1;">
+        <div class="container-fluid" style="background-color: #0d47a1; color: #bbdefb;">
+            <ul><img src="/imagenes/marca-footer.png" height="20"></ul> <div align="center" <i><b>Sectorial de Informática - Ministerio de Igualdad, Género y Diversidad</b>
+                <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
+            </div>
+        </div>
+    </footer>
+
+
+
+</html>
+    
+{% endblock %}
