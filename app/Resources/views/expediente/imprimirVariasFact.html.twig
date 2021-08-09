@@ -1,7 +1,7 @@
 {% extends 'baseVista.html.twig' %}
 {% block body  %}
 
-    {% if  facturas.service | length > 1  %}  {# hay mas de un servicio y mas de una factura #}
+    {% if  facturas[0].service | length > 1  %}  {# hay mas de un servicio y mas de una factura #}
 
 
 
@@ -22,7 +22,7 @@
         <p class="text-center">
         <div id="impresion1">
                 <br><br><br><ul>
-                Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversisdad, y sus dependencias,
+                Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias,
     en el siguiente cuadro:
         
 <table class="table">
@@ -33,6 +33,7 @@
       <th scope="col">Dirección</th>
       <th scope="col">Ciudad</th>
       <th scope="col">Tipo de servicio</th>
+      <th scope="col">Compañia</th>
     </tr>
         <tbody>
         
@@ -43,6 +44,7 @@
       <td>{{ factura.service[0].direccion }}</td>
       <td>{{ factura.service[0].ciudad }}</td>
       <td>{{ factura.service[0].tipo }}</td>
+      <td>{{ factura.service[0].compania }}</td>
       
     </tr>
   </thead>
@@ -74,5 +76,5 @@
 
 
 </html>
-    
+    {% endif %}
 {% endblock %}
