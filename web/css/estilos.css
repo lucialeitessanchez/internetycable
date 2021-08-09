@@ -20,13 +20,13 @@ body {
     background-color: #7d5fa5;
 }
 
-#banner{ /* la imagen de la secretaria se amolda a todas las pantallas */
+#banner{ /* la imagen del ministerio se amolda a todas las pantallas */
 
-    width: 96%;
+    width: 70%;
     max-width: 960px;
     margin: 0 auto;
 
-    width: 100%;
+    width: 50%;
     height: auto;
 
 }
@@ -39,6 +39,8 @@ h1, h2, h3, h4, h5, h6,
     font-weight: 500;
     line-height: 1.2;
     color: #f0f0f0; }
+
+   
 
 .fixed-top {
     background-repeat: repeat-x;
@@ -59,8 +61,6 @@ h1, h2, h3, h4, h5, h6,
     border-bottom: 0; }
 
 footer { /* el footer prolijo*/
-    background-image: url("https://www.santafe.gov.ar/assets/standard/images/marca-footer.png") ;
-    background-color: black;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -122,6 +122,8 @@ a { /* este es el color del link*/
 #impresion{
     color:black;
     background: white;
+    
+    
 
 }
 
@@ -139,6 +141,32 @@ table thead {
 
 
 
-
+/* TOPNAV es el navbar de los dif menu*/
+.topnav {
+    background-color:none;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
 
 

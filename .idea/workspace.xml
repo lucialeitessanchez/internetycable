@@ -21,9 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/config/parameters.yml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/parameters.yml.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Entity/User.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/prueba.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/factura/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" afterDir="false" />
+>>>>>>> origin/parte2
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +43,9 @@
       <executable path="composer" />
     </execution>
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../internetycable\exportToHTML" />
+  </component>
   <component name="Git.Pull.Settings">
     <option name="BRANCH" value="master" />
   </component>
@@ -45,7 +55,13 @@
         <option value="lucialeitessanchez &lt;lucialeitessanchez@gmail.com&gt;" />
       </list>
     </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="a66a57ba1e413afd79795a25ad2f3027f3e1b587" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="KEEP" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -116,7 +132,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/imagenes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Resources/views/expediente" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -128,20 +144,24 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\app\Resources\views\expediente" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\web\imagenes" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Servicios" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources\views\Default" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\web\imagenes" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\web" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle\Resources" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src\PruebaBundle" />
       <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\src" />
-      <recent name="C:\Users\Adminitrador\PhpstormProjects\internetycable\web\imagenes" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.internetycable">
+  <component name="RunManager" selected="JavaScript Debug.imprimirAca.html.twig">
+    <configuration name="imprimirAca.html.twig" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/internetycable/app/Resources/views/expediente/imprimirAca.html.twig" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <configuration name="internetycable" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner directory="$PROJECT_DIR$" />
       <method v="2" />
@@ -152,6 +172,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.imprimirAca.html.twig" />
         <item itemvalue="PHPUnit.internetycable" />
       </list>
     </recent_temporary>
@@ -236,8 +257,44 @@
       <workItem from="1617041475307" duration="2822000" />
       <workItem from="1617647243822" duration="8081000" />
       <workItem from="1617737100014" duration="9132000" />
+<<<<<<< HEAD
       <workItem from="1617905781362" duration="4382000" />
       <workItem from="1618004562136" duration="1141000" />
+=======
+      <workItem from="1617905781362" duration="4311000" />
+      <workItem from="1618607817626" duration="1957000" />
+      <workItem from="1618861661983" duration="3305000" />
+      <workItem from="1619038167870" duration="4535000" />
+      <workItem from="1619116342113" duration="5746000" />
+      <workItem from="1619212329050" duration="2324000" />
+      <workItem from="1619464304145" duration="4020000" />
+      <workItem from="1619726878928" duration="2011000" />
+      <workItem from="1620076563411" duration="2151000" />
+      <workItem from="1620326710761" duration="3043000" />
+      <workItem from="1620766731597" duration="309000" />
+      <workItem from="1621352633152" duration="5093000" />
+      <workItem from="1621522884413" duration="5639000" />
+      <workItem from="1621623781464" duration="1200000" />
+      <workItem from="1622477306550" duration="1411000" />
+      <workItem from="1622829477195" duration="1529000" />
+      <workItem from="1623351866871" duration="756000" />
+      <workItem from="1623425894979" duration="2071000" />
+      <workItem from="1623685811719" duration="4816000" />
+      <workItem from="1623775380201" duration="1187000" />
+      <workItem from="1623856865322" duration="12342000" />
+      <workItem from="1624551652665" duration="1035000" />
+      <workItem from="1624636737737" duration="5389000" />
+      <workItem from="1624892117340" duration="4612000" />
+      <workItem from="1624979537513" duration="7369000" />
+      <workItem from="1625067321607" duration="3491000" />
+      <workItem from="1625511913124" duration="2448000" />
+      <workItem from="1625755968190" duration="8501000" />
+      <workItem from="1626101088016" duration="6950000" />
+      <workItem from="1626186697625" duration="8327000" />
+      <workItem from="1626275456996" duration="8286000" />
+      <workItem from="1626965384076" duration="15065000" />
+      <workItem from="1627674533199" duration="13745000" />
+>>>>>>> origin/parte2
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
@@ -267,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608324852090</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="cambios de relaciones identidades">
+      <created>1624895012645</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624895012645</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +355,7 @@
     <MESSAGE value="segundo comit reacomodo en windows" />
     <MESSAGE value="TERCER comit todo lo referenciado a la base d datos&#10;local" />
     <MESSAGE value="anda la relacion entre expediente y servicio" />
-    <option name="LAST_COMMIT_MESSAGE" value="anda la relacion entre expediente y servicio" />
+    <MESSAGE value="cambios de relaciones identidades" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios de relaciones identidades" />
   </component>
 </project>

@@ -5,8 +5,10 @@ namespace PruebaBundle\Controller;
 use PruebaBundle\Entity\servicio;
 use PruebaBundle\Entity\Expediente;
 use PruebaBundle\Entity\Factura;
+use PruebaBundle\PruebaBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 
 /**
  * Expediente controller.
@@ -114,7 +116,7 @@ class ExpedienteController extends Controller
      *
      * @param Expediente $expediente The expediente entity
      *
-     * @return \Symfony\Component\Form\Form The form
+     * @return \Symfony\Component\Form\FormInterface The form
      */
     private function createDeleteForm(Expediente $expediente)
     {
@@ -139,30 +141,40 @@ class ExpedienteController extends Controller
         return $nombredia." ".$numeroDia." de ".$nombreMes." de ".date('Y');
     }
 
-    public function imprimirAction(Expediente $expediente) {
+    public function imprimirAction(Expediente $expediente)
+    {
         $deleteForm = $this->createDeleteForm($expediente);
 
+        //aca obtengo las facturas que tiene el expediente
+        $exp = $this->getDoctrine()->getRepository('PruebaBundle:Expediente')->find($expediente);
+        $factura = $exp->getFacturas();
 
-        //le pido a la base de datos los objetos servicio
-         $repository = $this->getDoctrine()->getRepository(servicio::class);
-         $servicio = $repository->find(($expediente->getService()));//le pido mediante el id que tengo en expediente de servicio que busque esa instancia de servicio
+    
 
-
-
-        //le pido a la base de datos los objetos factura
-        $factura = $this->getDoctrine()->getRepository(Factura::class)->findAll();
-        //$factura = $repository2->find(($servicio->getFacturas())); // tengo el conjunto de facturas relacionadas con ese servicio
+        $cantidadFacturas =sizeof($factura);//tamaño del objeto factura/s
 
         $fechaActual = date('d M Y');
-        $fechaActual = $this->fechaCastellano($fechaActual); //llamo a la funcion para guardar la fecha en español
+        $fechaActual = $this->fechaCastellano($fechaActual);
 
-        return $this->render('expediente/imprimir.html.twig', array(
+        if($cantidadFacturas == 1){ // si en el expediente tengo una sola factura, que puede tener uno o muchos servicios eso le importa al front
+         
+        return $this->render("expediente/imprimir.html.twig", array(
             'expediente' => $expediente,
-            'servicio'=>$servicio,
-            'facturas'=>$factura,
-            'fecha'=>$fechaActual,
+            'facturas' => $factura,
+            'fecha' => $fechaActual,
             'delete_form' => $deleteForm->createView()
-                                                                        )
+        ));
+    }                   
+    if($cantidadFacturas > 1){
+        return $this->render("expediente/imprimirVariasFact.html.twig", array(
+            'expediente' => $expediente,
+            'facturas' => $factura,
+            'fecha' => $fechaActual,
+            'delete_form' => $deleteForm->createView()
+        ));
+    }
 
-        );}
+}
+
+
 }

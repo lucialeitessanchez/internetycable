@@ -7,8 +7,10 @@
                 <h2>No hay facturas relacionadas con este expediente</h2>
 
             </ul>
-
-            <div align="center">
+            <tr>
+        <ul><ul>
+        <br><br>
+        
             <div class="btn-group">
                     <a href="{{ path('expediente_new') }}" class="btn btn-primary active" aria-current="page">Crear nuevo expediente</a>
                     <a href="{{ path('prueba_homepage') }}" class="btn btn-primary">Volver al menú principal</a>
@@ -16,11 +18,121 @@
             </div>
         </nav>
 
-
     {% else %}
+
 <body id="impresion">
 
+{% if  facturas[0].service|length > 1  %}  {# si hay mas de un servicio en la factura, arma el cuadro #}
 
+<br><br><br><br><br><br>
+        <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+    </tr>
+    <tr>
+        <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
+
+
+    </tr>
+    <br><br><br>
+                
+
+<br>
+<div>
+
+                
+            Se Informa que corresponde a la factura nro {% for factura in facturas %} {{ factura }} 
+            correspondiente a los servicios detallados en el cuadro siguiente prestados a este Ministerio de Igualdad,Genero y Diversidad,
+            y sus dependencias pertenecientes al periodo {{ factura.periodo }} {% endfor %}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Numero de referencia</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Ciudad</th>
+      <th scope="col">Tipo de servicio</th>
+    </tr>
+        <tbody>
+        
+        {% for service in facturas[0].service %}
+    <tr>
+      <th scope="row"> {{ service.referencia }}</th>
+      <td>{{ service.direccion }}</td>
+      <td>{{ service.ciudad }}</td>
+      <td>{{ service.tipo }}</td>
+      
+    </tr>
+  </thead>
+{% endfor %}
+</div>
+
+
+    <br><br><br><br><p> <select name="select">
+        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
+        <option value="value2">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">     Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+    </select>
+    </p></ul></ul></tr>
+</ul>
+</body>
+
+    <footer  style="width:100%; margin-left: 0px;"  >
+
+
+    <div class="container">
+            <ul><img src="/imagenes/marca-footer.png" height="30"></ul> <div align="center"><i><b>Sectorial de Informática - Ministerio de Igualdad, Género y Diversidad</b>
+                <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
+        </div>
+    </footer>
+
+
+
+{% elseif facturas[0].service[0].direccion == "CORRIENTES 2879"  %}  {# si la direccion es la del ministerio usa "este" #}
+
+<br><br><br><br><br><br>
+        <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+    </tr>
+    <tr>
+        <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
+
+
+    </tr>
+<ul><ul><ul>
+<p class="text-center"><th>
+                <br><br><br>
+{% for factura in facturas %}
+            Se Informa que corresponde a la factura nro {% for factura in facturas %} {{ factura}} {% endfor %} por el Servicio de {{ factura.service[0].tipo }} del período de
+   <b>  {{ factura.periodo }}     </b> 
+                prestado por la empresa {{ factura.service[0].compania }} en este
+                Ministerio de Igualdad, Género y Diversidad de calle {{ factura.service[0].direccion }}  de la ciudad de {{ factura.service[0].ciudad }}
+                con el nro de referencia:  <b> {{ factura.service[0].referencia }} </b> </th> {% endfor %}
+            <td> </td>.
+
+
+
+
+
+
+
+
+    <br><br><p>   <p class="text-center"> <select name="select">
+        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
+        <option value="value2">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">     Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+    </select>
+    </p></ul></ul></tr>
+</ul></ul> </ul> </ul>
+</body>
+
+    <footer  style="width:100%; margin-left: 0px;"  >
+
+
+    <div class="container">
+            <ul><img src="/imagenes/marca-footer.png" height="30"></ul> <div align="center"><i><b>Sectorial de Informática - Ministerio de Igualdad, Género y Diversidad</b>
+                <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
+        </div>
+    </footer>
+
+{% else %} {# si tiene un servicio y es una dependencia arma este #}
     <br><br><br><br><br><br>
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
     </tr>
@@ -29,59 +141,42 @@
 
 
     </tr>
-    <tr>
-        <ul><ul>
-        <br><br>
-        <p class="text-center"><th>
-                <br><br><br><ul>
-        <form name="f1">Se Informa que corresponde a la factura nro <select name=pais onchange="facturas_dif()">
-                <option value="0" selected>Seleccione factura
-                    <ul>{% for factura in facturas %}
-                    <option >{{ factura.numFactura }}{% endfor %}</ul></option>
-        </select></form>por el Servicio de {{ servicio.tipo }} del período de <select name="meses">
-             <option value="1">Enero 2021</option>
-                <option value="value2">Febrero 2021</option>
-                <option value="value3">Marzo de 2021</option>
-                <option value="value4">Abril de 2021</option>
-                <option value="value5">Mayo de 2021</option>
-                <option value="value6">Junio de 2021</option>
-                <option value="value7">Julio de 2021</option>
-                <option value="value8">Agosto de 2021</option>
-                <option value="value9">Septiembre de 2021</option>
-                <option value="value10">Octubre de 2021</option>
-                <option value="value11">Noviembre de 2021</option>
-                <option value="value12">Diciembre de 2021</option>
-                <option value="value13">Noviembre de 2020</option>
-                <option value="value14">Diciembre de 2020</option></b>
-            </select> prestado por la empresa {{ servicio.compania }} en la dependencia de esta
-            Secretaría de Estado de Igualdad y Género de calle {{ servicio.direccion }}  de la ciudad de {{ servicio.ciudad }}
-            con el nro de referencia:</th>
-        <b><td> {{ expediente.service}}</td></b>.
-             </tr>
+<ul><ul><ul>
+<p class="text-center"><th>
+                <br><br><br>
+{% for factura in facturas %}
+            Se Informa que corresponde a la factura nro {% for factura in facturas %} {{ factura}} {% endfor %} por el Servicio de {{ factura.service[0].tipo }} del período de
+   <b>  {{ factura.periodo }}     </b> 
+                prestado por la empresa {{ factura.service[0].compania }} en la dependecia de este
+                Ministerio de Igualdad, Género y Diversidad de calle {{ factura.service[0].direccion }}  de la ciudad de {{ factura.service[0].ciudad }}
+                con el nro de referencia:  <b> {{ factura.service[0].referencia }} </b> </th> {% endfor %}
+            <td> </td>.
 
 
 
 
 
-        <br><br><p>    <select name="select">
+
+
+
+    <br><br><p>   <p class="text-center"> <select name="select">
         <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
-        <option value="value2" >Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
-        <option value="value3">Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+        <option value="value2">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">     Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
     </select>
-    </p></ul></ul>
-    </ul></ul>
+    </p></ul></ul></tr>
+</ul></ul> </ul> </ul>
 </body>
 
     <footer  style="width:100%; margin-left: 0px;"  >
 
 
-    <div class="Informatica-SEIyG" style="background-color: #0d47a1;">
-        <div class="container-fluid" style="background-color: #0d47a1; color: #bbdefb;">
-            <ul><img src="/imagenes/marca-footer.png" height="20"></ul> <div align="center" <i><b>Sectorial de Informática - Secretaría de Estado de Igualdad y Género</b>
+    <div class="container">
+            <ul><img src="/imagenes/marca-footer.png" height="30"></ul> <div align="center"><i><b>Sectorial de Informática - Ministerio de Igualdad, Género y Diversidad</b>
                 <br>Corrientes 2879 . (3000) Santa Fe - Tel: (0342) 4572888 / 4589468 </i>
-            </div>
         </div>
-    </div></footer>
+    </footer>
 </html>
+     {% endif %}
      {% endif %}
 {% endblock %}

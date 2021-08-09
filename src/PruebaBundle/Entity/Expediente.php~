@@ -37,11 +37,9 @@ class Expediente
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="servicio", inversedBy="expedientes")
-     * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
-     */
-    private $service;
-
+    * @ORM\OneToMany(targetEntity="Factura", mappedBy="expediente")
+    */
+    private $facturas;
 
     /**
      * Get id
@@ -102,61 +100,54 @@ class Expediente
         return $this->estado;
     }
 
-
-    /**
-     * Set service
-     *
-     * @param \PruebaBundle\Entity\servicio $service
-     *
-     * @return Expediente
-     */
-    public function setService(\PruebaBundle\Entity\servicio $service = null)
-    {
-        $this->service = $service;
-
-        return $this;
-    }
-
-    /**
-     * Get service
-     *
-     * @return \PruebaBundle\Entity\servicio
-     */
-    public function getService()
-    {
-        return $this->service;
-    }
+  
+    
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->service = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->facturas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add service.
+     * Add factura.
      *
-     * @param \PruebaBundle\Entity\servicio $service
+     * @param \PruebaBundle\Entity\Factura $factura
      *
      * @return Expediente
      */
-    public function addService(\PruebaBundle\Entity\servicio $service)
+    public function addFactura(\PruebaBundle\Entity\Factura $factura)
     {
-        $this->service[] = $service;
+        $this->facturas[] = $factura;
 
         return $this;
     }
 
     /**
-     * Remove service.
+     * Remove factura.
      *
-     * @param \PruebaBundle\Entity\servicio $service
+     * @param \PruebaBundle\Entity\Factura $factura
      *
      * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
-    public function removeService(\PruebaBundle\Entity\servicio $service)
+    public function removeFactura(\PruebaBundle\Entity\Factura $factura)
     {
-        return $this->service->removeElement($service);
+        return $this->facturas->removeElement($factura);
     }
+
+    /**
+     * Get facturas.
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFacturas()
+    {
+        return $this->facturas;
+    }
+    public function __toString(){
+        return strval($this->getNumeroExpe());
+    }
+
+
 }

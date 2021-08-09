@@ -4,8 +4,11 @@
     <ul>
     <h1>Creación de Factura </h1>
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="mb-3 row"><label for="staticEmail" class="col-sm-2 col-form-label">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+            </label>
+        </div>
         <input type="submit" value="Crear" />
     {{ form_end(form) }}
 

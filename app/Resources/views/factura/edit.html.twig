@@ -4,11 +4,27 @@
    <ul>
     <h1>Editar Factura</h1>
 
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Editar" />
-    {{ form_end(edit_form) }}
 
+       <div class="mb-3 row"><label for="staticEmail" class="col-sm-2 col-form-label">
+               {{ form_start(edit_form) }}
+               {{ form_widget(edit_form) }}
+           </label>
+       </div>
+
+
+
+       <div class="btn-group" role="group" aria-label="Basic example">
+       <input type="submit" value="Editar" />{{ form_end(edit_form) }}
+
+       {{ form_start(delete_form) }}
+
+       <input type="submit" value="Eliminar">
+       {{ form_end(delete_form) }}
+       </div>
+    
+    
+    
+    
     <ul>
 
             <a href="{{ path('factura_index') }}">Volver al listado</a>
@@ -16,9 +32,7 @@
             <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
 
 
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Eliminar">
-            {{ form_end(delete_form) }}
+
     </ul>
     </ul>
 {% endblock %}

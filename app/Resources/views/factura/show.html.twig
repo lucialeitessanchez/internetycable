@@ -4,7 +4,7 @@
   <ul>
     <h1>Factura</h1>
 
-    <table>
+    <table class="table table-borderless">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -15,6 +15,10 @@
                 <td>{{ factura.numFactura }}</td>
             </tr>
             <tr>
+                <th>Periodo de facturacion</th>
+                <td>{{ factura.periodo }}</td>
+            </tr>
+            <tr>
                 <th>Fecha de vencimiento</th>
                 <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date('Y-m-d') }}{% endif %}</td>
             </tr>
@@ -23,28 +27,33 @@
                 <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
             </tr>
             <tr>
-                <th>Servicio</th>
-                {%for factura in factura%}
-                <td> {{ factura.service }}</td>{% endfor %}
+                <th>Numero de referencia servicio/s  </th>
+                <td>{%for service in factura.service  %}
+                 {{ service.referencia }}
+                 {% endfor %}</td>
             </tr>
-
+            <tr>
+                <th>Expediente</th>
+                <td>{{ factura.expediente }}</td>
+            </tr>
         </tbody>
     </table>
 
     <ul>
 
-            <a href="{{ path('factura_index') }}">Volver al listado de facturas</a>
-            <br>
-            <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-outline-primary">Editar </a>
 
-        <br>
-        <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-primary">Editar</a>
-        <a class="btn btn-primary">
-        {{ form_start(delete_form) }}
-        Borrar
-        {{ form_end(delete_form) }}
-        </a>
+            <a class="btn btn-secondary"></class> {{ form_start(delete_form) }} Eliminar
+                {{ form_end(delete_form) }} </a>
+
+            <a href="{{ path('factura_index') }}" class="btn btn-primary active" role="button" aria-pressed="true">Volver al listado</a>
+        
+             <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary active" role="button" aria-pressed="true">Volver al menú principal</a>
+        </div>
+ 
     </ul>
+
 
     </ul>
 {% endblock %}

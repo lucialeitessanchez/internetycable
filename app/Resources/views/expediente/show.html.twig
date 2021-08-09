@@ -4,7 +4,7 @@
     <ul>
     <h1>Expediente</h1>
 
-    <table>
+    <table class="table table-borderless">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -19,22 +19,26 @@
                 <td>{{ expediente.estado }}</td>
             </tr>
             <tr>
-                <th>Numero de referencia del servicio</th>
-                <td>  {{ expediente.service }}</td>
+                <th>Factura</th>
+                <td>{% for factura in expediente.facturas %}
+                {{ factura.numFactura }}
+                {% endfor %}</td>
             </tr>
         </tbody>
     </table>
 
     <ul>
 
-            <a href="{{ path('expediente_index') }}">Volver al listado</a>
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}" class="btn btn-outline-primary">Editar </a>
 
-            <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}">Editar</a>
+            <a class="btn btn-secondary"></class> {{ form_start(delete_form) }} Eliminar
+                {{ form_end(delete_form) }} </a>
 
-            {{ form_start(delete_form) }}
-                <br>
-                 <input type="submit" value="Eliminar">
-            {{ form_end(delete_form) }}
+            <a href="{{ path('expediente_index') }}" class="btn btn-primary active" role="button" aria-pressed="true">Volver al listado</a>
+        
+             <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary active" role="button" aria-pressed="true">Volver al menú principal</a>
+        </div>
     </ul>
     </ul>
 {% endblock %}

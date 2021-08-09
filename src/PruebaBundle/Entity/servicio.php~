@@ -69,7 +69,7 @@ class servicio
      */
     private $tipo;
 
-    /**
+    /** usarlo con 1 si esta activo 0 dado de baja o cambio numreferencia
      * @var bool
      *
      * @ORM\Column(name="estado", type="boolean")
@@ -78,12 +78,7 @@ class servicio
 
 
     /**
-     * @ORM\ManyToMany(targetEntity="Expediente", mappedBy="service")
-     */
-    private $expedientes;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Factura", mappedBy="service")
+     * @ORM\ManyToMany(targetEntity="Factura", mappedBy="service", cascade={"all"}, orphanRemoval=true)
      */
     private $facturas;
 

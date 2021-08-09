@@ -31,9 +31,16 @@ class Factura
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechaVencimiento", type="datetime")
+     * @ORM\Column(name="fechaVencimiento", type="date")
      */
     private $fechaVencimiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="periodo", type="string", length=25)
+     */
+    private $periodo;
 
     /**
      * @var bool
@@ -42,8 +49,16 @@ class Factura
      */
     private $pago;
 
+     /**
+    * @ORM\ManyToOne(targetEntity="Expediente", inversedBy="facturas")
+    * @ORM\JoinColumn(name="id_expediente", referencedColumnName="id")
+    */
+    private $expediente;
+
+
+
     /**
-     * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas")
+     * @ORM\ManyToMany(targetEntity="servicio", inversedBy="facturas", orphanRemoval=true)
      * @ORM\JoinColumn(name="id_servicio", referencedColumnName="id")
      */
     private $service;
@@ -189,5 +204,81 @@ class Factura
 
     public function __toString(){
         return strval($this->getNumFactura());
+    }
+
+    /**
+     * Set periodo.
+     *
+     * @param string $periodo
+     *
+     * @return Factura
+     */
+    public function setPeriodo($periodo)
+    {
+        $this->periodo = $periodo;
+
+        return $this;
+    }
+
+    /**
+     * Get periodo.
+     *
+     * @return string
+     */
+    public function getPeriodo()
+    {
+        return $this->periodo;
+    }
+
+
+
+    /**
+     * Set expediente.
+     *
+     * @param \PruebaBundle\Entity\Expediente|null $expediente
+     *
+     * @return Factura
+     */
+    public function setExpediente(\PruebaBundle\Entity\Expediente $expediente = null)
+    {
+        $this->expediente = $expediente;
+
+        return $this;
+    }
+
+    /**
+     * Get expediente.
+     *
+     * @return \PruebaBundle\Entity\Expediente|null
+     */
+    public function getExpediente()
+    {
+        return $this->expediente;
+    }
+
+    /**
+     * Add expediente.
+     *
+     * @param \PruebaBundle\Entity\Factura $expediente
+     *
+     * @return Factura
+     */
+    public function addExpediente(\PruebaBundle\Entity\Factura $expediente)
+    {
+        $this->expediente[] = $expediente;
+
+        return $this;
+    }
+
+    /**
+     * Remove expediente.
+     *
+     * @param \PruebaBundle\Entity\Factura $expediente
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
+     */
+    public function removeExpediente(\PruebaBundle\Entity\Factura $expediente)
+    {
+        return $this->expediente->removeElement($expediente);
     }
 }

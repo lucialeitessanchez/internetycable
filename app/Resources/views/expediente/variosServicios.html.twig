@@ -1,0 +1,81 @@
+{% extends 'baseVista.html.twig' %}
+{% block body  %}
+<br><br><br><br><br><br>
+<p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+</tr>
+<tr>
+    <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
+
+
+</tr>
+
+<p class="text-center"><th>
+        <br><br><br><ul>
+
+
+    Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversisdad, y sus dependencias por la empresa {{ servio.compania }},
+    en el siguiente cuadro:
+
+    <table class="table">
+        <tbody>
+        <tr>
+            {% for factura in facturas %}
+                {% for servio in servicios %}
+            <th>Nro factura</th>
+            <td>{{ factura.numFactura }}</td>
+        </tr>
+        <tr>
+            <th>Tipo de servicio</th>
+            <td>{{ servicio.tipo }}</td>
+        </tr>
+        <tr>
+            <th>Referencia de pago</th>
+            <td>{{ servicio.referencia }}</td>
+        </tr>
+        <tr>
+            <th>Domicilio</th>
+            <td>{{ servocio.direccion }}</td>
+        </tr>
+         {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
+
+<br><br>
+
+    <select name="select">
+        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
+        <option value="value2" >Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="value3">Pase a la Subsecretaría de Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+    </select>
+    </p></ul></ul>
+</ul></ul>
+
+
+</ul></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <footer>
+        <div class="container"><div class="row">
+
+                <div class="col-sm-12 col-md-4">
+
+                    <div class="stg-logos" style="text-align:center">
+                        <img src="//www.santafe.gob.ar/assets/standard/images/marca-footer.png" alt="Santa Fe" style="margin-bottom:10px;">
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-12 col-md-4 contact-data-footer" align="center">
+                    <p>Sectorial de Informática
+                        <br>Ministerio de Igualdad, Género y Diversidad
+                    </p>
+
+                </div>
+
+            </div></div>
+    </footer>
+
+{% endblock %}

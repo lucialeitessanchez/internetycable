@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
 
+
 {% block body %}
+<div class="topnav">
+  <a class="active" href="{{ ('servicio') }}">Servicios</a>
+  <a href="{{ path('servicio_new') }}">Nuevo servicio</a>
+  <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
+  <a href="{{ ('factura') }}">Menu Factura</a>
+</div>
     <ul>
-    <h1>Servicios </h1>
-
-
+  
         <table class="table table-borderless">
         <thead>
             <tr>
@@ -13,6 +18,7 @@
                 <th>Numero de referencia</th>
                 <th>Compañia</th>
                 <th>Tipo servicio</th>
+                <th>Num telefono</th>
                 <th>Dirección</th>
                 <th>Ciudad</th>
                 <th><th>Acciones</th></th>
@@ -25,6 +31,7 @@
                 <td>{{ servicio.referencia }}</td>
                 <td>{{ servicio.compania }}</td>
                 <td> {{ servicio.tipo }}</td>
+                <td> {{ servicio.numTelefono }}</td>
                 <td>{{ servicio.direccion }}</td>
                 <td>{{ servicio.ciudad }}</td>
                 <td>
@@ -46,8 +53,13 @@
     <ul>
         <br>
 
-            <a href="{{ path('servicio_new') }}">Alta servicio</a>
-            <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{{ path('servicio_new') }}" class="btn btn-primary active" role="button" aria-pressed="true">Alta servicio </a>
+        
+             <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary active" role="button" aria-pressed="true">Volver al menú principal</a>
+        </div>
+
 
     </ul>
 
