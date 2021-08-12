@@ -21,7 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="02e9983a-ccc1-4a6d-b9a2-96d59a1d808b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/baseVista.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/baseVista.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimirVariasFact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimirVariasFact.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/estilos.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,10 +129,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Resources/views/expediente" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -171,7 +178,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b04e6682-5556-4ebe-a97c-ada80c5b3be8" name="Default Changelist" comment="" />
+      <changelist id="02e9983a-ccc1-4a6d-b9a2-96d59a1d808b" name="Default Changelist" comment="" />
       <created>1606493964257</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -281,6 +288,7 @@
       <workItem from="1626275456996" duration="8286000" />
       <workItem from="1626965384076" duration="15065000" />
       <workItem from="1627674533199" duration="13745000" />
+      <workItem from="1628796532255" duration="12581000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
