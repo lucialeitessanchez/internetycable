@@ -24,7 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edef2e34-f914-490d-82a7-2133a919c3fd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +51,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="a66a57ba1e413afd79795a25ad2f3027f3e1b587" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -177,7 +177,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="02e9983a-ccc1-4a6d-b9a2-96d59a1d808b" name="Default Changelist" comment="" />
+      <changelist id="edef2e34-f914-490d-82a7-2133a919c3fd" name="Changes" comment="" />
       <created>1606493964257</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -288,6 +288,8 @@
       <workItem from="1626965384076" duration="15065000" />
       <workItem from="1627674533199" duration="13745000" />
       <workItem from="1628796532255" duration="12581000" />
+      <workItem from="1629407948798" duration="3163000" />
+      <workItem from="1629839876408" duration="1429000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>

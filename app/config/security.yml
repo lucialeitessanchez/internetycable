@@ -21,10 +21,10 @@ security:
             security: false
         admin:
 
-                # 'pattern' is a regular expression matched against the incoming
-                # request URL. If there's a match, authentication is triggered  TODO LO QUE COMIENCE CON ADMIN me abre este fire
-                pattern: ^/admin
-                http_basic: ~
+            # 'pattern' is a regular expression matched against the incoming
+            # request URL. If there's a match, authentication is triggered  TODO LO QUE COMIENCE CON ADMIN me abre este fire
+            pattern: ^/admin
+            http_basic: ~
 
         usuarios:
             pattern: ^/usuarios
