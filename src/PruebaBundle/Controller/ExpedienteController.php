@@ -157,7 +157,9 @@ class ExpedienteController extends Controller
         $fechaActual = $this->fechaCastellano($fechaActual);
 
         if($cantidadFacturas == 1){ // si en el expediente tengo una sola factura, que puede tener uno o muchos servicios eso le importa al front
-         
+
+
+
         return $this->render("expediente/imprimir.html.twig", array(
             'expediente' => $expediente,
             'facturas' => $factura,

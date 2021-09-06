@@ -23,8 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edef2e34-f914-490d-82a7-2133a919c3fd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/internetycable.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/internetycable.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/security.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/security.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +112,8 @@
       <path value="$PROJECT_DIR$/vendor/twbs/bootstrap" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/vendor/twig/extensions" />
+      <path value="$PROJECT_DIR$/vendor/tecnickcom/tcpdf" />
+      <path value="$PROJECT_DIR$/vendor/whiteoctober/tcpdf-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ksewSelrLiKywM67vvUtiwWsz7" />
@@ -289,7 +293,8 @@
       <workItem from="1627674533199" duration="13745000" />
       <workItem from="1628796532255" duration="12581000" />
       <workItem from="1629407948798" duration="3163000" />
-      <workItem from="1629839876408" duration="1429000" />
+      <workItem from="1629839876408" duration="1505000" />
+      <workItem from="1630948960566" duration="4409000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
