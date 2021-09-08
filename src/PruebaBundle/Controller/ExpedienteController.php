@@ -178,5 +178,21 @@ class ExpedienteController extends Controller
 
 }
 
+    public function transPDFAction(){
+        // You can send the html as you want
+        //$html = '<h1>Plain HTML</h1>';
+
+        // but in this case we will render a symfony view !
+        // We are in a controller and we can use renderView function which retrieves the html from a view
+        // then we send that html to the user.
+        $html = $this->renderView(
+            'Templates/template.html.twig',
+            array(
+                'someDataToView' => 'Something'
+            )
+        );
+
+        $this->returnPDFResponseFromHTML($html);
+    }
 
 }

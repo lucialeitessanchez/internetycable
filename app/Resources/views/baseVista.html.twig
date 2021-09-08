@@ -10,13 +10,13 @@
 
     <title>{% block title %}Sistema de facturas y servicios{% endblock %}</title>
     {% block stylesheets %}
-        <link href="{{ asset('css/estilos.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('css/estiloPrint.css') }}" rel="stylesheet"/>
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
 </head>
-<body>
-{% block body %}{% endblock %}
+<body id="bodyImpresion">
+{% block bodyImpresion %}{% endblock %}
 <footer  style="width:100%; margin-left: 0px;"  >
 
     <ul class="list-group list-group-horizontal">
