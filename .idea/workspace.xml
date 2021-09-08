@@ -23,12 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edef2e34-f914-490d-82a7-2133a919c3fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/web/css/estiloPrint.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/baseVista.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/baseVista.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/estilos.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/estilos.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimirVariasFact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimirVariasFact.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +293,8 @@
       <workItem from="1629407948798" duration="3163000" />
       <workItem from="1629839876408" duration="1505000" />
       <workItem from="1630948960566" duration="5353000" />
-      <workItem from="1631117973429" duration="4901000" />
+      <workItem from="1631117973429" duration="5169000" />
+      <workItem from="1631132791324" duration="88000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
