@@ -25,8 +25,11 @@
 {% if  facturas[0].service|length > 1  %}  {# si hay mas de un servicio en la factura, arma el cuadro #}
     <div id="impresion">
 <br><br><br><br><br><br>
+        {% if expediente.numeroExpe|first == 1 %} {# se fija si empieza en 1 porque viene de comunicaciones #}
+            <p class="text-end" ><b>Ref.: Expte. Nro 00{{ expediente.numeroExpe }}</b></p>
+        {% else %}
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
-
+        {% endif %}
     <tr>
         <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
 
@@ -82,7 +85,11 @@
     <div id="impresion">
 
 <br><br><br><br><br><br>
-        <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+        {% if expediente.numeroExpe|first == 1 %} {# se fija si empieza en 1 porque viene de comunicaciones #}
+            <p class="text-end" ><b>Ref.: Expte. Nro 00{{ expediente.numeroExpe }}</b></p>
+        {% else %}
+            <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+        {% endif %}
 
 
         <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
@@ -124,7 +131,11 @@
     </div>
 {% else %} {# si tiene un servicio y es una dependencia arma este #}
     <br><br><br><br><br><br>
+    {% if expediente.numeroExpe|first == 1 %} {# se fija si empieza en 1 porque viene de comunicaciones #}
+        <p class="text-end" ><b>Ref.: Expte. Nro 00{{ expediente.numeroExpe }}</b></p>
+    {% else %}
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+    {% endif %}
     </tr>
     <tr>
         <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
