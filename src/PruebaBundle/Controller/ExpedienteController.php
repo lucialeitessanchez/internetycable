@@ -186,7 +186,7 @@ class ExpedienteController extends Controller
         // We are in a controller and we can use renderView function which retrieves the html from a view
         // then we send that html to the user.
         $html = $this->renderView(
-            'Templates/template.html.twig',
+            'expediente/imprimir.html.twig',
             array(
                 'someDataToView' => 'Something'
             )

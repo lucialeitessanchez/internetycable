@@ -28,7 +28,7 @@
             <tr>
                 <td><a href="{{ path('factura_show', { 'id': factura.id }) }}">{{ factura.id }}</a></td>
                 <td>{{ factura.numFactura }}</td>
-                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('Y-m-d')}}{% endif %}</td>
+                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('d-m-Y')}}{% endif %}</td>
                 <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
                 <td>
 
