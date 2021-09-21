@@ -18,6 +18,7 @@
             <tr>
                 <th>Id</th>
                 <th>Num de factura</th>
+                <th>Num. referencia</th>
                 <th>Fecha vencimiento</th>
                 <th>Pago</th>
                 <th><th>Acciones</th></th>
@@ -28,6 +29,9 @@
             <tr>
                 <td><a href="{{ path('factura_show', { 'id': factura.id }) }}">{{ factura.id }}</a></td>
                 <td>{{ factura.numFactura }}</td>
+                <td>{%for service in factura.service  %}
+                        {{ service.referencia }}
+                    {% endfor %}</td>
                 <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('d-m-Y')}}{% endif %}</td>
                 <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
                 <td>
