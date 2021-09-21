@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new PruebaBundle\PruebaBundle(),
             new AdminBundle\AdminBundle(),
+            new WhiteOctober\TCPDFBundle\WhiteOctoberTCPDFBundle(),// registrar paquete
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

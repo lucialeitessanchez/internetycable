@@ -7,7 +7,6 @@ p{
 }
 
 tbody {
-    color: #f0f0f0;
     font-family: "PF Beau Sans Pro",sans-serif;
 }
 
@@ -17,7 +16,7 @@ body{
     font-family: "PF Beau Sans Pro",sans-serif;
     text-emphasis-color: #f0f0f0;
     text-decoration-color: #f0f0f0;
-    background-color: #7d5fa5;
+
 }
 
 .bodyImpresion{
@@ -72,7 +71,7 @@ footer { /* el footer prolijo*/
     position: absolute;
     bottom: 0;
     width: 100%;
-    color: white;
+
 
     width: 100%;
     height: 142px;
@@ -135,9 +134,7 @@ a { /* este es el color del link*/
 
 }
 
-table thead {
-    color: #fff;
-}
+
 
 .borderless table {
 

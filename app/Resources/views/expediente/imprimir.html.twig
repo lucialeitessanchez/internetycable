@@ -1,5 +1,6 @@
 {% extends 'baseVista.html.twig' %}
-{% block body%}
+
+{% block bodyImpresion %}
     <div id="impresion">
      {% if facturas == false %} {# si no hay facturas devuelve este mensaje #}
         <nav aria-label="Page navigation example">
@@ -25,8 +26,11 @@
 {% if  facturas[0].service|length > 1  %}  {# si hay mas de un servicio en la factura, arma el cuadro #}
     <div id="impresion">
 <br><br><br><br><br><br>
+        {% if expediente.numeroExpe|first == 1 %} {# se fija si empieza en 1 porque viene de comunicaciones #}
+            <p class="text-end" ><b>Ref.: Expte. Nro 00{{ expediente.numeroExpe }}</b></p>
+        {% else %}
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
-
+        {% endif %}
     <tr>
         <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
 
@@ -82,7 +86,11 @@
     <div id="impresion">
 
 <br><br><br><br><br><br>
-        <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+        {% if expediente.numeroExpe|first == 1 %} {# se fija si empieza en 1 porque viene de comunicaciones #}
+            <p class="text-end" ><b>Ref.: Expte. Nro 00{{ expediente.numeroExpe }}</b></p>
+        {% else %}
+            <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+        {% endif %}
 
 
         <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>
@@ -107,6 +115,9 @@
 
 
     <br><br><p>
+
+            Pase a la Secretaría de Planificación y Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.
+
         <p class="text-center"> <select name="select">
         <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
         <option value="value2">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
@@ -124,7 +135,11 @@
     </div>
 {% else %} {# si tiene un servicio y es una dependencia arma este #}
     <br><br><br><br><br><br>
+    {% if expediente.numeroExpe|first == 1 %} {# se fija si empieza en 1 porque viene de comunicaciones #}
+        <p class="text-end" ><b>Ref.: Expte. Nro 00{{ expediente.numeroExpe }}</b></p>
+    {% else %}
         <p class="text-end" ><b>Ref.: Expte. Nro 0{{ expediente.numeroExpe }}</b></p>
+    {% endif %}
     </tr>
     <tr>
         <div align="right"> <th>Santa Fe, {{ fecha }} </th></div>

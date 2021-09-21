@@ -157,7 +157,9 @@ class ExpedienteController extends Controller
         $fechaActual = $this->fechaCastellano($fechaActual);
 
         if($cantidadFacturas == 1){ // si en el expediente tengo una sola factura, que puede tener uno o muchos servicios eso le importa al front
-         
+
+
+
         return $this->render("expediente/imprimir.html.twig", array(
             'expediente' => $expediente,
             'facturas' => $factura,
@@ -176,5 +178,21 @@ class ExpedienteController extends Controller
 
 }
 
+    public function transPDFAction(){
+        // You can send the html as you want
+        //$html = '<h1>Plain HTML</h1>';
+
+        // but in this case we will render a symfony view !
+        // We are in a controller and we can use renderView function which retrieves the html from a view
+        // then we send that html to the user.
+        $html = $this->renderView(
+            'expediente/pruebaPDF.html.twig',
+            array(
+                'someDataToView' => 'Something'
+            )
+        );
+
+        $this->returnPDFResponseFromHTML($html);
+    }
 
 }

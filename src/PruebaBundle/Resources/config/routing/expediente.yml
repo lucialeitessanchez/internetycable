@@ -27,3 +27,8 @@ expediente_imprimir:
     path:     /{id}/imprimir
     defaults: { _controller: "PruebaBundle:Expediente:imprimir" }
     methods:  GET
+
+
+expediente_trans:
+        path: /{id}/transPDF
+        defaults: { _controller: "PruebaBundle:Expediente:transPDF" }
