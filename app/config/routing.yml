@@ -27,4 +27,3 @@ welcome:
 
 logout:
     path: /prueba/usuarios/logout
-
