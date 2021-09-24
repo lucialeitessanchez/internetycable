@@ -79,3 +79,7 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+white_october_tcpdf:
+    tcpdf:
+        k_title_magnification: 2

@@ -178,21 +178,39 @@ class ExpedienteController extends Controller
 
 }
 
-    public function transPDFAction(){
-        // You can send the html as you want
-        //$html = '<h1>Plain HTML</h1>';
-
-        // but in this case we will render a symfony view !
-        // We are in a controller and we can use renderView function which retrieves the html from a view
-        // then we send that html to the user.
-        $html = $this->renderView(
-            'expediente/pruebaPDF.html.twig',
-            array(
-                'someDataToView' => 'Something'
-            )
-        );
-
-        $this->returnPDFResponseFromHTML($html);
+    public function transPDFAction()
+    {
+        $pdf = new TCPDF('L');
+        $pdf->SetPrintHeader(true);
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+        // set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+        // set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+        // set some language-dependent strings (optional)
+        if (@file_exists(dirname(__FILE__) . '/lang/eng.php')) {
+            require_once dirname(__FILE__) . '/lang/eng.php';
+            $pdf->setLanguageArray(L);
+        }
+        // set font
+        $pdf->SetFont('helvetica', '', 8);
+        // add a page
+        $pdf->AddPage();
+        //get report data into $data variable
+        $project = $this->getServiceLocator()->get('ProjectTable');
+        $data = $project->getWsr();
+        $view = new PhpRenderer();
+        $resolver = new TemplateMapResolver();
+        //set the path of the pdf.phtml file
+        $resolver->setMap(array('PDFTemplate' => '/var/www/html/WSRAutomation/module/Application/view/application/index/pdf.phtml'));
+        $view->setResolver($resolver);
+        $viewModel = new ViewModel();
+        $viewModel->setTemplate('PDFTemplate')->setVariables(array('projects' => $data, 'view' => 'pdf'));
+        $html = $view->render($viewModel);
+        $pdf->writeHTML($html, true, 0, true, 0);
+        $pdf->Output('WsrReport.pdf', 'I');
     }
-
 }
