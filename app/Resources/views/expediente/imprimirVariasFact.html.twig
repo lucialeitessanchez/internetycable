@@ -21,7 +21,7 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">Factura n</th>
+                <th scope="col">Factura nº</th>
                 <th scope="col">Periodo</th>
                 <th scope="col">Numero de referencia</th>
                 <th scope="col">Dirección</th>
@@ -77,7 +77,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Factura n</th>  
+      <th scope="col">Factura nº</th>
+        <th scope="col">Periodo</th>
       <th scope="col">Numero de referencia</th>
       <th scope="col">Dirección</th>
       <th scope="col">Ciudad</th>
@@ -89,6 +90,7 @@
         {% for factura in facturas %}
     <tr>
       <th scope="row"> {{ factura.numFactura }}</th>
+        <td>{{ factura.periodo }}</td>
       <td> {{ factura.service[0].referencia }}</td>
       <td>{{ factura.service[0].direccion }}</td>
       <td>{{ factura.service[0].ciudad }}</td>

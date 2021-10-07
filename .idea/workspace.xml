@@ -24,11 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="edef2e34-f914-490d-82a7-2133a919c3fd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimir.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/pruebaPDF.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/pruebaPDF.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Controller/ExpedienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing/expediente.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/PruebaBundle/Resources/config/routing/expediente.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/expediente/imprimirVariasFact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/expediente/imprimirVariasFact.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -300,7 +296,8 @@
       <workItem from="1631551725603" duration="8810000" />
       <workItem from="1632247965197" duration="853000" />
       <workItem from="1632249454577" duration="74000" />
-      <workItem from="1632500728297" duration="9716000" />
+      <workItem from="1632500728297" duration="9993000" />
+      <workItem from="1633636031695" duration="328000" />
     </task>
     <task id="LOCAL-00001" summary="segundo comit reacomodo en windows">
       <created>1606504607840</created>
