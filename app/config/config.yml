@@ -77,9 +77,10 @@ swiftmailer:
     spool: { type: memory }
 
 sensio_framework_extra:
-   router:
+   router:        
         annotations: false
 
 white_october_tcpdf:
     tcpdf:
         k_title_magnification: 2
+
