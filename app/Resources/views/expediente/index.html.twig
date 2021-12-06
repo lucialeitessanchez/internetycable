@@ -42,11 +42,14 @@
         </th>
     </table>
 
-    <ul>
 
-            <a href="{{ path('expediente_new') }}">Crear nuevo expediente</a>
-            <a href="{{ path('prueba_homepage') }}">Volver al menú principal</a>
-    </ul>
+    <th><div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="{{ path('expediente_new') }}" class="btn btn-primary">Crear nuevo expediente</a>
+                        <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary"> Volver al menú principal </a>
+
+                    </div>
+                </th>
+    
     </ul>
 {% endblock %}
 
