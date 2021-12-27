@@ -97,7 +97,7 @@ class FacturaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('factura_edit', array('id' => $factura->getId()));
+            return $this->redirectToRoute('factura_index');
         }
 
         return $this->render('factura/edit.html.twig', array(

@@ -83,7 +83,7 @@ class ExpedienteController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('expediente_edit', array('id' => $expediente->getId()));
+            return $this->redirectToRoute('expediente_index');
         }
 
         return $this->render('expediente/edit.html.twig', array(

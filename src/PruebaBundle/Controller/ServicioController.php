@@ -181,7 +181,7 @@ class ServicioController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('servicio_edit', array('id' => $servici->getId()));
+            return $this->redirectToRoute('servicio_index');
         }
 
         return $this->render('@Prueba/Servicios/edit.html.twig', array(
