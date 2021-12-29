@@ -103,3 +103,9 @@ servicio_delete:
     path:     /{id}/delete
     defaults: { _controller: PruebaBundle:Servicio:delete }
     methods:  DELETE
+
+nota_pdf:
+    path:     /notaPDF/{id}
+    defaults: { _controller: PruebaBundle:Expediente:expedientePDF }
+    requirements:
+        id: '\d+'
