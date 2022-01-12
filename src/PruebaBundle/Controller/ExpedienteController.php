@@ -178,15 +178,8 @@ class ExpedienteController extends Controller
 
 }
 
- public function expedientePDFAction(Request $request,int $id){
-
-    //base de datos
-    $em = $this->getDoctrine()->getManager();
-    $expediente = $em->getRepository('PruebaBundle:Expediente')->find($id); //obtengo el objeto expediente
-    $factura = $expediente->getFacturas(); //obtengo el objeto factura relacionado a ese expediente
-
-    $numFactura = $factura->getNumFactura();
-
+function expedientePDFOne(Expediente $expediente,Factura $factura){ 
+    /******* */
     $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); //llamo a la clase que extiende tcpdf
     $pdf->AddPage();
     $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //margenes
@@ -197,7 +190,6 @@ class ExpedienteController extends Controller
         $txt="Ref.: Expte. Nro 0".$expediente->getNumeroExpe();
         
     } 
-    //echo $numE;
 
     //transformo la fecha en texto y en español
     $fechaActual = date('d M Y');
@@ -229,6 +221,102 @@ class ExpedienteController extends Controller
     //salida PDF
     $pdf->Output('nota.pdf', 'I');
 
+}
+
+ public function expedientePDFAction(Request $request,int $id){
+
+    //base de datos
+    $em = $this->getDoctrine()->getManager();
+    $expediente = $em->getRepository('PruebaBundle:Expediente')->find($id); //obtengo el objeto expediente
+    
+    $facturas = $expediente->getFacturas(); //obtengo el objeto factura relacionado a ese expediente
+   
+    $numFactura = $facturas[0]->getNumFactura(); //tengo el primer objeto si o si 
+
+    if (count($facturas)==1){
+        
+        $servicios = $facturas[0]->getService(); 
+        /******* */
+            $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); //llamo a la clase que extiende tcpdf
+            $pdf->AddPage();
+            $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //margenes
+
+            //saber de donde viene el expediente
+            $numE=substr($expediente->getNumeroExpe(),0,1);
+            if($numE == 0){
+                $txt="Ref.: Expte. Nro 0".$expediente->getNumeroExpe();
+
+                
+            } 
+                else{
+                    $txt="Ref.: Expte. Nro 00".$expediente->getNumeroExpe(); 
+                }
+            
+
+            if (count($servicios)==1){
+                //parrafo principal
+                $txt3="Se informa que corresponde a la factura n°: ".$numFactura;
+                foreach($servicios as $servicio) {
+                    $txt4=" por el Servicio de ".$servicio->getTipo();
+                    $txt5=" del período de ".$facturas[0]->getPeriodo();
+                    $txt6=" prestado por la empresa ".$servicio->getCompania();
+
+                    if($servicio->getDireccion() == "CORRIENTES 2879"){
+                        $txt7=" en este Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion(); 
+
+                    }
+                    else{
+                        $txt7=" en la dependecia del Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion();
+
+                    }
+                    $txt8=" de la ciudad de ".$servicio->getCiudad();
+                    $txt9=" con el número de referencia: ".$servicio->getReferencia()."\n";   
+
+                }
+            }    
+            //transformo la fecha en texto y en español
+            $fechaActual = date('d M Y');
+            $fechaActual = $this->fechaCastellano($fechaActual);
+            
+            //textos derecha
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0); 
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0);
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0);
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0); 
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0);
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0);
+            $txt2="Santa Fe, ".$fechaActual;
+            $pdf->SetFont('helvetica', 'B', 12);
+            $pdf->Write(0, $txt, 'B', 0, 'R', true, 0, false, false, 0);
+            $pdf->SetFont('', '', 12);
+            $pdf->Write(0, $txt2, '', 0, 'R', true, 0, false, false, 0);
+
+            //espacios
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0); 
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0);
+            $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0); 
+            
+            
+            $envio="\n\n\n".$request->get('select')."\n";
+          
+            $pdf->Write(0, $txt3.$txt4.$txt5.$txt6.$txt7.$txt8.$txt9, '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+            
+    } 
+
+    //si hay mas de una factura
+    else{
+
+        //parrafo principal
+        $txt3="Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias, en el siguiente cuadro:";
+        
+    }
+
+   
+
+    //salida PDF
+    $pdf->Output('nota.pdf', 'I');
+
  }
 }
  class MYPDF extends \TCPDF {
@@ -249,15 +337,59 @@ class ExpedienteController extends Controller
         // Position at 15 mm from bottom
         $this->SetY(-15);
         // Set font
-        $this->SetFont('helvetica', 'I', 8);
-        //$image_file = 'imagenes/logo ministerio-negro_sin fondo.png';
+        $this->SetFont('times', 'I', 8);
+        $image_file = 'imagenes/logo ministerio-negro_sin fondo.png';
         $this->Image('imagenes/logo ministerio-negro_sin fondo.png');
         // Footer
-        $this->Cell(0, 10, 'Sectorial de Informática
+        $this->Cell(0, 10, "Sectorial de Informática  
         Ministerio de Igualdad, Género y Diversidad
         Corrientes 2879 - (3000) Santa Fe
-        Tel: (0342) 4572888 / 4589468', 0, false, 'C', 0, '', 0, false, 'T', 'M');
+        Tel: (0342) 4572888 / 4589468 int. 30904", 0, false, 'C', 0, '', 0, false, 'T', 'M');
         
+    }
+
+
+    // Load table data from file
+    public function LoadData($file) {
+        // Read file lines
+        $lines = file($file);
+        $data = array();
+        foreach($lines as $line) {
+            $data[] = explode(';', chop($line));
+        }
+        return $data;
+    }
+
+    // Colored table
+    public function ColoredTable($header,$data) {
+        // Colors, line width and bold font
+        $this->SetFillColor(255, 0, 0);
+        $this->SetTextColor(255);
+        $this->SetDrawColor(128, 0, 0);
+        $this->SetLineWidth(0.3);
+        $this->SetFont('', 'B');
+        // Header
+        $w = array(40, 35, 40, 45);
+        $num_headers = count($header);
+        for($i = 0; $i < $num_headers; ++$i) {
+            $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
+        }
+        $this->Ln();
+        // Color and font restoration
+        $this->SetFillColor(224, 235, 255);
+        $this->SetTextColor(0);
+        $this->SetFont('');
+        // Data
+        $fill = 0;
+        foreach($data as $row) {
+            $this->Cell($w[0], 6, $row[0], 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, $row[1], 'LR', 0, 'L', $fill);
+            $this->Cell($w[2], 6, number_format($row[2]), 'LR', 0, 'R', $fill);
+            $this->Cell($w[3], 6, number_format($row[3]), 'LR', 0, 'R', $fill);
+            $this->Ln();
+            $fill=!$fill;
+        }
+        $this->Cell(array_sum($w), 0, '', 'T');
     }
 }
 
