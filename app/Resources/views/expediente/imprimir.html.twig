@@ -71,11 +71,14 @@
 
 
 
-    <br><br><br><br><p> <select name="select">
-        <option value="value1" selected>Indicar hacia donde se envia el expediente</option>
-        <option value="value2">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
-        <option value="value3">     Pase a la Secretaría de Planificación y Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
+    <br><br><br><br><p>    <form action="{{ path('nota_pdf', {'id':expediente.id}) }}">
+    <select name="select">
+        <option value="Falta indicar hacia donde va el exp." selected>Indicar hacia donde se envia el expediente</option>
+        <option value="Pase a la Dir. Gral. de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.">     Pase a la Dir. Gral de Comunicaciones para su intervención de acuerdo a lo establecido en el decreto 28/00.</option>
+        <option value="Pase a la Secretaría de Planificación y Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.">     Pase a la Secretaría de Planificación y Coordinación Administrativa, Legal y Técnica para la prosecución del trámite.</option>
     </select>
+    <button class="btn btn-primary" type="submit">Generar PDF</button>
+</form>
     </p>
 
     {# aca saque el footer #}

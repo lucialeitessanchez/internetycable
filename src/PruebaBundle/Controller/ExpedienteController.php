@@ -233,16 +233,13 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
    
     $numFactura = $facturas[0]->getNumFactura(); //tengo el primer objeto si o si 
 
-    if (count($facturas)==1){
-        
-        $servicios = $facturas[0]->getService(); 
-        /******* */
-            $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); //llamo a la clase que extiende tcpdf
+    // ********* Se crea la clase de pdf, y se agrega fecha y ref de expediente, para todas las notas es lo mismo******
+    $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); //llamo a la clase que extiende tcpdf
             $pdf->AddPage();
             $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //margenes
 
             //saber de donde viene el expediente
-            $numE=substr($expediente->getNumeroExpe(),0,1);
+            $numE=substr($expediente->getNumeroExpe(),0,0); 
             if($numE == 0){
                 $txt="Ref.: Expte. Nro 0".$expediente->getNumeroExpe();
 
@@ -253,27 +250,6 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
                 }
             
 
-            if (count($servicios)==1){
-                //parrafo principal
-                $txt3="Se informa que corresponde a la factura n°: ".$numFactura;
-                foreach($servicios as $servicio) {
-                    $txt4=" por el Servicio de ".$servicio->getTipo();
-                    $txt5=" del período de ".$facturas[0]->getPeriodo();
-                    $txt6=" prestado por la empresa ".$servicio->getCompania();
-
-                    if($servicio->getDireccion() == "CORRIENTES 2879"){
-                        $txt7=" en este Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion(); 
-
-                    }
-                    else{
-                        $txt7=" en la dependecia del Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion();
-
-                    }
-                    $txt8=" de la ciudad de ".$servicio->getCiudad();
-                    $txt9=" con el número de referencia: ".$servicio->getReferencia()."\n";   
-
-                }
-            }    
             //transformo la fecha en texto y en español
             $fechaActual = date('d M Y');
             $fechaActual = $this->fechaCastellano($fechaActual);
@@ -295,12 +271,68 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0); 
             $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0);
             $pdf->Write(3, ' ', '', 0, 'R', true, 0, false, false, 0); 
+
+    if (count($facturas)==1){
+        
+            $servicios = $facturas[0]->getService(); 
+
+            if (count($servicios)==1){ 
+                //parrafo principal
+                $txt3="Se informa que corresponde a la factura n°: ".$numFactura;
+                foreach($servicios as $servicio) {
+                    $txt4=" por el Servicio de ".$servicio->getTipo();
+                    $txt5=" del período de ".$facturas[0]->getPeriodo();
+                    $txt6=" prestado por la empresa ".$servicio->getCompania();
+
+                    if($servicio->getDireccion() == "CORRIENTES 2879"){
+                        $txt7=" en este Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion(); 
+
+                    }
+                    else{
+                        $txt7=" en la dependecia del Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion();
+
+                    }
+                    $txt8=" de la ciudad de ".$servicio->getCiudad();
+                    $txt9=" con el número de referencia: ".$servicio->getReferencia()."\n";   
+
+                }
+
             
             
             $envio="\n\n\n".$request->get('select')."\n";
           
             $pdf->Write(0, $txt3.$txt4.$txt5.$txt6.$txt7.$txt8.$txt9, '', 0, 'J', true, 0, false, false, 0);
             $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+            
+            }   
+            //hay mas de un servicio en una factura 
+            else{
+                $txt3="Se informa que corresponde a la factura n°: ".$numFactura;
+                foreach($servicios as $servicio) {
+                    $txt4=" por el Servicio de ".$servicio->getTipo();
+                    $txt5=" del período de ".$facturas[0]->getPeriodo();
+                    $txt6=" prestado por la empresa ".$servicio->getCompania();
+
+                    if($servicio->getDireccion() == "CORRIENTES 2879"){
+                        $txt7=" en este Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion(); 
+
+                    }
+                    else{
+                        $txt7=" en la dependecia del Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion();
+
+                    }
+                    $txt8=" de la ciudad de ".$servicio->getCiudad();
+                    $txt9=" con el número de referencia: ".$servicio->getReferencia()."\n";   
+
+                }
+
+            
+            
+            $envio="\n\n\n".$request->get('select')."\n";
+          
+            $pdf->Write(0, $txt3.$txt4.$txt5.$txt6.$txt7.$txt8.$txt9, '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+            } 
             
     } 
 
@@ -310,6 +342,11 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         //parrafo principal
         $txt3="Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias, en el siguiente cuadro:";
         
+        // column titles
+        $header = array('Factura nº', 'Periodo', 'Número de referencia', 'Dirección');
+
+        // print colored table
+        $pdf->ColoredTable($header, $txt3);
     }
 
    
