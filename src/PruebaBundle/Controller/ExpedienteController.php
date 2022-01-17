@@ -310,7 +310,23 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             //hay mas de un servicio en una factura 
             else{
                 $txt3="Se informa que corresponde a la factura n°: ".$numFactura;
-                foreach($servicios as $servicio) {
+                $txt4=" correspondiente a los servicios detallados en el cuadro siguiente prestados a este Ministerio de Igualdad,Genero y Diversidad, y sus dependencias pertenecientes al periodo ".$facturas[0]->getPeriodo()."\n\n";
+                $envio="\n\n\n".$request->get('select')."\n";
+          
+                $pdf->Write(0, $txt3.$txt4, '', 0, 'J', true, 0, false, false, 0);
+                
+       
+                
+                //cuadro
+                $pdf->Write(0,"Num referencia  Direccion   Ciudad    Tipo de serivcio\n\n", '', 0, '', true, 0, false, false, 0);
+                foreach($servicios as $servicio){
+                    
+                    $pdf->Write(0,$servicio->getReferencia()." - ".$servicio->getDireccion()." - ".$servicio->getCiudad()." - ".$servicio->getTipo(), '', 0, '', true, 0, false, false, 0);
+                }
+               
+                $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+
+                /*foreach($servicios as $servicio) {
                     $txt4=" por el Servicio de ".$servicio->getTipo();
                     $txt5=" del período de ".$facturas[0]->getPeriodo();
                     $txt6=" prestado por la empresa ".$servicio->getCompania();
@@ -326,14 +342,11 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
                     $txt8=" de la ciudad de ".$servicio->getCiudad();
                     $txt9=" con el número de referencia: ".$servicio->getReferencia()."\n";   
 
-                }
+                }*/
 
             
             
-            $envio="\n\n\n".$request->get('select')."\n";
-          
-            $pdf->Write(0, $txt3.$txt4.$txt5.$txt6.$txt7.$txt8.$txt9, '', 0, 'J', true, 0, false, false, 0);
-            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+            
             } 
             
     } 
