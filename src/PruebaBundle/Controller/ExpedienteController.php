@@ -238,7 +238,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
     // ********* Se crea la clase de pdf, y se agrega fecha y ref de expediente, para todas las notas es lo mismo******
     $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); //llamo a la clase que extiende tcpdf
             $pdf->AddPage();
-            $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //margenes
+            $pdf->SetMargins(25, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //margenes
 
             //saber de donde viene el expediente
             $numE=substr($expediente->getNumeroExpe(),0,0); 
