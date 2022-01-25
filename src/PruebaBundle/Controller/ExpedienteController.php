@@ -321,11 +321,18 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
                 $pdf->Write(0,"Num referencia  Direccion   Ciudad    Tipo de serivcio\n\n", '', 0, '', true, 0, false, false, 0);
                 foreach($servicios as $servicio){
                     
-                    $pdf->Write(0,$servicio->getReferencia()." - ".$servicio->getDireccion()." - ".$servicio->getCiudad()." - ".$servicio->getTipo(), '', 0, '', true, 0, false, false, 0);
+                    $data[] =$servicio->getReferencia().$servicio->getDireccion().$servicio->getCiudad().$servicio->getTipo();
                 }
                
                 $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+                                // column titles
+                $header = array('Nº de referencia', 'Dirección', 'Ciudad', 'Tipo de servicio');
 
+                // data loading
+                //$data = $pdf->LoadData('data/table_data_demo.txt');
+
+                // print colored table
+                $pdf->ColoredTable($header, $data);
                 /*foreach($servicios as $servicio) {
                     $txt4=" por el Servicio de ".$servicio->getTipo();
                     $txt5=" del período de ".$facturas[0]->getPeriodo();
@@ -361,7 +368,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $header = array('Factura nº', 'Periodo', 'Número de referencia', 'Dirección');
 
         // print colored table
-        $pdf->ColoredTable($header, $txt3);
+        $pdf->ColoredTable($header, $data);
     }
 
    
@@ -436,7 +443,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         foreach($data as $row) {
             $this->Cell($w[0], 6, $row[0], 'LR', 0, 'L', $fill);
             $this->Cell($w[1], 6, $row[1], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, number_format($row[2]), 'LR', 0, 'R', $fill);
+            0$this->Cell($w[2], 6, number_format($row[2]), 'LR', 0, 'R', $fill);
             $this->Cell($w[3], 6, number_format($row[3]), 'LR', 0, 'R', $fill);
             $this->Ln();
             $fill=!$fill;

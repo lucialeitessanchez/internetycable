@@ -182,3 +182,26 @@ table thead {
     margin-left: 150px;
     margin-right: 90px;
 }
+
+/* Multi select  */
+
+.select2-results__option .wrap:before{
+    font-family:fontAwesome;
+    color:#999;
+    content:"\f096";
+    width:25px;
+    height:25px;
+    padding-right: 10px;
+    
+}
+.select2-results__option[aria-selected=true] .wrap:before{
+    content:"\f14a";
+}
+
+/* not required css */
+
+.select2-multiple, .select2-multiple2
+{
+  width: 50%
+}
+
