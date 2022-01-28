@@ -318,7 +318,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
        
                 
                 //cuadro
-                $pdf->Write(0,"Num referencia  Direccion   Ciudad    Tipo de serivcio\n\n", '', 0, '', true, 0, false, false, 0);
+                //$pdf->Write(0,"Num referencia  Direccion   Ciudad    Tipo de serivcio\n\n", '', 0, '', true, 0, false, false, 0);
                 foreach($servicios as $servicio){
                     
                     $data[] =$servicio->getReferencia().$servicio->getDireccion().$servicio->getCiudad().$servicio->getTipo();
