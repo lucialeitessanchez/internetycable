@@ -309,50 +309,27 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             }   
             //hay mas de un servicio en una factura 
             else{
-                $txt3="Se informa que corresponde a la factura n°: ".$numFactura;
-                $txt4=" correspondiente a los servicios detallados en el cuadro siguiente prestados a este Ministerio de Igualdad,Genero y Diversidad, y sus dependencias pertenecientes al periodo ".$facturas[0]->getPeriodo()."\n\n";
+                $txt3="Se informa que pertenece a la factura n°: ".$numFactura;
+                $txt4=" correspondiente a los servicios detallados en el cuadro siguiente, prestados a este Ministerio de Igualdad, Género y Diversidad y sus dependencias, pertenecientes al periodo ".$facturas[0]->getPeriodo()."\n\n";
                 $envio="\n\n\n".$request->get('select')."\n";
           
                 $pdf->Write(0, $txt3.$txt4, '', 0, 'J', true, 0, false, false, 0);
-                
        
                 
                 //cuadro
-                //$pdf->Write(0,"Num referencia  Direccion   Ciudad    Tipo de serivcio\n\n", '', 0, '', true, 0, false, false, 0);
                 foreach($servicios as $servicio){
                     
-                    $data[] =$servicio->getReferencia().$servicio->getDireccion().$servicio->getCiudad().$servicio->getTipo();
+                    $data[] = [$servicio->getReferencia(),$servicio->getDireccion(),$servicio->getCiudad(),$servicio->getTipo()];
+                    
                 }
+                
                
-                $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
-                                // column titles
+                // column titles
                 $header = array('Nº de referencia', 'Dirección', 'Ciudad', 'Tipo de servicio');
-
-                // data loading
-                //$data = $pdf->LoadData('data/table_data_demo.txt');
-
                 // print colored table
                 $pdf->ColoredTable($header, $data);
-                /*foreach($servicios as $servicio) {
-                    $txt4=" por el Servicio de ".$servicio->getTipo();
-                    $txt5=" del período de ".$facturas[0]->getPeriodo();
-                    $txt6=" prestado por la empresa ".$servicio->getCompania();
 
-                    if($servicio->getDireccion() == "CORRIENTES 2879"){
-                        $txt7=" en este Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion(); 
-
-                    }
-                    else{
-                        $txt7=" en la dependecia del Ministerio de Igualdad, Género y Diversidad de calle ".$servicio->getDireccion();
-
-                    }
-                    $txt8=" de la ciudad de ".$servicio->getCiudad();
-                    $txt9=" con el número de referencia: ".$servicio->getReferencia()."\n";   
-
-                }*/
-
-            
-            
+                $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
             } 
             
@@ -408,17 +385,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
     }
 
 
-    // Load table data from file
-    public function LoadData($file) {
-        // Read file lines
-        $lines = file($file);
-        $data = array();
-        foreach($lines as $line) {
-            $data[] = explode(';', chop($line));
-        }
-        return $data;
-    }
-
+   
     // Colored table
     public function ColoredTable($header,$data) {
         // Colors, line width and bold font
@@ -428,7 +395,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(40, 35, 40, 45);
+        $w = array(35, 45 , 35, 40);
         $num_headers = count($header);
         for($i = 0; $i < $num_headers; ++$i) {
             $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -438,13 +405,13 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $this->SetFillColor(224, 235, 255);
         $this->SetTextColor(0);
         $this->SetFont('');
-        // Data
+       //recorro el arreglo con la info y por cada elemento lo voy colocando en las dif. columnas
         $fill = 0;
         foreach($data as $row) {
             $this->Cell($w[0], 6, $row[0], 'LR', 0, 'L', $fill);
             $this->Cell($w[1], 6, $row[1], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, number_format($row[2]), 'LR', 0, 'R', $fill);
-            $this->Cell($w[3], 6, number_format($row[3]), 'LR', 0, 'R', $fill);
+            $this->Cell($w[2], 6, ($row[2]), 'LR', 0, 'R', $fill);
+            $this->Cell($w[3], 6, ($row[3]), 'LR', 0, 'R', $fill);
             $this->Ln();
             $fill=!$fill;
         }
