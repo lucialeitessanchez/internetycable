@@ -244,8 +244,6 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $numE=substr($expediente->getNumeroExpe(),0,0); 
             if($numE == 0){
                 $txt="Ref.: Expte. Nro 0".$expediente->getNumeroExpe();
-
-                
             } 
                 else{
                     $txt="Ref.: Expte. Nro 00".$expediente->getNumeroExpe(); 
@@ -328,7 +326,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
                 $header = array('Nº de referencia', 'Dirección', 'Ciudad', 'Tipo de servicio');
                 // print colored table
                 $pdf->ColoredTable($header, $data);
-
+                
                 $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
             } 
@@ -339,24 +337,38 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
     else{
 
         //parrafo principal
-        $txt3="Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias, en el siguiente cuadro:";
-        
-
-          //cuadro
+        $txt3="Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias, en el siguiente cuadro: \n\n";
+        $pdf->Write(0, $txt3, '', 0, 'J', true, 0, false, false, 0);
+        $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
+        $envio="\n\n\n".$request->get('select')."\n";
           
+        //cuadro
+        $data=[];
           foreach($facturas as $factura){
-              $servicios=$factura->getService();
-            foreach($servicios as $servicio){
-                        $data[] = [$factura->getNumFactura(),$factura->getPeriodo(),$servicio->getReferencia(),$servicio->getDireccion(),$servicio->getCiudad(),$servicio->getTipo()];
-                    }
-                
-                    
+                $servicios=$factura->getService();
+                foreach($servicios as $servicio) {
+                    $data[] = [$factura->getNumFactura(),$factura->getPeriodo(),$servicio->getReferencia(),$servicio->getDireccion(),$servicio->getCiudad(),$servicio->getTipo()];
                 }
-        // column titles
-        $header = array('Factura nº','Periodo','Nº de referencia','Dirección','Ciudad','Tipo de servicio');
+            }
 
-        // print colored table
-        $pdf->ColoredTableF($header, $data);
+            // column titles
+            $header = array('Factura nº','Periodo','Referencia','Dirección','Ciudad','Servicio');
+             // arma el cuadro con la funcion
+            $pdf->ColoredTableF($header, $data);
+            
+            $pdf->Write(20, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
+            
+
+            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);   
+            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
+            
+
+       
     }
 
    
@@ -406,7 +418,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(35, 45 , 35, 40);
+        $w = array(35, 45 , 35, 40); //tamaño del ancho del cuadro
         $num_headers = count($header);
         for($i = 0; $i < $num_headers; ++$i) {
             $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -437,7 +449,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(35, 25 , 35, 40,25,25);
+        $w = array(30, 32 , 28, 40,25,32); //tamaño ancho columnas
         $num_headers = count($header);
         for($i = 0; $i < $num_headers; ++$i) {
             $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -451,16 +463,18 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $fill = 0;
         foreach($data as $row) {
             $this->Cell($w[0], 6, $row[0], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row[1], 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, $row[1], 'LR', 0, 'J', $fill);
             $this->Cell($w[2], 6, ($row[2]), 'LR', 0, 'R', $fill);
-            $this->Cell($w[3], 6, ($row[3]), 'LR', 0, 'R', $fill);
+            $this->Cell($w[3], 6, ($row[3]), 'LR', 0, 'C', $fill);
             $this->Cell($w[4], 6, ($row[4]), 'LR', 0, 'R', $fill);
-            $this->Cell($w[5], 6, ($row[5]), 'LR', 0, 'R', $fill);
+            $this->Cell($w[5], 6, ($row[5]), 'LR', 0, 'C', $fill);
             $this->Ln();
             $fill=!$fill;
         }
-        $this->Cell(array_sum($w), 0, '', 'T');
+        
     }
+
+
 }
 
 
