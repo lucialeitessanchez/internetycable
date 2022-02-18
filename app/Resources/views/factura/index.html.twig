@@ -11,51 +11,18 @@
     
 </div>
     <br>
-<ul>
 
-    <table class="table table-borderless">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Num de factura</th>
-                <th>Num. referencia</th>
-                <th>Fecha vencimiento</th>
-                <th>Pago</th>
-                <th><th>Acciones</th></th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for factura in facturas %}
-            <tr>
-                <td><a href="{{ path('factura_show', { 'id': factura.id }) }}">{{ factura.id }}</a></td>
-                <td>{{ factura.numFactura }}</td>
-                <td>{%for service in factura.service  %}
-                        {{ service.referencia }}
-                    {% endfor %}</td>
-                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('d-m-Y')}}{% endif %}</td>
-                <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
-                <td>
 
-                <th><div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="{{ path('factura_show', { 'id': factura.id }) }}" class="btn btn-outline-primary">ver</a>
-                        <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-secondary"> editar </a>
+   {{ block('tableFactura', './factura/tableFactura.twig') }}
+   
+
+    <th><div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+                        <a href="{{ path('factura_new') }}" class="btn  btn-primary">Crear nueva factura</a>
+                        <a href="{{ path('prueba_homepage') }}" class="btn  btn-secondary"> Volver al menú principal </a>
 
                     </div>
                 </th>
-
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <th><div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="{{ path('factura_new') }}" class="btn btn-primary">Crear nueva factura</a>
-                        <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary"> Volver al menú principal </a>
-
-                    </div>
-                </th>
-    </ul>
+    
 
 {% endblock %}
 

@@ -1,0 +1,41 @@
+{% block tableFactura %}
+
+<div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 62vh; ">
+
+		<table class="table table-sm  table-hover text-center text-dark">
+			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
+            <tr>
+                <th>Id</th>
+                <th>Num de factura</th>
+                <th>Num. referencia</th>
+                <th>Fecha vencimiento</th>
+                <th>Pago</th>
+                <th><th>Acciones</th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factura in facturas %}
+            <tr>
+                <td><a href="{{ path('factura_show', { 'id': factura.id }) }}">{{ factura.id }}</a></td>
+                <td>{{ factura.numFactura }}</td>
+                <td>{%for service in factura.service  %}
+                        {{ service.referencia }}
+                    {% endfor %}</td>
+                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('d-m-Y')}}{% endif %}</td>
+                <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
+                <td>
+
+                <th><div class="btn-group " role="group" aria-label="Basic example">
+                        <a href="{{ path('factura_show', { 'id': factura.id }) }}" class="btn btn-outline-info">ver</a>
+                        <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-outline-info"> editar </a>
+
+                    </div>
+                </th>
+
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    {% endblock %}
