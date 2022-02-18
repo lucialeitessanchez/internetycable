@@ -2,28 +2,14 @@
 {% set fechaLabels = ["Año", "Mes", "Dia"] %}
     {{ form_start(form) }}
     
-    {{form_widget(form.fechaVencimiento)}}
+    
     
     {{form_widget(form.service, {'attr': {'style': 'display: none'}})}}
 
     
     {% for campo, obj in form %}
-    
-        {% if loop.last %}
-        {% elseif campo == "fechaVencimiento"%}
-          <div  class="row mb-3">
-            {% for label, camp in obj %}
-              <div class="col-1">
-                {{fechaLabels[loop.index-1]}}
-                {{ form_widget(camp) }}
-              </div>
-            
-            {% endfor %}
-
-          </div>  
-         
+        {% if loop.last %}       
         {% elseif campo == "service"%}
-    
           {{form_widget(obj, {'attr': {'style': 'display: none'}})}}
            Servicios
           <div class="col-3 p-2 mb-3" style="background: #fff; border-radius: 6px; color: black; height: 120px; overflow: auto">
@@ -38,8 +24,8 @@
             </div>
              
              {% endfor %}
-
           </div>
+       
         {% else %}
           <div class="row mb-3">
             <div class="form-group col-3">         
@@ -50,11 +36,6 @@
         {% endif %}
     {% endfor %}
   {{ form_end(form) }}
-
-
-
-
-
-
+  
 {% endblock %}
 
