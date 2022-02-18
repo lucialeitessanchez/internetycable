@@ -339,7 +339,6 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         //parrafo principal
         $txt3="Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias, en el siguiente cuadro: \n\n";
         $pdf->Write(0, $txt3, '', 0, 'J', true, 0, false, false, 0);
-        $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
         $envio="\n\n\n".$request->get('select')."\n";
           
         //cuadro
@@ -356,15 +355,6 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
              // arma el cuadro con la funcion
             $pdf->ColoredTableF($header, $data);
             
-            $pdf->Write(20, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
-            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
-            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
-            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
-            $pdf->Write(0, $pdf->getY(), '', 0, 'J', true, 0, false, false, 0);
-            
-
-            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);   
-            $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
 
@@ -449,7 +439,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(30, 32 , 28, 40,25,32); //tamaño ancho columnas
+        $w = array(30, 32 , 28, 40,24,32); //tamaño ancho columnas
         $num_headers = count($header);
         for($i = 0; $i < $num_headers; ++$i) {
             $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -466,7 +456,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $this->Cell($w[1], 6, $row[1], 'LR', 0, 'J', $fill);
             $this->Cell($w[2], 6, ($row[2]), 'LR', 0, 'R', $fill);
             $this->Cell($w[3], 6, ($row[3]), 'LR', 0, 'C', $fill);
-            $this->Cell($w[4], 6, ($row[4]), 'LR', 0, 'R', $fill);
+            $this->Cell($w[4], 6, ($row[4]), 'LR', 0, 'C', $fill);
             $this->Cell($w[5], 6, ($row[5]), 'LR', 0, 'C', $fill);
             $this->Ln();
             $fill=!$fill;
