@@ -5,6 +5,8 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+
 
 class FacturaType extends AbstractType
 {
@@ -13,7 +15,13 @@ class FacturaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('numFactura')->add('fechaVencimiento')->add('pago')->add('periodo')->add('service')->add('expediente');
+        $builder->add('numFactura')
+                ->add('fechaVencimiento', DateType::class, [
+                    'label' => 'Fecha de Vencimiento'
+                    ,'widget' => 'single_text'
+                    ,'html5' => true
+                ])
+                ->add('pago')->add('periodo')->add('service')->add('expediente');
     }/**
      * {@inheritdoc}
      */
