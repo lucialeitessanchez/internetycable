@@ -1,6 +1,6 @@
 {% block tableFactura %}
 
-<div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 62vh; ">
+<div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 56vh; ">
 
 		<table class="table table-sm  table-hover text-center text-dark">
 			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
@@ -25,7 +25,7 @@
                 <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
                 <td>
 
-                <th><div class="btn-group " role="group" aria-label="Basic example">
+                <th><div class="btn-group btn-group-sm " role="group" aria-label="Basic example">
                         <a href="{{ path('factura_show', { 'id': factura.id }) }}" class="btn btn-outline-info">ver</a>
                         <a href="{{ path('factura_edit', { 'id': factura.id }) }}" class="btn btn-outline-info"> editar </a>
 

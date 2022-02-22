@@ -1,12 +1,9 @@
+{# form Service #}
 {% block formBlock %}
-{% set fechaLabels = ["Año", "Mes", "Dia"] %}
-    {{ form_start(form) }}
-    
-    
-    
-    {{form_widget(form.service, {'attr': {'style': 'display: none'}})}}
 
+    {{ form_start(form) }}   
     
+   
     {% for campo, obj in form %}
         {% if loop.last %}       
         {% elseif campo == "service"%}

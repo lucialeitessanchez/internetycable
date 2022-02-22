@@ -10,10 +10,15 @@
    <a href="{{ path('expediente_index') }}">Menú Expediente</a>
     
 </div>
-    <br>
+   
+   
 
-
-   {{ block('tableFactura', './factura/tableFactura.twig') }}
+ {% with {
+        array: facturas
+    }%}
+    {{ block('tableFactura', './factura/tableFactura.twig') }}
+    {% endwith %}
+  
    
 
     <th><div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">

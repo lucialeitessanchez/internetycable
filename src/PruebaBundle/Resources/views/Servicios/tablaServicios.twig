@@ -1,17 +1,6 @@
-{% extends 'base.html.twig' %}
+{% block tablaServicios %}
 
-
-
-{% block body %}
-<div class="topnav">
-  <a class="active" href="{{ ('servicio') }}">Servicios</a>
-  <a href="{{ path('servicio_new') }}">Nuevo servicio</a>
-  <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
-  <a href="{{ ('factura') }}">Menu Factura</a>
-</div>
-   
-  
-        <div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 62vh; ">
+<div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 56vh; ">
 
 		<table class="table table-sm  table-hover text-center text-dark">
 			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
@@ -23,7 +12,7 @@
                 <th>Num telefono</th>
                 <th>Dirección</th>
                 <th>Ciudad</th>
-                <th>Acciones</th>
+                <th><th>Acciones</th></th>
             </tr>
         </thead>
         <tbody>
@@ -37,7 +26,7 @@
                 <td>{{ servicio.direccion }}</td>
                 <td>{{ servicio.ciudad }}</td>
                 <td>
-                   <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                   <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="{{ path('servicio_show', { 'id': servicio.id }) }}"class="btn btn-outline-info">ver</a>
                         <a href="{{ path('servicio_edit', { 'id': servicio.id }) }}" class="btn btn-outline-info"> editar </a>
 
@@ -52,19 +41,4 @@
         </tbody>
     </table>
 </div>
-
-   
-
-
-<div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
-            <a href="{{ path('servicio_new') }}" class="btn btn-primary active" role="button" aria-pressed="true">Alta servicio </a>
-        
-             <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary active" role="button" aria-pressed="true">Volver al menú principal</a>
-        </div>
-
-
-    </ul>
-
-    </ul>
-{% endblock %}
-
+    {% endblock %}
