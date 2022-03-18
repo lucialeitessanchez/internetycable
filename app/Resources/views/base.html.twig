@@ -18,8 +18,39 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
     </head>
-    <body>
+    <body class="m-4">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+
+<style>
+
+
+	::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #AAAAAA;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	
+}
+
+	::-webkit-scrollbar-thumb:hover {
+		background: #8f8f8f;
+		border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
+	}
+
+
+
+	
+</style>

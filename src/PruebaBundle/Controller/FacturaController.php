@@ -9,6 +9,7 @@ use PruebaBundle\Entity\servicio;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 /**
  * Factura controller.
  *
@@ -22,13 +23,9 @@ class FacturaController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-
-        $facturas = $em->getRepository('PruebaBundle:Factura')->findAll();
-
+        $facturas = $em->getRepository('PruebaBundle:Factura')->findAllArray();
         //aca tengo que preguntar si factura esta vacio retorna esto si no que mande un 0 al indez
-        return $this->render('factura/index.html.twig', array('facturas' => $facturas,
-        ));
+        return $this->render('factura/index.html.twig', array('facturas' => $facturas ));
     }
 
     /**

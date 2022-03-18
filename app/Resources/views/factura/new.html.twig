@@ -2,22 +2,33 @@
 
 {% block body %}
     <ul>
-    <h1>Creación de Factura </h1>
+    <h1>Creación de Factura </h1>    
 
-        <div class="mb-3 row"><label for="staticEmail" class="col-sm-2 col-form-label">
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
-            </label>
-        </div>
-          <th><div class="btn-group" role="group" aria-label="Basic example">
-        <input type="submit" class="btn btn-secondary" value="Crear" />
-    {{ form_end(form) }}
+    {% with {'form': form}%}
+        {{ block("formBlock", "./blocks/formBlock.twig") }}
+    {% endwith %}
 
+    {#<input type="submit" class="btn btn-sm btn-primary" value="Crear" />#}
+    <a href="{{ path('factura_index') }}" class="btn btn-sm btn-secondary" >Volver al listado</a>
+    <a href="{{ path('prueba_homepage') }}" class="btn btn-sm btn-secondary"> Volver al menú principal </a>
+
+
+    
+<script>
+    let formSelect = document.getElementById('pruebabundle_factura_service');
+    let customCheck = document.querySelectorAll('input[name="checkboxSelec"]');
+
+    let formArr = Array.prototype.slice.call(formSelect.childNodes);
   
-                        <a href="{{ path('factura_index') }}" class="btn btn-primary">Volver al listado</a>
-                        <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary"> Volver al menú principal </a>
 
-                    </div>
-                </th>
-    </ul>
+    customCheck.forEach((elem, i) => {
+        elem.addEventListener("change", (e)=> {  
+            if(e.target.checked) formSelect[i].selected = true
+            else formArr[i].selected = false
+        })
+    })
+
+</script>
+
+          
 {% endblock %}

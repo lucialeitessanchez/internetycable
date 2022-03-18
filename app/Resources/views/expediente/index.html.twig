@@ -8,48 +8,17 @@
   <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
   </div>
     
-    <ul>
-    <table class="table table-borderless">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Numero de expediente</th>
-                <th>Factura/s:</th>
-                <th>Estado</th>
-
-            </tr>
-        </thead>
-        <tbody>
-        {% for expediente in expedientes %}
-            <tr>
-                <td><a href="{{ path('expediente_show', { 'id': expediente.id }) }}">{{ expediente.id }}</a></td>
-                <td>{{ expediente.numeroExpe }}</td>
-                <td>{% for factura in expediente.facturas %}
-                {{ factura.numFactura }}
-                {% endfor %}</td>
-                <td>{{ expediente.estado }}</td>
-                <td>
-                    <th>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="{{ path('expediente_show', { 'id': expediente.id }) }}" class="btn btn-outline-primary">ver</a>
-                        <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}" class="btn btn-secondary"> editar </a>
-                        <a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}" class="btn btn-secondary active" role="button" aria-pressed="true"> imprimir </a> </th>
-
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-        </th>
-    </table>
+   
+   {{ block('tablaExpediente', './expediente/tablaExpediente.twig') }}
 
 
-    <th><div class="btn-group" role="group" aria-label="Basic example">
+    <th><div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
                         <a href="{{ path('expediente_new') }}" class="btn btn-primary">Crear nuevo expediente</a>
                         <a href="{{ path('prueba_homepage') }}" class="btn btn-secondary"> Volver al menú principal </a>
 
                     </div>
                 </th>
     
-    </ul>
+  
 {% endblock %}
 
