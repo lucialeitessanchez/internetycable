@@ -8,6 +8,8 @@
   <a href="{{ path('servicio_new') }}">Nuevo servicio</a>
   <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
   <a href="{{ ('factura') }}">Menu Factura</a>
+  <input type="text" id="formulario" class="autocomplete">
+  
 </div>
    
   
@@ -28,13 +30,13 @@
         </thead>
         <tbody>
         {% for servicio in servicios %}
-            <tr>
+            <tr id="direccion">
                 <td><a href="{{ path('servicio_show', { 'id': servicio.id }) }}">{{ servicio.id }}</a></td>
                 <td>{{ servicio.referencia }}</td>
                 <td>{{ servicio.compania }}</td>
                 <td> {{ servicio.tipo }}</td>
                 <td> {{ servicio.numTelefono }}</td>
-                <td>{{ servicio.direccion }}</td>
+                <td id="ubicaciones">{{ servicio.direccion }}</td>
                 <td>{{ servicio.ciudad }}</td>
                 <td>
                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
@@ -66,5 +68,41 @@
     </ul>
 
     </ul>
+
+      <script>
+       
+         $("#formulario").on("keyup", function() {
+             var value = $(this).val(); //lo que voy escribiendo
+       
+         $("#formulario").on("keyup", function() { // funcion de filtrado por ubicacion
+             var value = $(this).val().toUpperCase(); //lo que voy escribiendo, lo convierto todo en mayusculas para cuando lo comparto con lo de la tabla
+             
+             $("table tr").each(function(ubicaciones) {
+                 if (ubicaciones != 0) {
+             $("table tr").each(function(direccion) { //recorre toda la tabla
+                 if (direccion != 0) {
+                     
+                     $row = $(this);
+                     var id = $row.find("td:first").text();
+                     
+                     var id = $row.find("td:nth-child(5)").text().toUpperCase(); //en el td, el hijo de la tabla, que busque en la posicion que le paso entre parentesis, y tome el texto
+                                                                                   //lo pongo todo en mayuscula para que lo compare exacto con lo que va escribiendo 
+                    
+                            var MyRows = $('table#hdireccion').find('tbody').find('tr');
+                            for (var i = 0; i < MyRows.length; i++) {
+                            var MyIndexValue = $(MyRows[i]).find('td:eq(4)').html();
+                            }
+                     if (id.indexOf(value) != 0) {
+                        if (id.indexOf(value) != 0) {
+                         $(this).hide();
+                     }
+                     else {
+                         $(this).show();
+                     }
+                 }
+             });
+         });
+        </script>
+
 {% endblock %}
 
