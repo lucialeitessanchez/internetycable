@@ -3,21 +3,25 @@
 {% block body %}
   
     <h1>Editar Factura</h1>
-
-
-       {% with {'form': edit_form}%}
+   {% with {'form': edit_form}%}
         {{ block("formBlock", "./blocks/formBlock.twig") }}
     {% endwith %}
 
+
         <th>
 <div class="btn-group" role="group" aria-label="Basic example">
-  <input type="submit"  class="btn btn-outline-info" value="Editar" />
+ 
             {{ form_end(edit_form) }}
             {{ form_start(delete_form) }}
-   <input type="submit"  class="btn btn-outline-info" value="Eliminar">
+
+
+
+
+   <input type="submit"  class="btn btn-sm btn-secondary" value="Eliminar">
             {{ form_end(delete_form) }}
-  <a href="{{ path('factura_index') }}"  class="btn btn-outline-info">Volver al listado</a>
-  <a href="{{ path('prueba_homepage') }}"  class="btn btn-outline-info">Volver al menú principal</a>
+  <a href="{{ path('factura_index') }}"  class="btn btn-sm btn-secondary">Volver al listado</a>
+  <a href="{{ path('prueba_homepage') }}"  class="btn btn-sm btn-secondary">Volver al menú principal</a>
+      
 </div>
 </th>
 
