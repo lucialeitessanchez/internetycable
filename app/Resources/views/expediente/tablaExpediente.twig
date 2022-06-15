@@ -1,0 +1,41 @@
+{% block tablaExpediente %}
+
+<div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 56vh; ">
+
+		<table class="table table-sm  table-hover text-center text-dark">
+			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
+            
+            <tr>
+                <th>Id</th>
+                <th>Numero de expediente</th>
+                <th>Factura/s:</th>
+                <th>Estado</th>
+               <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for expediente in expedientes %}
+            <tr>
+                <td><a href="{{ path('expediente_show', { 'id': expediente.id }) }}">{{ expediente.id }}</a></td>
+                <td>{{ expediente.numeroExpe }}</td>
+                <td>{% for factura in expediente.facturas %}
+                {{ factura.numFactura }}
+                {% endfor %}
+                </td>
+                <td>{{ expediente.estado }}</td>
+                <td>
+                  <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                        <a href="{{ path('expediente_show', { 'id': expediente.id }) }}" class="btn btn-outline-info">ver</a>
+                        <a href="{{ path('expediente_edit', { 'id': expediente.id }) }}" class="btn btn-outline-info"> editar </a>
+                                <a href="{{ path('expediente_imprimir', { 'id': expediente.id }) }}" class="btn btn-outline-info" role="button" aria-pressed="true"> imprimir </a>
+
+                    </div>
+                   
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+      
+    </table>
+</div>
+    {% endblock %}

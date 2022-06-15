@@ -276,6 +276,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         
             $servicios = $facturas[0]->getService(); 
 
+            
             if (count($servicios)==1){ 
                 //parrafo principal
                 $txt3="Se informa que corresponde a la factura n°: ".$numFactura;
@@ -353,7 +354,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             // column titles
             $header = array('Factura nº','Periodo','Referencia','Dirección','Ciudad','Servicio');
              // arma el cuadro con la funcion
-            $pdf->ColoredTableF($header, $data);
+            $pdf->FacturasTable($header, $data);
             
             $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
@@ -431,7 +432,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $this->Cell(array_sum($w), 0, '', 'T');
     }
 
-    public function ColoredTableF($header,$data) {
+    public function FacturasTable($header,$data) {
         // Colors, line width and bold font
         $this->SetFillColor(255, 0, 0);
         $this->SetTextColor(255);

@@ -18,7 +18,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
     </head>
-    <body>
+    <body class="m-4">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
@@ -26,28 +26,31 @@
 
 <style>
 
-	/* bar */
+
 	::-webkit-scrollbar {
-		width: 8px;
-		
-	}
+  width: 12px;
+}
 
-	/* Track */
-	::-webkit-scrollbar-track {
-		background: #f1f1f1;
-        
-	}
+::-webkit-scrollbar-thumb {
+  border: 3px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9999px;
+  background-color: #AAAAAA;
+}
 
-	/* Handle */
-	::-webkit-scrollbar-thumb {
-		background: #bdbdbd;
-		border-radius: 6px;
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
 	
-	}
+}
 
-	/* Handle on hover */
 	::-webkit-scrollbar-thumb:hover {
 		background: #8f8f8f;
-		
+		border: 3px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
 	}
+
+
+
+	
 </style>

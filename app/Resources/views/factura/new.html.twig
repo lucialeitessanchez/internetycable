@@ -15,39 +15,19 @@
 
     
 <script>
-    let checkVal = []
     let formSelect = document.getElementById('pruebabundle_factura_service');
     let customCheck = document.querySelectorAll('input[name="checkboxSelec"]');
 
     let formArr = Array.prototype.slice.call(formSelect.childNodes);
-    let customArr = Array.prototype.slice.call(customCheck);
+  
 
-    {#  customCheck.forEach((elem, i) => {
-        elem.addEventListener("change", (e)=> {
-            //console.log(e.originalTarget.value)
-            
-            if(e.target.checked) checkVal.push(e.target.value)
-            else {
-               let i = checkVal.indexOf(e.target.value);
-               checkVal.splice(i, 1);
-            }
+    customCheck.forEach((elem, i) => {
+        elem.addEventListener("change", (e)=> {  
+            if(e.target.checked) formSelect[i].selected = true
+            else formArr[i].selected = false
+        })
+    })
 
-            formSelect.value = checkVal;
-            console.log("formSelect ",checkVal, " : ", formSelect.value)
-        })
-    }) #}
-        formSelect.addEventListener("change", (e) => {
-              console.log(formSelect)
-        })
-      
-    
-    {# console.log("customArr ", customArr)
-    console.log("formArr ", formArr) #}
-   {#   let check = document.createElement("input");
-      check.class = "form-check-input";
-      check.type = "checkbox";
-      check.name = "checkboxSelec";
-    formArr[0].appendChild(check); #}
 </script>
 
           

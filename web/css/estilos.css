@@ -183,6 +183,7 @@ table thead {
     margin-right: 90px;
 }
 
+<<<<<<< HEAD
 /* Multi select  */
 
 .select2-results__option .wrap:before{
@@ -205,3 +206,8 @@ table thead {
   width: 50%
 }
 
+=======
+.texto-gris{
+    color: #CCC;
+}
+>>>>>>> develop

@@ -1,0 +1,49 @@
+{% block tableFactura %}
+<pre>
+  
+</pre>
+<div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 56vh; ">
+
+		<table class="table table-sm  table-hover text-center text-dark">
+			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
+            <tr>
+               
+                 {% for obj,val in array[0] %}
+                 {% if  obj  == "periodo" %} 
+                {% else %} 
+                 <th>{{obj}}</th>
+                 {% endif %}
+                 {% endfor %} 
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for obj in array %}
+        
+        <tr>
+        {% for prop,val in obj %}
+    
+        {% if  prop  == "fechaVencimiento" %} <td>{{  val|date ('d-m-Y') }}</td> 
+        {% elseif  prop  == "periodo" %} 
+         {% elseif  prop  == "pago" %} <td>{% if val == 1 %}Pagado{% else %}No{% endif %}</td>
+         {% elseif  prop  == "service" %} <td><div class="btn-group " role="group" aria-label="Basic example">
+                        <a href="{{ path('factura_show', { 'id': obj.id }) }}" class="btn btn-outline-info">ver</a>
+                        <a href="{{ path('factura_edit', { 'id': obj.id }) }}" class="btn btn-outline-info"> editar </a>
+
+                    </div></td>
+        {% else %}
+            <td>{{val}}</td>
+        {% endif %}
+        {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+    {% endblock %}
