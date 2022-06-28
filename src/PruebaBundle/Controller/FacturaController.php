@@ -28,6 +28,13 @@ class FacturaController extends Controller
         return $this->render('factura/index.html.twig', array('facturas' => $facturas ));
     }
 
+    public function facturasImpagasAction(){
+        
+        $em = $this->getDoctrine()->getManager();
+        $facturas = $em->getRepository('PruebaBundle:Factura')->findAllArray();
+       return $this->render('factura/impagas.html.twig', array('facturas' => $facturas));
+    }
+
     /**
      * Creates a new factura entity.
      *

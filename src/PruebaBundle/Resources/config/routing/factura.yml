@@ -27,3 +27,10 @@ factura_delete:
     path:     /{id}/delete
     defaults: { _controller: "PruebaBundle:Factura:delete" }
     methods:  DELETE
+
+factura_impagas:
+    path:     /impagas
+    defaults: { _controller: "PruebaBundle:Factura:facturasImpagas" }
+    methods:  GET
+
+    

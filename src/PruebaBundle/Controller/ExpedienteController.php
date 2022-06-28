@@ -436,8 +436,8 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         // Colors, line width and bold font
         $this->SetFillColor(255, 0, 0);
         $this->SetTextColor(255);
-        $this->SetDrawColor(128, 0, 0);
-        $this->SetLineWidth(0.3);
+        $this->SetDrawColor(255, 0, 0);
+       // $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
         $w = array(30, 32 , 28, 40,24,32); //tamaño ancho columnas
