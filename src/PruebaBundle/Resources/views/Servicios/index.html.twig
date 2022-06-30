@@ -30,6 +30,7 @@
         </thead>
         <tbody>
         {% for servicio in servicios %}
+            {% if servicio.estado %}
             <tr >
                 <td><a href="{{ path('servicio_show', { 'id': servicio.id }) }}">{{ servicio.id }}</a></td>
                 <td>{{ servicio.referencia }}</td>
@@ -50,6 +51,7 @@
 
                 </td>
             </tr>
+            {% endif %}
         {% endfor %}
         </tbody>
     </table>
