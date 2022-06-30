@@ -23,6 +23,11 @@ factura_edit:
     defaults: { _controller: "PruebaBundle:Factura:edit" }
     methods:  [GET, POST]
 
+factura_pagar:
+    path:     /{id}/pagar
+    defaults: { _controller: "PruebaBundle:Factura:pagarF" }
+    methods:  [GET, POST]    
+
 factura_delete:
     path:     /{id}/delete
     defaults: { _controller: "PruebaBundle:Factura:delete" }

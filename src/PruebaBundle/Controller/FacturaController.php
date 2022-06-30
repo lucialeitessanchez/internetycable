@@ -112,6 +112,19 @@ class FacturaController extends Controller
     }
 
     /**
+     * cambia el estado de la factura a pagado
+     *
+     */
+    public function pagarFAction(Request $request, Factura $factura)
+    {
+       
+            $factura->setPago(true);
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('factura_index');
+       
+    }
+    /**
      * Deletes a factura entity.
      *
      */
