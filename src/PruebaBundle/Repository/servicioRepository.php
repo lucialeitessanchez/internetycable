@@ -10,4 +10,9 @@ namespace PruebaBundle\Repository;
  */
 class servicioRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function _findAllOrderedByNombre()
+    {
+        return $this->buildQuery()->orderBy('q.referencia','ASC');
+    }
 }

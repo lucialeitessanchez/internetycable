@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use PruebaBundle\Repository\ExpedienteRepository;
 
 use PruebaBundle\Entity\Expediente;
+use PruebaBundle\Entity\servicio;
+use PruebaBundle\Repository\servicioRepository;
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormInterface;
@@ -35,9 +37,19 @@ class FacturaType extends AbstractType
             $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
         }
     
-    protected function addElements(FormInterface $form,Expediente $expediente =null) {
-       
-        //para ordenar a los resopnsables por orden alfabetico, previo defini en responsable repository la consulta
+    protected function addElements(FormInterface $form,Expediente $expediente =null,servicio $servicio =null) {
+        //ordeno de menor a mayor los numeros de referencias al agregar una nueva factura
+        $form->add('service', EntityType::class, array(
+            'required' => true,
+            'data' => $servicio,
+            'class' => 'PruebaBundle:servicio',
+            'query_builder' => function (servicioRepository $er) {
+                return $er->createQueryBuilder('u')
+                    ->orderBy('u.referencia','ASC');}
+        ));
+
+
+        //para ordenar a los expedientes, aparece primero el ultimo ingresado, los ordena por id
          $form->add('expediente', EntityType::class, array(
              'required' => true,
              'data' => $expediente,
