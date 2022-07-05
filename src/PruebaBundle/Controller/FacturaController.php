@@ -8,6 +8,7 @@ use PruebaBundle\Entity\Factura;
 use PruebaBundle\Entity\servicio;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use PruebaBundle\Repository\FacturaRepository;
 
 
 /**

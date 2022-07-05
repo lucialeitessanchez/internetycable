@@ -1,6 +1,7 @@
 <?php
 
 namespace PruebaBundle\Form;
+
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -10,7 +11,9 @@ use PruebaBundle\Repository\ExpedienteRepository;
 
 use PruebaBundle\Entity\Expediente;
 use PruebaBundle\Entity\servicio;
+
 use PruebaBundle\Repository\servicioRepository;
+
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormInterface;
@@ -18,8 +21,11 @@ use Symfony\Component\Form\FormEvents;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Doctrine\ORM\EntityManagerInterface;
 
+
 class FacturaType extends AbstractType
 {
+    
+   
     /**
      * {@inheritdoc}
      */
@@ -37,29 +43,20 @@ class FacturaType extends AbstractType
             $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
         }
     
-    protected function addElements(FormInterface $form,Expediente $expediente =null,servicio $servicio =null) {
+    protected function addElements(FormInterface $form,Expediente $expediente=null,servicio $servicio=null) {
         //ordeno de menor a mayor los numeros de referencias al agregar una nueva factura
-        $form->add('service', EntityType::class, array(
+        $form->add('expediente', EntityType::class, array(
             'required' => true,
-            'data' => $servicio,
-            'class' => 'PruebaBundle:servicio',
-            'query_builder' => function (servicioRepository $er) {
+            'data' => $expediente,
+            'placeholder' => 'Seleccionar n° expediente',
+            'class' => 'PruebaBundle:Expediente',
+            'query_builder' => function (ExpedienteRepository $er) {
                 return $er->createQueryBuilder('u')
-                    ->orderBy('u.referencia','ASC');}
+                    ->orderBy('u.id', 'DESC');}
+        
         ));
 
-
-        //para ordenar a los expedientes, aparece primero el ultimo ingresado, los ordena por id
-         $form->add('expediente', EntityType::class, array(
-             'required' => true,
-             'data' => $expediente,
-             'placeholder' => 'Elegir n° Expediente',
-             'class' => 'PruebaBundle:Expediente',
-             'query_builder' => function (ExpedienteRepository $er) {
-                 return $er->createQueryBuilder('u')
-                     ->orderBy('u.id','DESC');}
-         ));
-         
+     
     
      }
  
@@ -67,11 +64,9 @@ class FacturaType extends AbstractType
          $form = $event->getForm();
          $data = $event->getData();
          
-         // Busque la ciudad seleccionada y conviértala en una entidad
-         $city = $this->em->getRepository('PruebaBundle:Expediente')->find($data['expediente']);
+     
          
-         
-         $this->addElements($form, $city);
+         $this->addElements($form);
      }
  
      function onPreSetData(FormEvent $event) {
@@ -80,8 +75,8 @@ class FacturaType extends AbstractType
  
          // Cuando creas una nueva persona, la ciudad siempre está vacía
    
-         $expediente = $factura->getExpediente() ? $factura->getExpediente() : null;
-         $this->addElements($form, $expediente);
+        
+         $this->addElements($form);
      }
     
     

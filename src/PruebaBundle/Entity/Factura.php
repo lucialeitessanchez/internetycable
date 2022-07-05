@@ -152,7 +152,7 @@ class Factura
      *
      * @return Factura
      */
-    public function setService(\PruebaBundle\Entity\servicio $service = null)
+    public function setService($service = null)
     {
         $this->service = $service;
 
