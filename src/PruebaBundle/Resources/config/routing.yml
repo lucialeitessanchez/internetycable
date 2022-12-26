@@ -109,3 +109,8 @@ nota_pdf:
     defaults: { _controller: PruebaBundle:Expediente:expedientePDF }
     requirements:
         id: '\d+'
+
+reportes:
+    path:     /reportes
+    defaults: { _controller: PruebaBundle:Factura:reportes }
+    

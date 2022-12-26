@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <br>
+    <div class="topnav">
+  <a href="{{ path('factura_index') }}">Factura</a>
+  <a href="{{ path('factura_new') }}">Nueva factura</a>
+  <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
+   <a href="{{ path('expediente_index') }}">Menú Expediente</a>
+  <a href="{{ path('factura_impagas') }}">Facturas Impagas</a>
+ <a class="active"  href="{{ path('reportes') }}">Reporte servicios</a>
+</div>
+
+<table class="table table-sm  table-hover text-center text-dark">
+			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
+            <tr>
+                <th>Num.Referencia</th>
+                <th>Tipo servicio</th>
+                <th>Ubicación</th>
+                <th>Factura</th>
+                <th>Expediente</th>
+                <th>Mes</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for factura in facturas %}
+            <tr>
+                {% for service in factura.service  %}
+                        <td>{{ service.referencia }}</td>
+                        <td>{{ service.tipo }}</td>
+                        <td>{{ service.direccion }}</td>
+                    {% endfor %}
+                <td>factura.numFactura</td>
+                <td>0{{ factura.expediente }}</td>
+                <td></td>
+                
+
+                
+            </tr>
+            
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

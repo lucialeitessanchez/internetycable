@@ -29,6 +29,21 @@ class FacturaController extends Controller
         return $this->render('factura/index.html.twig', array('facturas' => $facturas ));
     }
 
+    /**
+     * Lists all servicios con facturas y expedientes
+     *
+     */
+    public function reportesAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $facturas = $em->getRepository('PruebaBundle:Factura')->findAllArray();
+        //aca tengo que preguntar si factura esta vacio retorna esto si no que mande un 0 al indez
+        return $this->render('factura/reportes.html.twig', array('facturas' => $facturas ));
+    }
+
+    /**
+     * listado de facturas sin pagar
+     */
     public function facturasImpagasAction(){
         
         $em = $this->getDoctrine()->getManager();
