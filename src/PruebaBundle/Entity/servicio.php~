@@ -38,6 +38,7 @@ class servicio
      * @var string
      *
      * @ORM\Column(name="compania", type="string", length=255)
+     *  * @ORM\OrderBy({"referencia" = "ASC"})
      */
     private $compania;
 

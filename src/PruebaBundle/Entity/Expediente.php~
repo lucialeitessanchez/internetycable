@@ -42,6 +42,13 @@ class Expediente
     private $facturas;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaInicioGestion", type="date")
+     */
+    private $fechaInicioGestion;
+
+    /**
      * Get id
      *
      * @return int
@@ -150,4 +157,28 @@ class Expediente
     }
 
 
+
+    /**
+     * Set fechaInicioGestion.
+     *
+     * @param \DateTime $fechaInicioGestion
+     *
+     * @return Expediente
+     */
+    public function setFechaInicioGestion($fechaInicioGestion)
+    {
+        $this->fechaInicioGestion = $fechaInicioGestion;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaInicioGestion.
+     *
+     * @return \DateTime
+     */
+    public function getFechaInicioGestion()
+    {
+        return $this->fechaInicioGestion;
+    }
 }

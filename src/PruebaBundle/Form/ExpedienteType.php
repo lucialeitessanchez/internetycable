@@ -13,7 +13,12 @@ class ExpedienteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('numeroExpe')->add('estado');
+        $builder->add('numeroExpe')->add('estado')
+        ->add('fechaInicioGestion', DateType::class, [
+            'label' => 'Fecha Inicio de Gestión'
+            ,'widget' => 'single_text'
+            ,'html5' => true
+        ]);
     }/**
      * {@inheritdoc}
      */

@@ -49,7 +49,7 @@ class Factura
      */
     private $pago;
 
-     /**
+    /**
     * @ORM\ManyToOne(targetEntity="Expediente", inversedBy="facturas")
     * @ORM\JoinColumn(name="id_expediente", referencedColumnName="id")
     */
