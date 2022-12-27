@@ -25,13 +25,15 @@
             </tr>
         </thead>
         <tbody>
-        
+
         {% for factura in facturas %}
             {% for service in factura.service  %}
+            {% if service.estado %}
             <tr>
                         <td>{{ service.referencia }}</td>
                         <td>{{ service.tipo }}</td>
                         <td>{{ service.direccion }}</td>
+                    {% endif %}
                     {% endfor %}
                 <td>{{factura.numFactura}}</td>
                 {% if factura.expediente|first == 1  %}
@@ -39,8 +41,13 @@
                 {% else %}
                 <td>0{{ factura.expediente }}</td>
                 {% endif %}
-                
-                
+                <td>{% for expediente in expedientes %}
+                {% if factura.expediente == expediente %}
+                {% if expediente.fechaInicioGestion %}
+                {{ expediente.fechaInicioGestion|date ('d-m-Y') }} {% endif %}   
+                {% endif %} 
+                {% endfor %}
+                </td>
 
                 
             </tr>
