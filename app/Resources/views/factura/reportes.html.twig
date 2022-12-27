@@ -3,17 +3,22 @@
 {% block body %}
 
 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+<div class="container-fluid">
+<div class="row">
     <br>
-    <div class="topnav">
+<div class="topnav bg-body-tertiary">
   <a href="{{ path('factura_index') }}">Factura</a>
   <a href="{{ path('factura_new') }}">Nueva factura</a>
   <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
    <a href="{{ path('expediente_index') }}">Menú Expediente</a>
   <a href="{{ path('factura_impagas') }}">Facturas Impagas</a>
- <a class="active"  href="{{ path('reportes') }}">Reporte servicios</a>
+ <a class="active"  href="{{ path('reportes') }}">Reporte servicios </a>
+ <form class="d-flex" role="search"><input id="buscar" type="search" class="form-control me-2" placeholder="Escribir mes a filtrar" /> </form>
 </div>
 
-<table class="table table-sm  table-hover text-center text-dark">
+
+<table id="tabla" class="table table-sm  table-hover text-center text-dark">
 			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
             <tr>
                 <th>Num.Referencia</th>
@@ -29,7 +34,7 @@
         {% for factura in facturas %}
             {% for service in factura.service  %}
             {% if service.estado %}
-            <tr>
+                    <tr>
                         <td>{{ service.referencia }}</td>
                         <td>{{ service.tipo }}</td>
                         <td>{{ service.direccion }}</td>
@@ -44,7 +49,7 @@
                 <td>{% for expediente in expedientes %}
                 {% if factura.expediente == expediente %}
                 {% if expediente.fechaInicioGestion %}
-                {{ expediente.fechaInicioGestion|date ('d-m-Y') }} {% endif %}   
+                {{ expediente.fechaInicioGestion|date ('F') }} {% endif %}   
                 {% endif %} 
                 {% endfor %}
                 </td>
@@ -55,4 +60,25 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
+    </div>
+    <script>
+            var busqueda = document.getElementById('buscar');
+            var table = document.getElementById("tabla").tBodies[0];
+
+                buscaTabla = function(){
+                texto = busqueda.value.toLowerCase();
+                var r=0;
+                while(row = table.rows[r++])
+                {
+                    if ( row.innerText.toLowerCase().indexOf(texto) !== -1 )
+                    row.style.display = null;
+                    else
+                    row.style.display = 'none';
+                }
+                }
+
+                busqueda.addEventListener('keyup', buscaTabla);
+    </script>
 {% endblock %}
+
