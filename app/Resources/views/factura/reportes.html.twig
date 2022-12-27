@@ -25,16 +25,21 @@
             </tr>
         </thead>
         <tbody>
+        
         {% for factura in facturas %}
+            {% for service in factura.service  %}
             <tr>
-                {% for service in factura.service  %}
                         <td>{{ service.referencia }}</td>
                         <td>{{ service.tipo }}</td>
                         <td>{{ service.direccion }}</td>
                     {% endfor %}
-                <td>factura.numFactura</td>
+                <td>{{factura.numFactura}}</td>
+                {% if factura.expediente|first == 1  %}
+                <td>00{{ factura.expediente }}</td>
+                {% else %}
                 <td>0{{ factura.expediente }}</td>
-                <td></td>
+                {% endif %}
+                
                 
 
                 

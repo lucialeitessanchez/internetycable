@@ -21,7 +21,7 @@
                 <td>{%for service in factura.service  %}
                         {{ service.referencia }}
                     {% endfor %}</td>
-                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('d-m-Y')}}{% endif %}</td>
+                <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date ('d-m-Y')}}{% endif %}</td>          
                 <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
                 <td>
 
