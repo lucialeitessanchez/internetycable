@@ -14,7 +14,9 @@
    <a href="{{ path('expediente_index') }}">Menú Expediente</a>
   <a href="{{ path('factura_impagas') }}">Facturas Impagas</a>
  <a class="active"  href="{{ path('reportes') }}">Reporte servicios </a>
+    <a href="{{ path('factura_impagas') }}">Imprimir reporte</a>
  <form class="d-flex" role="search"><input id="buscar" type="search" class="form-control me-2" placeholder="Escribir mes a filtrar" /> </form>
+
 </div>
 
 
@@ -49,7 +51,7 @@
                 <td>{% for expediente in expedientes %}
                 {% if factura.expediente == expediente %}
                 {% if expediente.fechaInicioGestion %}
-                {{ expediente.fechaInicioGestion|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM')}}
+                {{ expediente.fechaInicioGestion|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM Y')}}
             {% endif %}   
                 {% endif %} 
                 {% endfor %}
