@@ -49,7 +49,8 @@
                 <td>{% for expediente in expedientes %}
                 {% if factura.expediente == expediente %}
                 {% if expediente.fechaInicioGestion %}
-                {{ expediente.fechaInicioGestion|date ('F') }} {% endif %}   
+                {{ expediente.fechaInicioGestion|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM')}}
+            {% endif %}   
                 {% endif %} 
                 {% endfor %}
                 </td>
