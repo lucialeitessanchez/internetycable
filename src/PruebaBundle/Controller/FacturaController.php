@@ -3,6 +3,7 @@
 namespace PruebaBundle\Controller;
 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use Doctrine\DBAL\Types\stdClass;
 use PruebaBundle\Entity\Expediente;
 use PruebaBundle\Entity\Factura;
 use PruebaBundle\Entity\servicio;
@@ -38,7 +39,11 @@ class FacturaController extends Controller
         $em = $this->getDoctrine();
         $facturas = $this->getDoctrine()->getRepository(Factura::class)->findAll();
         $expedientes = $this->getDoctrine()->getRepository(Expediente::class)->findAll();
-        //aca tengo que preguntar si factura esta vacio retorna esto si no que mande un 0 al indez
+        $servicios = $this->getDoctrine()->getRepository(servicio::class)->findBy(['estado' => true]); //tengo todos los servicios activos
+
+
+        
+
         return $this->render('factura/reportes.html.twig', array('facturas' => $facturas,'expedientes' => $expedientes ));
     }
 
@@ -216,5 +221,7 @@ class FacturaController extends Controller
 
 
                                                                     }
+
+    
 
 }
