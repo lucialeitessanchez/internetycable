@@ -3,6 +3,8 @@
 
 {% block body %}
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <div class="container-fluid">
+    <div class="row">
     <br>
     <div class="topnav">
   <a class="active" href="{{ path('factura_index') }}">Factura</a>
@@ -10,10 +12,10 @@
   <a href="{{ path('prueba_homepage') }}">Menu Principal</a>
    <a href="{{ path('expediente_index') }}">Menú Expediente</a>
   <a href="{{ path('factura_impagas') }}">Facturas Impagas</a>
- <a href="{{ path('reportes') }}">Reporte servicios</a>
+  <a href="{{ path('reportes') }}">Reporte servicios</a>
+  <form class="d-flex" role="search"><input id="buscar" type="search" class="form-control me-2" placeholder="N° factura" /> </form>
 </div>
-   
-   
+
 
  {% with {
         array: facturas
@@ -21,7 +23,7 @@
     {{ block('tableFactura', './factura/tableFactura.twig') }}
     {% endwith %}
   
-   
+   </div></div>
 
     <th><div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
                         <a href="{{ path('factura_new') }}" class="btn  btn-primary">Crear nueva factura</a>
@@ -30,6 +32,25 @@
                     </div>
                 </th>
     
+ <script>
+    //filtro
+            var busqueda = document.getElementById('buscar');
+            var table = document.getElementById("tabla").tBodies[0];
 
+                buscaTabla = function(){
+                texto = busqueda.value.toLowerCase();
+                var r=0;
+                while(row = table.rows[r++])
+                {
+                    if ( row.innerText.toLowerCase().indexOf(texto) !== -1 )
+                    row.style.display = null;
+                    else
+                    row.style.display = 'none';
+                    
+                }
+                }
+
+        busqueda.addEventListener('keyup', buscaTabla);
+        </script>
 {% endblock %}
 

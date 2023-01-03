@@ -14,7 +14,6 @@
    <a href="{{ path('expediente_index') }}">Menú Expediente</a>
   <a href="{{ path('factura_impagas') }}">Facturas Impagas</a>
  <a class="active"  href="{{ path('reportes') }}">Reporte servicios </a>
-    <a href="#" id="reporte">Imprimir reporte</a>
  <form class="d-flex" role="search"><input id="buscar" type="search" class="form-control me-2" placeholder="Escribir mes a filtrar" /> </form>
 
 </div>
@@ -48,10 +47,10 @@
                 {% else %}
                 <td>0{{ factura.expediente }}</td>
                 {% endif %}
-                <td id="periodo">{% for expediente in expedientes %}
+                <td>{% for expediente in expedientes %}
                 {% if factura.expediente == expediente %}
                 {% if expediente.fechaInicioGestion %}
-                {{ expediente.fechaInicioGestion|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM Y')}}
+                <div class="periodo"> {{ expediente.fechaInicioGestion|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM Y')}} </div>
             {% endif %}   
                 {% endif %} 
                 {% endfor %}
@@ -64,6 +63,12 @@
         </tbody>
     </table>
     </div>
+    <div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+                        <a href="#" class="btn  btn-primary" id="reporte">Imprimir reporte</a>
+                        <a href="{{ path('prueba_homepage') }}" class="btn  btn-secondary"> Volver al menú principal </a>
+
+                    </div>
+    
     </div>
     <script>
     //filtro
@@ -79,17 +84,36 @@
                     row.style.display = null;
                     else
                     row.style.display = 'none';
+                    
                 }
                 }
 
-                busqueda.addEventListener('keyup', buscaTabla);
-
+        busqueda.addEventListener('keyup', buscaTabla);
         const input = document.getElementById('buscar'); //el texto de filtrado
         let reporte = document.getElementById('reporte');
-
+        
          reporte.addEventListener("click", () => { 
-           console.log(input.value);
-          
+
+            try { //falta intentar validar con que ingrese
+            elements = document.querySelectorAll('#tabla tr:not([style*="display:none"]):not([style*="display: none"])'); //la tabla filtrada
+            element = (elements[1].querySelector(".periodo")).innerText; //en el primer elemento de la tabla filtrada ( porque el 0 es el titulo) obtengo el periodo
+            let filas= [];
+            console.log(element);
+            console.log(input.value);
+            for(let valor of elements){
+            console.log(valor.innerText); //aca tengo todos los textos
+            filas.push(valor.innerText);
+                                    }
+            console.log(filas); //tengo la tabla en un arreglo
+            
+            //aca hacer fetch para tirar el PDF
+
+
+
+            }
+            catch(err){
+                alert("Texto no valido");
+            }
         });
       
     </script>

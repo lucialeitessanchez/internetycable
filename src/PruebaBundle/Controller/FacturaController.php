@@ -40,13 +40,14 @@ class FacturaController extends Controller
         $facturas = $this->getDoctrine()->getRepository(Factura::class)->findAll();
         $expedientes = $this->getDoctrine()->getRepository(Expediente::class)->findAll();
         $servicios = $this->getDoctrine()->getRepository(servicio::class)->findBy(['estado' => true]); //tengo todos los servicios activos
-
-
         
 
-        return $this->render('factura/reportes.html.twig', array('facturas' => $facturas,'expedientes' => $expedientes ));
+        return $this->render('factura/reportes.html.twig', array('facturas' => $facturas,'expedientes' => $expedientes, 'servicios' => $servicios));
     }
 
+    public function expteFaltantesAction($mes, $servicios){
+        return $this->render();
+    }
     /**
      * listado de facturas sin pagar
      */
