@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1> Pendiente</h1>
+
+{{ form_start(form) }}
+        {{ form_widget(form) }}
+       <button type="submit" class="btn btn-primary">Procesar</button>
+{{ form_end(form)}}
+
+{% if  servicioPendiente.periodo %}
+    Periodo enviado: {{ servicioPendiente.periodo|date('d/m/Y') }}
+
+    {% for s in sp %}
+    <br>
+{{ s.referencia }}<br>
+{{ s.lugar }}
+{% endfor %}
+
+
+{% endif %}
+
+
+{% endblock %}

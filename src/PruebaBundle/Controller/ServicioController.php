@@ -9,7 +9,8 @@ use PruebaBundle\Entity\servicio;
 use PruebaBundle\Form\servicioType;
 use PruebaBundle\PruebaBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
+use PruebaBundle\Form\ServicioPendienteType;
+use PruebaBundle\Form\Model\ServicioPendienteModel;
 
 class ServicioController extends Controller
 {
@@ -223,6 +224,31 @@ class ServicioController extends Controller
             ->setMethod('DELETE')
             ->getForm()
             ;
+    }
+
+    public function pendientesAction(Request $request)
+    {
+        $servicioPendiente = new ServicioPendienteModel();
+        $form = $this->createForm(ServicioPendienteType::class,$servicioPendiente);
+        //llamo al request
+        $form->handleRequest($request);
+
+        if ( $form->isSubmitted() && $form->isValid()) {
+            // si y solo si presiono el boton submit
+           
+            $repository = $this->getDoctrine()->getRepository('PruebaBundle:servicio');
+            $serviciosP = $repository->serviciosPendiente($servicioPendiente);
+           
+
+        }
+
+              
+      
+        $repository = $this->getDoctrine()->getRepository('PruebaBundle:servicio');
+     
+        
+        return $this->render('@Prueba/Servicios/pendientes.html.twig',array('form' => $form->createView(),'servicioPendiente'=>$servicioPendiente,'sp'=>$serviciosP
+    ));
     }
 
 }

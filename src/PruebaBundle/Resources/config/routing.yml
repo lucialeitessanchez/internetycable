@@ -114,3 +114,6 @@ reportes:
     path:     /reportes
     defaults: { _controller: PruebaBundle:Factura:reportes }
     
+servicio_pendiente:
+    path: /pendiente
+    defaults: { _controller: PruebaBundle:Servicio:pendientes }    

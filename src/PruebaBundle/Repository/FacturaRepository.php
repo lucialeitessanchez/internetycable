@@ -19,5 +19,6 @@ class FacturaRepository extends \Doctrine\ORM\EntityRepository
             )
             ->getArrayResult();
     }
+    
 
 }
