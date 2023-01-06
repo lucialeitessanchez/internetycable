@@ -1,23 +1,52 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h1> Pendiente</h1>
 
+
+
+
+{% if  servicioPendiente.periodo %} 
+    Periodo : {{ servicioPendiente.periodo|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM Y')}} - Sin inicio de expediente/factura
+
+   
+        <div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 62vh; ">
+
+		<table id="tabla"class="table table-sm  table-hover text-center text-dark">
+			<thead class="table-tr-bg" style="position: sticky; top: 0; z-index: 1; background: #957fc9" scope="col">
+            <tr>
+                <th>Id</th>
+                <th>Numero de referencia</th>
+                <th>Compañia</th>
+                <th>Tipo servicio</th>
+                <th>Dirección</th>
+                <th>Ciudad</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for servicio in sp %}
+            {% if servicio.estado %}
+            <tr >
+                <td><a href="{{ path('servicio_show', { 'id': servicio.id }) }}">{{ servicio.id }}</a></td>
+                <td>{{ servicio.referencia }}</td>
+                <td>{{ servicio.compania }}</td>
+                <td> {{ servicio.tipo }}</td>
+                <td >{{ servicio.direccion }}</td>
+                <td>{{ servicio.ciudad }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% else %}
 {{ form_start(form) }}
         {{ form_widget(form) }}
-       <button type="submit" class="btn btn-primary">Procesar</button>
+        <div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
+       <button type="submit" class="btn btn-primary">Filtrar</button>
+       <a href="{{ path('prueba_homepage') }}" class="btn btn-sm btn-secondary"> Volver al menú principal </a>
+        </div>
 {{ form_end(form)}}
-
-{% if  servicioPendiente.periodo %}
-    Periodo enviado: {{ servicioPendiente.periodo|date('d/m/Y') }}
-
-    {% for s in sp %}
-    <br>
-{{ s.referencia }}<br>
-{{ s.lugar }}
-{% endfor %}
-
-
 {% endif %}
 
 

@@ -232,7 +232,7 @@ class ServicioController extends Controller
         $form = $this->createForm(ServicioPendienteType::class,$servicioPendiente);
         //llamo al request
         $form->handleRequest($request);
-
+        $serviciosP = null;
         if ( $form->isSubmitted() && $form->isValid()) {
             // si y solo si presiono el boton submit
            

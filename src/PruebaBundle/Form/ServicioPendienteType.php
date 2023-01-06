@@ -17,7 +17,7 @@ class ServicioPendienteType extends AbstractType
     {
         $builder
             ->add('periodo', DateType::class, [
-            'label' => 'Fecha Inicio de Gestión'
+            'label' => 'Seleccione un período'
             ,'widget' => 'single_text'
             ,'html5' => true
         ]);
