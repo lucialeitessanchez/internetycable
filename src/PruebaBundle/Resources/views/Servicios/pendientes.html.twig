@@ -6,7 +6,7 @@
 
 
 {% if  servicioPendiente.periodo %} 
-    Periodo : {{ servicioPendiente.periodo|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM Y')}} - Sin inicio de expediente/factura
+ <h4><div align="center">   Periodo : {{ servicioPendiente.periodo|localizeddate('none', 'none', 'es', 'America/Argentina/Jujuy', 'MMMM Y')}} - Sin inicio de expediente/factura </div></h4>
 
    
         <div class="table-responsive borderRad dataTable" id="full_table" style="max-height: 62vh; ">
@@ -41,10 +41,18 @@
 
 {% else %}
 {{ form_start(form) }}
-        {{ form_widget(form) }}
+
+<div align="center">
+ <div class="form-group col-md-2">
+                    {{ form_label(form.periodo) }}
+                    {{ form_errors(form.periodo) }}
+                    {{ form_widget(form.periodo,{'attr': {'class': 'form-control'}})  }}
+                </div>
+        
         <div class="btn-group btn-group-sm mt-2" role="group" aria-label="Basic example">
        <button type="submit" class="btn btn-primary">Filtrar</button>
        <a href="{{ path('prueba_homepage') }}" class="btn btn-sm btn-secondary"> Volver al menú principal </a>
+        </div>
         </div>
 {{ form_end(form)}}
 {% endif %}
