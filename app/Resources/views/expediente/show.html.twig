@@ -25,6 +25,12 @@
                 {{ factura.numFactura }}
                 {% endfor %}</td>
             </tr>
+            {% if expediente.fechaInicioGestion %}
+             <tr>
+                <th>Fecha de inicio</th>
+                <td>{{ expediente.fechaInicioGestion|date("m/d/Y") }}</td>
+            </tr>
+            {% endif %}
         </tbody>
     </table>
 

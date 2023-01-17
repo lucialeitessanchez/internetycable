@@ -140,8 +140,12 @@ class FacturaController extends Controller
      */
     public function pagarFAction(Request $request, Factura $factura)
     {
+            $em = $this->getDoctrine();
+            $e=$factura->getExpediente();
+            $expediente = $this->getDoctrine()->getRepository(Expediente::class)->find($e);
        
             $factura->setPago(true);
+            $expediente->setEstado("DGA");
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('factura_index');
