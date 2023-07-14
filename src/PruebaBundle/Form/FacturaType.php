@@ -37,7 +37,7 @@ class FacturaType extends AbstractType
                     ,'widget' => 'single_text'
                     ,'html5' => true
                 ])
-                ->add('pago')->add('periodo')->add('service')->add('expediente')
+                ->add('pago')->add('periodo')->add('service')->add('total')->add('expediente')
             ;
             $builder->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'));
             $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));

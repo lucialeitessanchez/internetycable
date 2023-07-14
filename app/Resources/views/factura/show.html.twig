@@ -24,6 +24,10 @@
                 <td>{% if factura.fechaVencimiento %}{{ factura.fechaVencimiento|date('Y-m-d') }}{% endif %}</td>
             </tr>
             <tr>
+                <th>Total factura</th>
+                <td>$ {{ factura.total }}</td>
+            </tr>
+            <tr>
                 <th>Pago</th>
                 <td>{% if factura.pago %}Pagado{% else %}No{% endif %}</td>
             </tr>

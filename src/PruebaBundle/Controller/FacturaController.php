@@ -10,7 +10,7 @@ use PruebaBundle\Entity\servicio;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use PruebaBundle\Repository\FacturaRepository;
-
+use PruebaBundle\Reportes\MiPDF;
 
 /**
  * Factura controller.
@@ -34,16 +34,38 @@ class FacturaController extends Controller
      * Lists all servicios con facturas y expedientes
      *
      */
-    public function reportesAction()
+    public function reportesAction(Request $request)
     {
+
         $em = $this->getDoctrine();
         $facturas = $this->getDoctrine()->getRepository(Factura::class)->findAll();
         $expedientes = $this->getDoctrine()->getRepository(Expediente::class)->findAll();
         $servicios = $this->getDoctrine()->getRepository(servicio::class)->findBy(['estado' => true]); //tengo todos los servicios activos
+        
+        
+        
+       if($request->get('tabla')){
+         // 
+         var_dump($request->get('tabla'));
+
+         $pdf = new MiPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false); //llamo a la clase que extiende tcpdf
+         $pdf->AddPage();
+         $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT); //margenes
  
+         $filas = $request->get('tabla'); //lo que le pido al front 
+         
+         foreach($filas as $fila){
+         $pdf->Write(0, $fila, '', 0, 'C', true, 0, false, false, 0);
+         }
+         //salida PDF
+         $pdf->Output('reporte.pdf', 'I');
+       }
+
 
         return $this->render('factura/reportes.html.twig', array('facturas' => $facturas,'expedientes' => $expedientes, 'servicios' => $servicios));
     }
+
+    
 
     public function expteFaltantesAction($mes, $servicios){
         return $this->render();

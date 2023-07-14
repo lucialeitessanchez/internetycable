@@ -49,7 +49,14 @@ class Factura
      */
     private $pago;
 
-     /**
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="total", type="float")
+     */
+    private $total;
+
+    /**
     * @ORM\ManyToOne(targetEntity="Expediente", inversedBy="facturas")
     * @ORM\JoinColumn(name="id_expediente", referencedColumnName="id")
     */
@@ -280,5 +287,29 @@ class Factura
     public function removeExpediente(\PruebaBundle\Entity\Factura $expediente)
     {
         return $this->expediente->removeElement($expediente);
+    }
+
+    /**
+     * Set total
+     *
+     * @param float $total
+     *
+     * @return Factura
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * Get total
+     *
+     * @return float
+     */
+    public function getTotal()
+    {
+        return $this->total;
     }
 }
