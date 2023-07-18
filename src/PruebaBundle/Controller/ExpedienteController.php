@@ -298,21 +298,23 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
 
                 }
 
-            
-            
+            $total= $facturas[0]->getTotal();
+            $txt10=", con un total de $".$total; //el total de la factura
             $envio="\n\n\n".$request->get('select')."\n";
           
-            $pdf->Write(0, $txt3.$txt4.$txt5.$txt6.$txt7.$txt8.$txt9, '', 0, 'J', true, 0, false, false, 0);
+            $pdf->Write(0, $txt3.$txt4.$txt5.$txt6.$txt7.$txt8.$txt9.$txt10, '', 0, 'J', true, 0, false, false, 0);
             $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
             }   
             //hay mas de un servicio en una factura 
             else{
                 $txt3="Se informa que pertenece a la factura n°: ".$numFactura;
-                $txt4=" correspondiente a los servicios detallados en el cuadro siguiente, prestados a este Ministerio de Igualdad, Género y Diversidad y sus dependencias, pertenecientes al periodo ".$facturas[0]->getPeriodo()."\n\n";
+                $txt4=" correspondiente a los servicios detallados en el cuadro siguiente, prestados a este Ministerio de Igualdad, Género y Diversidad y sus dependencias, pertenecientes al periodo ".$facturas[0]->getPeriodo();
+                $total= $facturas[0]->getTotal();
+                $txt5=" con un total de $".$total."\n\n";
                 $envio="\n\n\n".$request->get('select')."\n";
-          
-                $pdf->Write(0, $txt3.$txt4, '', 0, 'J', true, 0, false, false, 0);
+             
+                $pdf->Write(0, $txt3.$txt4.$txt5, '', 0, 'J', true, 0, false, false, 0);
        
                 
                 //cuadro
@@ -332,6 +334,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             
             } 
             
+            
     } 
 
     //si hay mas de una factura
@@ -347,12 +350,12 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
           foreach($facturas as $factura){
                 $servicios=$factura->getService();
                 foreach($servicios as $servicio) {
-                    $data[] = [$factura->getNumFactura(),$factura->getPeriodo(),$servicio->getReferencia(),$servicio->getDireccion(),$servicio->getCiudad(),$servicio->getTipo()];
+                    $data[] = [$factura->getNumFactura(),$factura->getPeriodo(),$servicio->getReferencia(),$servicio->getDireccion(),$servicio->getCiudad(),$servicio->getTipo(),$factura->getTotal(),];
                 }
             }
 
             // column titles
-            $header = array('Factura nº','Periodo','Referencia','Dirección','Ciudad','Servicio');
+            $header = array('Factura nº','Periodo','Referencia','Dirección','Ciudad','Servicio', 'Total');
              // arma el cuadro con la funcion
             $pdf->FacturasTable($header, $data);
             
@@ -364,9 +367,12 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
 
    
 
-    //salida PDF
-    $pdf->Output('nota.pdf', 'I');
-
+    //salida PDF, genera en la cache y luego de guardarlo lo borra para no generar basura en el servidor
+    $cache_dir = $this->getParameter('kernel.cache_dir');
+    $filename = $cache_dir.'/nota.pdf';
+    $pdf->Output($filename , 'F');
+    
+    return $this->file($filename)->deleteFileAfterSend(true);
  }
 }
  class MYPDF extends \TCPDF {
@@ -400,7 +406,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
 
 
    
-    // Colored table
+    // cuadro en forma de tabla para la factura con varios servicios
     public function ColoredTable($header,$data) {
         // Colors, line width and bold font
         $this->SetFillColor(255, 0, 0);
@@ -429,40 +435,63 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $this->Ln();
             $fill=!$fill;
         }
+        
         $this->Cell(array_sum($w), 0, '', 'T');
     }
 
-    public function FacturasTable($header,$data) {
+    public function FacturasTable($header, $data) {
         // Colors, line width and bold font
         $this->SetFillColor(255, 0, 0);
         $this->SetTextColor(255);
         $this->SetDrawColor(255, 0, 0);
-       // $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(30, 32 , 28, 40,24,32); //tamaño ancho columnas
-        $num_headers = count($header);
-        for($i = 0; $i < $num_headers; ++$i) {
-            $this->Cell($w[$i], 7, $header[$i], 1, 0, 'L', 1);
+    
+        // Get the number of columns
+        $num_columns = count($header);
+    
+        // Initialize an array to store the maximum width of each column
+        $column_widths = array_fill(0, $num_columns, 0);
+    
+        // Calculate the maximum width of each column based on the header
+        for ($i = 0; $i < $num_columns; ++$i) {
+            $width = $this->GetStringWidth($header[$i]) + 6; // Add some padding
+            if ($width > $column_widths[$i]) {
+                $column_widths[$i] = $width;
+            }
         }
+    
         $this->Ln();
         // Color and font restoration
         $this->SetFillColor(224, 235, 255);
         $this->SetTextColor(0);
         $this->SetFont('');
-       //recorro el arreglo con la info y por cada elemento lo voy colocando en las dif. columnas
-        $fill = 0;
-        foreach($data as $row) {
-            $this->Cell($w[0], 6, $row[0], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row[1], 'LR', 0, 'J', $fill);
-            $this->Cell($w[2], 6, ($row[2]), 'LR', 0, 'R', $fill);
-            $this->Cell($w[3], 6, ($row[3]), 'LR', 0, 'C', $fill);
-            $this->Cell($w[4], 6, ($row[4]), 'LR', 0, 'C', $fill);
-            $this->Cell($w[5], 6, ($row[5]), 'LR', 0, 'C', $fill);
-            $this->Ln();
-            $fill=!$fill;
+    
+        // Calculate the maximum width of each column based on the content
+        foreach ($data as $row) {
+            foreach ($row as $key => $value) {
+                $width = $this->GetStringWidth($value) + 6; // Add some padding
+                if ($width > $column_widths[$key]) {
+                    $column_widths[$key] = $width;
+                }
+            }
         }
-        
+    
+        // Header
+        for ($i = 0; $i < $num_columns; ++$i) {
+            $this->Cell($column_widths[$i], 7, $header[$i], 1, 0, 'L', 1);
+        }
+        $this->Ln();
+    
+        //recorro el arreglo con la info y por cada elemento lo voy colocando en las dif. columnas
+        $fill = 0;
+        foreach ($data as $row) {
+            for ($i = 0; $i < $num_columns; ++$i) {
+                $this->Cell($column_widths[$i], 6, $row[$i], 'LR', 0, 'L', $fill);
+            }
+            $this->Ln();
+            $fill = !$fill;
+        }
     }
 
 
