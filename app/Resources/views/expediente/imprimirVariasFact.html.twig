@@ -125,4 +125,27 @@
     {% endif %}
 
 </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectElement = document.querySelector('select[name="select"]');
+            const generatePdfButton = document.querySelector('button[type="submit"]');
+
+            // Función para verificar y actualizar el estado del botón "Generar PDF"
+            function updateGeneratePdfButtonState() {
+                if (selectElement.value === "Falta indicar hacia donde va el exp.") {
+                    generatePdfButton.disabled = true;
+                    alert("Debe elegir una opción válida antes de generar el PDF.");
+                } else {
+                    generatePdfButton.disabled = false;
+                }
+            }
+
+            // Escuchar cambios en el select y actualizar el botón en consecuencia
+            selectElement.addEventListener('change', updateGeneratePdfButtonState);
+
+            // Llamar a la función inicialmente para configurar el estado del botón
+            updateGeneratePdfButtonState();
+        });
+    </script>
 {% endblock %}
