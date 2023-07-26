@@ -377,6 +377,17 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
 }
  class MYPDF extends \TCPDF {
 
+    // Constants for page size and margins
+    const PDF_PAGE_ORIENTATION = 'P'; // Portrait orientation
+    const PDF_UNIT = 'mm'; // Measurement unit is millimeters
+    const PDF_PAGE_FORMAT = 'A4'; // Page size is A4
+
+    // Custom margins (adjust these values based on your needs)
+    const PDF_MARGIN_TOP = 20;
+    const PDF_MARGIN_RIGHT = 15;
+    const PDF_MARGIN_BOTTOM = 20;
+    const PDF_MARGIN_LEFT = 15;
+
     //Page header
     public function Header() {
         // Logo
@@ -415,7 +426,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(35, 45 , 35, 40); //tamaño del ancho del cuadro
+        $w = array(45, 55, 45, 45); //tamaño del ancho del cuadro
         $num_headers = count($header);
         for($i = 0; $i < $num_headers; ++$i) {
             $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
@@ -465,7 +476,8 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         // Color and font restoration
         $this->SetFillColor(224, 235, 255);
         $this->SetTextColor(0);
-        $this->SetFont('');
+         // Ajustar el tamaño de la fuente a 10
+          $this->SetFont('', '', 8);
     
         // Calculate the maximum width of each column based on the content
         foreach ($data as $row) {
