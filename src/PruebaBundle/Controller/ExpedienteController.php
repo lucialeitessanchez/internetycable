@@ -339,7 +339,8 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
 
     //si hay mas de una factura
     else{
-
+        $numFacturaAnterior = null;
+        $totalImpreso = false;
         //parrafo principal
         $txt3="Se Informa los siguientes servicios que fueron prestados a este Ministerio de Igualdad, Genero y Diversidad, y sus dependencias, en el siguiente cuadro: \n\n";
         $pdf->Write(0, $txt3, '', 0, 'J', true, 0, false, false, 0);
@@ -348,9 +349,28 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
         //cuadro
         $data=[];
           foreach($facturas as $factura){
+
                 $servicios=$factura->getService();
                 foreach($servicios as $servicio) {
-                    $data[] = [$factura->getNumFactura(),$factura->getPeriodo(),$servicio->getReferencia(),$servicio->getDireccion(),$servicio->getCiudad(),$servicio->getTipo(),$factura->getTotal(),];
+                // Verificar si el número de factura es igual al anterior
+                if ($factura->getNumFactura() !== $numFacturaAnterior) {
+                    $totalImpreso = false;
+                    $numFacturaAnterior = $factura->getNumFactura();
+                }
+
+                // Imprimir el total solo en la primera aparición
+                $thisTotal = $factura->getTotal();
+                $totalColumnValue = $totalImpreso ? 0 : $thisTotal;
+                $data[] = [
+                    $factura->getNumFactura(),
+                    $factura->getPeriodo(),
+                    $servicio->getReferencia(),
+                    $servicio->getDireccion(),
+                    $servicio->getCiudad(),
+                    $servicio->getTipo(),
+                    $totalColumnValue,
+                ];
+                $totalImpreso = true;
                 }
             }
 
@@ -362,10 +382,8 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
 
-       
-    }
 
-   
+    }   
 
     //salida PDF, genera en la cache y luego de guardarlo lo borra para no generar basura en el servidor
     $cache_dir = $this->getParameter('kernel.cache_dir');
