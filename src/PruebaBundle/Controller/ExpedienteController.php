@@ -339,6 +339,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
 
     //si hay mas de una factura
     else{
+        $totalPagar = 0;
         $numFacturaAnterior = null;
         $totalImpreso = false;
         //parrafo principal
@@ -355,6 +356,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
                 // Verificar si el número de factura es igual al anterior
                 if ($factura->getNumFactura() !== $numFacturaAnterior) {
                     $totalImpreso = false;
+                    $totalPagar = $totalPagar + $factura->getTotal();
                     $numFacturaAnterior = $factura->getNumFactura();
                 }
 
@@ -371,6 +373,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
                     $totalColumnValue,
                 ];
                 $totalImpreso = true;
+
                 }
             }
 
@@ -378,7 +381,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $header = array('Factura nº','Periodo','Referencia','Dirección','Ciudad','Servicio', 'Total');
              // arma el cuadro con la funcion
             $pdf->FacturasTable($header, $data);
-            
+            $pdf->Write(0,"La suma total de facturas es de: $".$totalPagar,0,'J', true, 0, false,false,0);
             $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
 
