@@ -294,7 +294,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
 
                     }
                     $txt8=" de la ciudad de ".$servicio->getCiudad();
-                    $txt9=" con el número de referencia: ".$servicio->getReferencia()."\n";   
+                    $txt9=" con el número de referencia: ".$servicio->getReferencia();   
 
                 }
 
