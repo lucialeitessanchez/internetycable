@@ -381,8 +381,8 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $header = array('Factura nº','Periodo','Referencia','Dirección','Ciudad','Servicio', 'Total');
              // arma el cuadro con la funcion
             $pdf->FacturasTable($header, $data); 
-            
-            $pdf->Write(0,"La suma total de facturas es de: $".$totalPagar,0,'J', true , 0 , false,false, 0);
+            $pdf->SetFont('helvetica', '', 12);
+            $pdf->Write(0,"La suma total de facturas es de: $".$totalPagar,0,'C', false , 0 , false,false, 0);
             $pdf->Write(0,$envio, '', 0, 'J', true, 0, false, false, 0);
             
 
@@ -532,8 +532,7 @@ function expedientePDFOne(Expediente $expediente,Factura $factura){
             $this->Cell($column_widths[$i], 0, '', 'T');
         }
 
-        // Cerrar el documento PDF
-        $this->Output();
+     
     }
 
 
